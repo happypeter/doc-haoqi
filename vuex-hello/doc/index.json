@@ -16,12 +16,12 @@
       "header": "第一章：基础内容",
       "section": [
         {
-          "title": "你好 Vuex",
-          "link": "1-hello"
+          "title": "Vue-cli 搭建开发环境",
+          "link": "1-env"
         },
         {
-          "title": "使用 vue-cli 创建基本开发环境",
-          "link": "2-env"
+          "title": "vue 组件",
+          "link": "2-comp"
         },
         {
           "title": "内部 State 使用",

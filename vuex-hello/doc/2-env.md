@@ -1,48 +1,14 @@
-# 搭建基本环境
+# Vue 组件
 
-https://github.com/vuejs/vue-cli
+一个 vue 组件通常就写成一个 .vue 文件，里面内容分三类：
 
-
-相比于 create-react-app 的单一化配置，vue-cli 的这种有默认官方配置可以选择，同时可以非常方便的定制自己的开发环境模板的能力，让人眼前一亮。
-
-
-### 创建 Github 项目
-
-
- github.com 上添加一个  vuex-hello-demo 仓库。
-
-
-
-### 基本环境代码
-
-
-```
-vue-init webpack vuex-hello-demo
-```
-
-提示选择的各项：
-
-- 使用 vue-router
-- 采用 [Standard 代码规范](https://standardjs.com/)，因为我不想敲分号
-- 测试相关的都选 No
-- 其他保留默认
-
-
-注意：非常喜欢 vue-cli 环境对代码规范的强制执行，规范有误，直接就是项目根本起不来。
-
-
-```
-cd vuex-hello-demo
-npm i
-npm run dev
-```
-
-这样就可以启动项目开发环境了。
+- 模板， template 标签内
+- JS 代码， script 标签内
+- CSS ，写到 style 标签内
 
 ### 写两个组件
 
 接下来到 Post.vue 里面导入两个组件。一个叫做 PostBody ，另外一个叫做 CommentBox 。
-
 
 Vue 项目中组件创建和使用的方式：
 
@@ -95,7 +61,6 @@ export default {
 
 
 ### 调整 CSS
-
 
 赞一下：每一个 vue 组件中的 `<style>` 都可以加上 `scoped` 修饰符，这样，保证了本文件的 css 不会影响其他文件。这个非常符合我自己的使用习惯，也很可惜 create-react-app 中默认就没有这个功能。
 
