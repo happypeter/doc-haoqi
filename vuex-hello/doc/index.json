@@ -1,11 +1,11 @@
 {
-  "vlink": "https://haoqicat-1253322599.costj.myqcloud.com/redux-hello",
+  "vlink": "https://haoqicat-1253322599.costj.myqcloud.com/vuex-hello",
   "cover_video": "index",
-  "name": "Hello Redux",
-  "price": "40",
-  "intro": "世界上最简单的 Redux 入门课程",
-  "writing_to_who": "不算基础课程，适合有基本 JS 能力的同学，看了《塔顶上 redux 课程觉得看不懂的同学",
-  "learning_goal": "Redux 三大概念，redux-thunk 和组件间通信的一些最简单的案例",
+  "name": "Hello Vuex",
+  "price": "30",
+  "intro": "给 React 开发者看的 Vuex 入门课程",
+  "writing_to_who": "已经学习过 React 的同学",
+  "learning_goal": "Vuex 的核心的五大概念的具体应用演示",
   "service": [
       "所有课程视频和文字稿",
       "所有相关代码",
@@ -16,11 +16,11 @@
       "header": "第一章：基础内容",
       "section": [
         {
-          "title": "你好 Redux",
+          "title": "你好 Vuex",
           "link": "1-hello"
         },
         {
-          "title": "使用 Create-react-app 创建基本开发环境",
+          "title": "使用 vue-cli 创建基本开发环境",
           "link": "2-env"
         },
         {
