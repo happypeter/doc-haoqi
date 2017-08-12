@@ -1,18 +1,11 @@
-# 你好 Vuex
+# vue-cli 搭建开发环境
 
+本节来用 vue-cli 搭建开发环境。
 
-### Vuex 简单介绍
-
-Vuex 和 Redux 类似，也是一个 State 中央存储容器，如果说有区别，那就是 Vuex 更简单。
-
-参考：https://vuex.vuejs.org/zh-cn/
 
 ### Vue-cli
 
-# 搭建基本环境
-
 https://github.com/vuejs/vue-cli
-
 
 相比于 create-react-app 的单一化配置，vue-cli 的这种有默认官方配置可以选择，同时可以非常方便的定制自己的开发环境模板的能力，让人眼前一亮。
 
@@ -37,7 +30,6 @@ vue-init webpack vuex-hello-demo
 - 其他保留默认
 
 注：非常喜欢 vue-cli 环境对代码规范的强制执行，规范有误，直接就是项目根本起不来。
-
 
 ```
 cd vuex-hello-demo
