@@ -40,6 +40,19 @@
           "link": "6-action"
         }
       ]
+    },
+    {
+      "header": "第二章：进阶内容",
+      "section": [
+        {
+          "title": "添加多类数据",
+          "link": "7-post"
+        },
+        {
+          "title": "应对初始数据为空",
+          "link": "8-if"
+        }
+      ]
     }
   ]
 }
