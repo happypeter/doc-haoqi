@@ -40,68 +40,6 @@
           "link": "6-action"
         }
       ]
-    },
-    {
-      "header": "第二章：处理两类数据",
-      "section": [
-        {
-          "title": "添加 React-Router",
-          "link": "7-router"
-        },
-        {
-          "title": "root Reducer",
-          "link": "8-root-reducer"
-        },
-        {
-          "title": "每篇 post 显示自己的评论",
-          "link": "9-post-comment"
-        },
-        {
-          "title": "修复提交评论功能",
-          "link": "10-submit-comment"
-        },
-        {
-          "title": "添加点赞功能",
-          "link": "11-likes"
-        },
-        {
-          "title": "完成首页列表",
-          "link": "12-list"
-        }
-      ]
-    },
-    {
-      "header": "第三章：提高篇",
-      "section": [
-        {
-          "title": "理解 Redux 的单向数据流",
-          "link": "13-flow"
-        },
-        {
-          "title": "组件内不出现 state",
-          "link": "14-no-state"
-        },
-        {
-          "title": "引入 redux-thunk",
-          "link": "15-thunk"
-        },
-        {
-          "title": "redux-thunk 实现异步操作",
-          "link": "16-async"
-        },
-        {
-          "title": "从服务器端加载数据",
-          "link": "17-load"
-        },
-        {
-          "title": "整理数据",
-          "link": "18-data-trans"
-        },
-        {
-          "title": "收尾",
-          "link": "19-finish"
-        }
-      ]
     }
   ]
 }
