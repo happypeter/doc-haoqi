@@ -12,8 +12,9 @@ https://github.com/vuejs/vue-cli
 
 ### 创建 Github 项目
 
-github.com 上添加一个  vuex-hello-demo 仓库。
+github.com/happypeter/demo-haoqi 添加一个  vuex-hello 文件夹。
 
+本课程所有代码都在：https://github.com/happypeter/demo-haoqi/vuex-hello
 
 ### 基本环境代码
 

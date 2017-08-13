@@ -25,19 +25,19 @@
         },
         {
           "title": "内部 State 使用",
-          "link": "3-state"
+          "link": "3-data"
         },
         {
-          "title": "Redux Store 数据大本营",
+          "title": "State 存储到 Store 之中",
           "link": "4-store"
         },
         {
-          "title": "React 充电：组件何时会被再次 render",
-          "link": "5-rerender"
+          "title": "修改 Store 中的数据",
+          "link": "5-mutation"
         },
         {
-          "title": "connect 动态读取 store 数据",
-          "link": "6-connect"
+          "title": "读取 API",
+          "link": "6-action"
         }
       ]
     },
