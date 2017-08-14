@@ -1,0 +1,33 @@
+{
+  "vlink": "https://haoqicat-1253322599.costj.myqcloud.com/meituan",
+  "cover_video": "",
+  "name": "REACT 社交化电商和数据可视化实战",
+  "price": "48",
+  "intro": "使用 React+Redux+AntDesign 开发的电商系统，融入了 follow 朋友，查看朋友更新等社交化因素，并使用 Recharts 实现了可以互动的图表",
+  "writing_to_who": "已经入门 React 的学习者",
+  "learning_goal": "登录注册，添加移除朋友，查看朋友更新，社交化项目的数据库技巧，Reacharts 数据可视化技巧",
+  "service": [
+    "所有课程视频和文字稿",
+    "所有相关代码",
+    "课程有效期为一年"
+  ],
+  "content": [
+    {
+      "header": "第一章：用户系统界面开发",
+      "section": [
+        {
+          "title": "项目搭建",
+          "link": "1-setup"
+        },
+        {
+          "title": "手机 App 式布局",
+          "link": "2-app-layout"
+        },
+        {
+          "title": "图标组件",
+          "link": "3-icons"
+        }
+      ]
+    }
+  ]
+}
