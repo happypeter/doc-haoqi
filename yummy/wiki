@@ -1,0 +1,29 @@
+参考：https://haoqicat.com/hand-in-hand-react
+
+成品内容包括：
+
+- 客户界面
+- 管理员界面
+- 后台 Express API
+
+讲述内容：
+
+- 如何用 sketch 做设计
+- 各个部分的坑和干货
+- 施工部分300%快进模式，没有废话
+
+技术架构：
+
+- 前端使用 react-redux
+- 客户没有使用 css 框架，纯手写 css ，保证通用型
+- 管理员后台系统的采用 ant-design 保证开发效率
+- 后端使用 express-mongodb
+
+浏览器兼容：
+
+- 苹果手机的微信
+- Mac 电脑的 Chrome 浏览器
+
+代码发布到哪里？
+
+- demo-haoqi
