@@ -1,10 +1,10 @@
 {
-  "vlink": "https://haoqicat-1253322599.costj.myqcloud.com/meituan",
+  "vlink": "http://haoqicat-1253322599.costj.myqcloud.com/yummy",
   "cover_video": "",
-  "name": "REACT 社交化电商和数据可视化实战",
+  "name": "REACT 社交化电商",
   "price": "48",
-  "intro": "使用 React+Redux+AntDesign 开发的电商系统，融入了 follow 朋友，查看朋友更新等社交化因素，并使用 Recharts 实现了可以互动的图表",
-  "writing_to_who": "已经入门 React 的学习者",
+  "intro": "使用 React+Redux+AntDesign 开发的电商系统，融入了 follow 朋友，查看朋友更新等社交化因素，深入使用了 Redux",
+  "writing_to_who": "已经入门 React 的学习者，了解 Redux/React-router 基本使用，想要查看一门详细的实战课程的朋友",
   "learning_goal": "登录注册，添加移除朋友，查看朋友更新，社交化项目的数据库技巧，Reacharts 数据可视化技巧",
   "service": [
     "所有课程视频和文字稿",
@@ -13,11 +13,11 @@
   ],
   "content": [
     {
-      "header": "第一章：用户系统界面开发",
+      "header": "第一章：用户系统之第一阶段",
       "section": [
         {
-          "title": "项目搭建",
-          "link": "1-setup"
+          "title": "设计图",
+          "link": "1-design"
         },
         {
           "title": "手机 App 式布局",
