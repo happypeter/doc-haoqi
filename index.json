@@ -197,6 +197,12 @@
       "cover": "http://haoqicat-1253322599.costj.myqcloud.com/posters/vuex-hello.png",
       "title": "Hello Vuex",
       "link": "/vuex-hello"
+    },
+    {
+      "id": "34",
+      "cover": "http://haoqicat-1253322599.costj.myqcloud.com/posters/yummy.png",
+      "title": "React 社交化电商",
+      "link": "/yummy"
     }
   ]
 }
