@@ -6,5 +6,3 @@
 ### 资源获得
 
 Sketch 其实是个大生态了，资源很多。我先到  https://www.sketchappsources.com/ 找了个原始模板，然后自己改。
-
-### 下载设计图

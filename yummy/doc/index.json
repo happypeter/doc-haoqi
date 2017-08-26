@@ -18,6 +18,18 @@
         {
           "title": "设计图",
           "link": "1-design"
+        },
+        {
+          "title": "create-react-app 和 react-router",
+          "link": "2-cra"
+        },
+        {
+          "title": "CSS 的故事",
+          "link": "3-css"
+        },
+        {
+          "title": "react-router 下的布局文件",
+          "link": "4-layout"
         }
       ]
     }
