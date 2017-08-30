@@ -30,6 +30,10 @@
         {
           "title": "react-router 下的布局文件",
           "link": "4-layout"
+        },
+        {
+          "title": "复用 form 组件",
+          "link": "5-form"
         }
       ]
     }
