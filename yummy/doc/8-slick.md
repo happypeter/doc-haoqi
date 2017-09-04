@@ -1,58 +1,20 @@
-### 为何不使用现成的插件？
+### 完成展示组件
 
-下面要实现的这个轮播的效果，恰好是学习触屏设计 touch 事件的一个好案例，所以咱们下面的几节就来手写一下。
+本节就把本章结束了，那么我们写傻组件（也就是展示组件）的任务就完成了。后续代码基本上不会写多少 CSS 了。
 
-不过这集先来说说现成的插件。
+### 使用插件
 
-### 使用 react-slick
+- Dish.js 中的数据可视化部分，采用的是：http://recharts.org/
+- Profile.js 中用到了 https://github.com/aaronshaf/react-toggle
 
+### 坑： Momentjs 使用
 
-官方的例子，在我的 create-react-app 环境下，跑不起来，报错，稍微修改一下，改成下面这样就可以了(就是把 require 改成 import 了)
+根据 [Create-React-App 官方的说明](https://github.com/facebookincubator/create-react-app/pull/2187/commits/97226a0670063b579215e7b44987f3957842c5df) 。使用 momentjs 要自己明文导入 locale ，例如我们的代码中的
 
-
-```js
-import React from 'react'
-import Slider from 'react-slick'
-
-export default class App extends React.Component {
-  render() {
-    var settings = {
-      dots: true,
-      infinite: false,
-      speed: 500,
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      arrow: false
-    };
-    return (
-      <Slider {...settings}>
-        <div><h3>1</h3></div>
-        <div><h3>2</h3></div>
-      </Slider>
-    );
-  }
-}
+```
+import 'moment/locale/zh-cn'
 ```
 
+### 结语
 
-
-然后 index.html 中添加 https://github.com/akiran/react-slick 这里的 README 文件中给出的 css 如下
-
-```html
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" />
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" />
-```
-
-效果达成。
-
-
-### 测评 react-bootstrap
-
-参考：https://v4-alpha.getbootstrap.com/getting-started/introduction/
-
-需要导入 jQuery 还有一个大的 CSS 文件，其中有很多全局的变量名，给下一步我自己添加 CSS 增加了困难。还是很重的。不想用。
-
-
-### 总结
-
-使用插件，就是要引入一个大大的 css 进来，这个我也不太喜欢。
+下一章开始写容器组件（聪明组件）。

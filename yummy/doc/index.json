@@ -34,6 +34,14 @@
         {
           "title": "复用 form 组件",
           "link": "5-form"
+        },
+        {
+          "title": "Sidebar",
+          "link": "6-sidebar"
+        },
+        {
+          "title": "轮播图",
+          "link": "7-carousel"
         }
       ]
     }
