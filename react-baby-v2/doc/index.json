@@ -1,5 +1,5 @@
 {
-  "vlink": "https://haoqicat-1253322599.costj.myqcloud.com/react-baby",
+  "vlink": "https://haoqicat-1253322599.costj.myqcloud.com/react-baby-v2",
   "name": "React 婴儿（第二版）",
   "price": "28",
   "intro": "介绍一些 React 的核心概念，新手入门第一课",
@@ -55,9 +55,6 @@
     {
       "header": "第三章 附录",
       "section": [
-        {
-
-        }
         {
           "title": "8 进一步的学习",
           "link": "8-more"
