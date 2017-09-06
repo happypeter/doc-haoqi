@@ -203,6 +203,12 @@
       "cover": "http://haoqicat-1253322599.costj.myqcloud.com/posters/yummy.png",
       "title": "React 社交化电商",
       "link": "/yummy"
+    },
+    {
+      "id": "35",
+      "cover": "http://haoqicat-1253322599.costj.myqcloud.com/posters/react-baby-v2.png",
+      "title": "React 婴儿（第二版）",
+      "link": "/react-baby-v2"
     }
   ]
 }
