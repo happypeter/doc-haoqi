@@ -27,13 +27,29 @@
       "header": "第二章 关键技术点",
       "section": [
         {
-          "title": "2 Hello World",
-          "link": "2-react-hello-world"
+          "title": "一个 React 的 Hello World 中包含哪些要素？",
+          "link": "react-hello-world"
         },
         {
-          "title": "3 传递属性值",
-          "link": "3-react-props"
+          "title": "React 组件是什么？",
+          "link": "component"
         },
+        {
+          "title": "组件中的 JSX 语法怎么用",
+          "link": "jsx"
+        },
+        {
+          "title": "如何组织 CSS ？",
+          "link": "css"
+        },
+        {
+          "title": "项目如何进行组件化拆分？",
+          "link": "many-components"
+        },
+        {
+          "title": "如何添加 Atom 的 snippet ？",
+          "link": "snippet"
+        }
         {
           "title": "4 Children",
           "link": "4-react-children"

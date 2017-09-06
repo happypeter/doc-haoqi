@@ -26,6 +26,16 @@ create-react-app base
 这样，我们就生成了一个小的脚手架项目叫做 base 。
 
 
+### 运行项目
+
+到 create-react-app 帮我们生成的项目中，运行
+
+```
+npm start
+```
+
+就可以启动这个项目了。
+
 ### 使用淘宝镜像
 
 
