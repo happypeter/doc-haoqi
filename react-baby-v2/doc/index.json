@@ -39,41 +39,12 @@
           "link": "jsx"
         },
         {
-          "title": "如何组织 CSS ？",
-          "link": "css"
-        },
-        {
           "title": "项目如何进行组件化拆分？",
           "link": "many-components"
         },
         {
           "title": "如何添加 Atom 的 snippet ？",
           "link": "snippet"
-        },
-        {
-          "title": "4 Children",
-          "link": "4-react-children"
-        },
-        {
-          "title": "5 事件响应",
-          "link": "5-react-event"
-        },
-        {
-          "title": "6 State 状态值",
-          "link": "6-react-state"
-        },
-        {
-          "title": "7 生命周期",
-          "link": "7-react-lifecycle"
-        }
-      ]
-    },
-    {
-      "header": "第三章 附录",
-      "section": [
-        {
-          "title": "8 进一步的学习",
-          "link": "8-more"
         }
       ]
     }
