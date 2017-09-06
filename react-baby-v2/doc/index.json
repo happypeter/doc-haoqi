@@ -28,7 +28,7 @@
       "section": [
         {
           "title": "一个 React 的 Hello World 中包含哪些要素？",
-          "link": "react-hello-world"
+          "link": "hello-world"
         },
         {
           "title": "React 组件是什么？",
