@@ -71,10 +71,6 @@
           "link": "list-key"
         },
         {
-          "title": "事件处理函数中如何传参数？",
-          "link": "params"
-        },
-        {
           "title": "受控组件和表单",
           "link": "form-controlled"
         }
