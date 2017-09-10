@@ -27,6 +27,8 @@
 
 ### 文件组织规范
 
+这一点，前面《组件拆分》一节已经演示过了。基本原则如下：
+
 到 components 文件夹下，创建
 
 ```
@@ -39,8 +41,3 @@ mkdir CommentBox/
 
 - 组件文件名用骆驼字体，首字母大写
 - 对应的 css 文件，全部小写，中划线隔开。
-
-
-### 代码
-
-https://github.com/happypeter/dj-demos/tree/master/many-components

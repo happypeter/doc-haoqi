@@ -45,7 +45,23 @@
         {
           "title": "如何添加 Atom 的 snippet ？",
           "link": "snippet"
-        }
+        },
+        {
+          "title": "css 组织策略",
+          "link": "css"
+        },
+        {
+          "title": "属性",
+          "link": "props"
+        },
+        {
+          "title": "组件 children 是什么？",
+          "link": "children"
+        },
+        {
+          "title": "React 的事件如何响应？",
+          "link": "events"
+        },
       ]
     }
   ]
