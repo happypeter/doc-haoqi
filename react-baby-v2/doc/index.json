@@ -67,6 +67,10 @@
           "link": "state"
         },
         {
+          "title": "State 案例：div 变色",
+          "link": "state-change-color"
+        },
+        {
           "title": "列表和 key",
           "link": "list-key"
         },
@@ -77,11 +81,61 @@
       ]
     },
     {
-      "header": "第三章 相关小案例",
+      "header": "第三章 React Router 前端路由",
       "section": [
         {
-          "title": "State 案例：div 变色",
-          "link": "state-change-color"
+          "title": "上手",
+          "link": "router-intro"
+        },
+        {
+          "title": "exact 属性的妙用",
+          "link": "exact"
+        },
+        {
+          "title": "不要用 a 用 Link",
+          "link": "link"
+        },
+        {
+          "title": "何时使用哈希路由？",
+          "link": "hash"
+        },
+        {
+          "title": "路由传参",
+          "link": "params"
+        },
+        {
+          "title": "路由传参：博客案例",
+          "link": "params-demo"
+        },
+        {
+          "title": "Switch 的作用是？",
+          "link": "switch"
+        }
+      ]
+    },
+    {
+      "header": "第四章 操作 API",
+      "section": [
+        {
+          "title": "axios 请求 API",
+          "link": "api"
+        },
+        {
+          "title": "json-server 搭建 API",
+          "link": "json-server"
+        },
+        {
+          "title": "完成博客案例",
+          "link": "blog-api"
+        }
+      ]
+    },
+    {
+      "header": "第四章 大案例：十只小狗",
+      "section": [
+        {
+          "title": "制作中...",
+          "link": "#"
         }
       ]
     }
