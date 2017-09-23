@@ -134,9 +134,41 @@
       "header": "第四章 大案例：十只小狗",
       "section": [
         {
-          "title": "制作中...",
-          "link": "#"
-        }
+          "title": "路由和布局",
+          "link": "dog-1-router"
+        },
+        {
+          "title": "布局的 CSS",
+          "link": "dog-2-layout"
+        },
+        {
+          "title": "展示小狗列表",
+          "link": "dog-3-list"
+        },
+        {
+          "title": "搭建 API",
+          "link": "dog-4-api"
+        },
+        {
+          "title": "axios 请求 API",
+          "link": "dog-5-axios"
+        },
+        {
+          "title": "表单",
+          "link": "dog-6-form"
+        },
+        {
+          "title": "提交数据到数据库",
+          "link": "dog-7-submit"
+        },
+        {
+          "title": "删除",
+          "link": "dog-8-delete"
+        },
+        {
+          "title": "收尾",
+          "link": "dog-9-end"
+        },
       ]
     }
   ]
