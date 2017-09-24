@@ -209,6 +209,12 @@
       "cover": "http://haoqicat-1253322599.costj.myqcloud.com/posters/react-baby-v2.png",
       "title": "React 婴儿（第二版）",
       "link": "/react-baby-v2"
+    },
+    {
+      "id": "36",
+      "cover": "http://haoqicat-1253322599.costj.myqcloud.com/posters/antd.png",
+      "title": "蚂蚁设计实战",
+      "link": "/antd"
     }
   ]
 }
