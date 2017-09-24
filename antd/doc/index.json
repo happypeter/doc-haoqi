@@ -2,140 +2,45 @@
   "vlink": "https://haoqicat-1253322599.costj.myqcloud.com/antd",
   "name": "蚂蚁设计制作中后台系统",
   "price": "20",
-  "intro": "使用阿里的蚂蚁设计来制作中后台系统，玩转第三方组件库",
-  "writing_to_who": "",
-  "learning_goal": "",
+  "intro": "使用阿里的蚂蚁设计来制作一套后台系统，玩转第三方组件库",
+  "writing_to_who": "已经会 React 的，想要快速上手 Antd 的朋友",
+  "learning_goal": "Antd 基本套路，文档导读，各种 React 常用工具的配合",
   "service": [
     "拿到所有视频和文字稿",
     "可以获取所有示例代码"
   ],
   "content": [
     {
-      "header": "第一章 环境准备",
+      "header": "第一章 管理员登录",
       "section": [
         {
-          "title": "Create-react-app 怎么用？",
-          "link": "create-react-app"
+          "title": "Create-react-app",
+          "link": "cra"
         },
         {
-          "title": "Atom 编辑器中如何配置 JSX 自动补齐？",
-          "link": "jsx-complete"
+          "title": "登录页面",
+          "link": "login"
+        },
+        {
+          "title": "使用 styled-components",
+          "link": "styled"
+        },
+        {
+          "title": "密码验证和跳转",
+          "link": "redirect"
+        },
+        {
+          "title": "配置文件",
+          "link": "setting"
         }
       ]
     },
     {
-      "header": "第二章 关键技术点",
+      "header": "第二章 操作盘",
       "section": [
         {
-          "title": "一个 React 的 Hello World 中包含哪些要素？",
-          "link": "hello-world"
-        },
-        {
-          "title": "React 组件是什么？",
-          "link": "component"
-        },
-        {
-          "title": "组件中的 JSX 语法怎么用",
-          "link": "jsx"
-        },
-        {
-          "title": "项目如何进行组件化拆分？",
-          "link": "many-components"
-        },
-        {
-          "title": "如何添加 Atom 的 snippet ？",
-          "link": "snippet"
-        },
-        {
-          "title": "css 组织策略",
-          "link": "css"
-        },
-        {
-          "title": "属性",
-          "link": "props"
-        },
-        {
-          "title": "组件 children 是什么？",
-          "link": "children"
-        },
-        {
-          "title": "React 的事件如何响应？",
-          "link": "events"
-        },
-        {
-          "title": "什么是 State ？",
-          "link": "state"
-        },
-        {
-          "title": "State 案例：div 变色",
-          "link": "state-change-color"
-        },
-        {
-          "title": "列表和 key",
-          "link": "list-key"
-        },
-        {
-          "title": "受控组件和表单",
-          "link": "form-controlled"
-        }
-      ]
-    },
-    {
-      "header": "第三章 React Router 前端路由",
-      "section": [
-        {
-          "title": "上手",
-          "link": "router-intro"
-        },
-        {
-          "title": "exact 属性的妙用",
-          "link": "exact"
-        },
-        {
-          "title": "不要用 a 用 Link",
-          "link": "link"
-        },
-        {
-          "title": "何时使用哈希路由？",
-          "link": "hash"
-        },
-        {
-          "title": "路由传参",
-          "link": "params"
-        },
-        {
-          "title": "路由传参：博客案例",
-          "link": "params-demo"
-        },
-        {
-          "title": "Switch 的作用是？",
-          "link": "switch"
-        }
-      ]
-    },
-    {
-      "header": "第四章 操作 API",
-      "section": [
-        {
-          "title": "axios 请求 API",
-          "link": "api"
-        },
-        {
-          "title": "json-server 搭建 API",
-          "link": "json-server"
-        },
-        {
-          "title": "完成博客案例",
-          "link": "blog-api"
-        }
-      ]
-    },
-    {
-      "header": "第四章 大案例：十只小狗",
-      "section": [
-        {
-          "title": "制作中...",
-          "link": "#"
+          "title": "待续...",
+          "link": ""
         }
       ]
     }
