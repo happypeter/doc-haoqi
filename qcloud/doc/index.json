@@ -18,8 +18,8 @@
           "link": "cra"
         },
         {
-          "title": "登录页面",
-          "link": "login"
+          "title": "全部",
+          "link": "steps"
         },
         {
           "title": "使用 styled-components",
