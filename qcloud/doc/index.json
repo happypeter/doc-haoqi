@@ -1,8 +1,8 @@
 {
-  "vlink": "https://haoqicat-1253322599.costj.myqcloud.com/antd",
-  "name": "蚂蚁设计实战",
+  "vlink": "https://haoqicat-1253322599.costj.myqcloud.com/qcloud",
+  "name": "自己写腾讯云文件存储客户端",
   "price": "20",
-  "intro": "使用阿里的蚂蚁设计来制作一套后台系统，玩转第三方组件库",
+  "intro": "腾讯云对象存储服务 cos 实战",
   "writing_to_who": "已经会 React 的，想要快速上手 Antd 的朋友",
   "learning_goal": "Antd 基本套路，文档导读，各种 React 常用工具的配合",
   "service": [
@@ -22,16 +22,20 @@
           "link": "steps"
         },
         {
-          "title": "使用 styled-components",
-          "link": "styled"
+          "title": "拖拽文件上传",
+          "link": "dnd"
         },
         {
-          "title": "密码验证和跳转",
-          "link": "redirect"
+          "title": "进度条",
+          "link": "bar"
         },
         {
-          "title": "配置文件",
-          "link": "setting"
+          "title": "创建文件夹",
+          "link": "dir"
+        },
+        {
+          "title": "删除",
+          "link": "delete"
         }
       ]
     },
@@ -39,44 +43,8 @@
       "header": "第二章 操作盘",
       "section": [
         {
-          "title": "布局",
-          "link": "dash-layout"
-        },
-        {
-          "title": "登出",
-          "link": "logout"
-        },
-        {
-          "title": "受保护页面",
-          "link": "protected"
-        },
-        {
-          "title": "导航栏",
-          "link": "navbar"
-        },
-        {
-          "title": "导航栏刷新高亮",
-          "link": "navbar-selected"
-        },
-        {
-          "title": "表格 Table",
-          "link": "table"
-        },
-        {
-          "title": "json-sever 模拟 API",
-          "link": "json"
-        },
-        {
-          "title": "删除",
-          "link": "delete"
-        },
-        {
-          "title": "表单 form",
-          "link": "form"
-        },
-        {
-          "title": "处理订单",
-          "link": "orders"
+          "title": "",
+          "link": ""
         }
       ]
     }
