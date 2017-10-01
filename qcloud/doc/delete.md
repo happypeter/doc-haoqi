@@ -155,3 +155,5 @@ handleDelete (id) => {
     })
 }
 ```
+
+commit: delete

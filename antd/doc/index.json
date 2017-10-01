@@ -75,8 +75,25 @@
           "link": "form"
         },
         {
+          "title": "控制 sidebar 高亮",
+          "link": "selected"
+        },
+        {
           "title": "处理订单",
           "link": "orders"
+        }
+      ]
+    },
+    {
+      "header": "第三章 收尾",
+      "section": [
+        {
+          "title": "创建用户系统",
+          "link": "user"
+        },
+        {
+          "title": "结语",
+          "link": "end"
         }
       ]
     }

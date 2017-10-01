@@ -36,7 +36,11 @@
         {
           "title": "删除",
           "link": "delete"
-        }
+        },
+        {
+          "title": "重命名",
+          "link": "rename"
+        },
       ]
     },
     {
