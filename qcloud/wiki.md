@@ -1,17 +1,10 @@
-### 课程简介
 
-就是动手做出一套后台系统。其中包括的官方文档导读，类似 styled-components 和 react router 这些相关工具的使用等技巧。
+主要要实现的功能： 拖拽文件以上传至cos的bucket中指定的文件夹里。
 
-
-### 案例展示
-
-### 面向观众
-
-有 React 基础的朋友
-
-### 使用了哪些技术
-
-- react-router-v4
-- react
-- create-react-app
-- styled-components
+功能拆分：
+* 拖拽文件
+* 上传文件至bucket
+* 指定/创建 bucket中的目标文件夹
+* 上传进度条显示
+* 删除bucket中的文件
+* 重命名bucket中的文件

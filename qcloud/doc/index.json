@@ -14,12 +14,16 @@
       "header": "第一章 管理员登录",
       "section": [
         {
-          "title": "Create-react-app",
+          "title": "基本环境搭建",
           "link": "cra"
         },
         {
-          "title": "全部",
-          "link": "steps"
+          "title": "概念准备",
+          "link": "concepts"
+        },
+        {
+          "title": "读取 Bucket 中的所有文件",
+          "link": "read"
         },
         {
           "title": "拖拽文件上传",
@@ -44,7 +48,7 @@
       ]
     },
     {
-      "header": "第二章 操作盘",
+      "header": "第二章 XXX",
       "section": [
         {
           "title": "",
