@@ -14,7 +14,7 @@
       "header": "第一章 管理员登录",
       "section": [
         {
-          "title": "基本环境搭建",
+          "title": "前端环境搭建",
           "link": "cra"
         },
         {
@@ -26,8 +26,8 @@
           "link": "read"
         },
         {
-          "title": "拖拽文件上传",
-          "link": "dnd"
+          "title": "文件上传到 bucket",
+          "link": "write"
         },
         {
           "title": "进度条",

@@ -23,7 +23,10 @@ server 中存放服务器端代码。
 尝试调用 nodejs-sdk 的 getBucket 接口，读取 bucket 中的对象（文件）。
 先登录腾讯云，去 bucket 中，随便上传两个文件。
 
-后端是一个 expressjs 项目。
+
+实现步骤：
+
+只需要修改服务器端代码即可。 服务器端代码是一个 expressjs 项目。
 
 到 qcloud-demo/server 项目：
 
