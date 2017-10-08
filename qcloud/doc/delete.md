@@ -1,34 +1,28 @@
 # 展示与删除
 
-首先，我们先来展示一下现在云端Bucket里的内容。
-这里用到了antd的Table组件
-[文档](https://ant.design/components/table-cn/)
 
-根据文档，dataSource属性即为指定的数据源，对应到这里，就是我们读取到的云端bucket中的对象。
+首先，我们先来展示一下现在云端 Bucket 里的内容。
+这里用到了antd的Table组件：[文档](https://ant.design/components/table-cn/)
 
-首先，在state中创建一个空数组contents。在读取到云端数据后，填入这个数组中
+根据文档，dataSource 属性即为指定的数据源，对应到这里，就是我们读取到的云端 bucket 中的对象。
+
+首先，在 state 中创建一个 files 。在读取到云端数据后，填入 files 这个数组中
 
 ```
 ... ..
-class App extends Component {
-  constructor (props, context) {
-    super(props, context)
-    this.state = {
-      contents: [],
-      progress: [],
-      folder: ''
-    }
+
+  state = {
+    files: []
   }
 
   componentDidMount () {
-
     //读取云端bucket中的文件对象
     axios.get('http://localhost:3000/bucket')
     .then(
       res => {
         console.log(res)
         this.setState({
-          contents: res.data.Contents
+          files: res.data.Contents
         })
       }
     )
@@ -41,8 +35,9 @@ class App extends Component {
   ... ...
 ```
 
-Table组件的另一个属性columns定义了 表格列的配置描述。
+Table 组件的另一个属性 columns 定义了表格列的配置描述。
 参考上面的文档：
+
 > render	生成复杂数据的渲染函数，参数分别为当前行的值，当前行数据，行索引...
 >
 > render:  Function(text, record, index) {}
@@ -70,10 +65,6 @@ Table组件的另一个属性columns定义了 表格列的配置描述。
      dataIndex: 'ETag',
      key: 'ETag',
      render: (text, record, index) => {
-       const onDelete = function () {
-           ... ...
-       }
-
         return (
           <span>
             <Button onClick={onDelete}>删除</Button>
@@ -84,53 +75,15 @@ Table组件的另一个属性columns定义了 表格列的配置描述。
 
     ... ...
 ```
-在删除函数中，我们使用antd组件的Modal组件，来生成一个模态窗，让用户确认一下。
-如果用户确认删除，则调用js-SDK的删除文件接口，否则什么也不做。
+在删除函数中，我们使用 antd 组件的 Modal 组件，来生成一个模态窗，让用户确认一下。
+如果用户确认删除，则调用 js-SDK 的删除文件接口，否则什么也不做。
+
+
+然后，显示 Table 组件：
 
 ```
 ... ...
-
-const onDelete = function () {
-  confirm({
-    title: `确认删除 ${record.Key} ？`,
-    content: '删除之后无法恢复',
-    okText: 'Yes',
-    okType: 'danger',
-    cancelText: 'No',
-    onOk() {
-
-      console.log('OK')
-      const delParams = {
-        Bucket: 'hq123',
-        Region: 'ap-chengdu',              /* 必须 */
-        Key : record.Key                   /* 必须 */
-      }
-
-    cos.deleteObject(delParams, function(err, data) {
-      if(err) {
-        console.log(err);
-        message.error(`${record.Key} 删除失败`)
-      } else {
-        console.log(data);
-        message.success(`已删除：${record.Key}`)
-      }
-    });
-
-  },
-  onCancel() {
-    console.log('Cancel');
-  },
-});
-
-... ...
-
-```
-
-创建Table组件：
-
-```
-... ...
-        {/*展示云端bucket中的文件对象*/}
+        {/*展示云端 bucket 中的文件对象*/}
         <Table columns={TableColumns}
         dataSource={this.state.contents}
         rowKey={item => item.ETag}
@@ -142,18 +95,22 @@ Etag 是文件内容的 md5 ，这里就当文件 id 用了。
 
 运行项目，就可以看到云端的文件，并进行删除了。
 
-
 ### 删除后更新前端文件列表
 
-
 ```
-handleDelete (id) => {
-  //axios 删除后台数据
-
-  this.setState({
-    fileList: this.state.fileList.filter(t => t.id !== id)
-    })
-}
+cos.deleteObject(delParams, (err, data) => {
+  ...
+    } else {
+      message.success(`已删除：${record.Key}`)
+      this.setState({
+        files: this.state.files.filter(
+          t => t.ETag != record.ETag
+        )
+      })
+     }
+   })
 ```
 
 commit: delete
+
+FIXME: 现在差一个功能，就是新文件上传成功后，Table 中不能自动显示出来。这个就是一个简单的数据共享问题，不过看起来项目如果用 redux 会更好些了。

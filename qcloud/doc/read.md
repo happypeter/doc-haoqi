@@ -97,6 +97,8 @@ module.exports = router
 
 添加 bucket.js ，
 
+更新：考虑到跟 client 里面命名统一，bucket.js 文件名可以改为 lib/qcloud.js
+
 
 ```js
 const COS = require('cos-nodejs-sdk-v5')

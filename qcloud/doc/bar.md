@@ -1,31 +1,21 @@
 # 进度条
 
-
 目标：现在已经有上传功能了，本节我们要让每个文件显示自己的上传进度条。
-
-
 
 参考：[前端 js SDK v5版本](https://cloud.tencent.com/document/product/436/11459#.E5.88.86.E5.9D.97.E4.B8.8A.E4.BC.A0.E4.BB.BB.E5.8A.A1.E6.93.8D.E4.BD.9C) 的**分块上传任务操作** (不是分块上传操作)
 
-在操作参数说明中，我们可以看到，对于非必须的onProgress参数的说明：
+在操作参数说明中，我们可以看到，对于非必须的 onProgress 参数的说明：
 
 >onProgress —— (Function) ： 上传文件的进度回调函数，回调参数为进度对象 progressData
 
-将其添加到代码中：
+将下面内容添加到代码中（具体位置参见 commit）：
 
 ```
 ... ...
-
-//尝试在回调中引入cos-js-sdk 分块上传
-    var params = {
-      Bucket: 'hq123',
-      Region: 'ap-chengdu',
-      Key: `${file.name}`,
-      Body: file,
       onProgress: function (progressData) {           /* 非必须 */
             console.log(JSON.stringify(progressData))
           }
-    };
+    }
 ... ...
 ```
 
@@ -40,195 +30,154 @@
 
 由此，我们有了做进度条的思路：
 
-* 在state中创建一个表示文件上传进度的变量；
-* 在进度回调函数中，修改state中的值，可以使得相关组件重新渲染，反映文件最新的上传进度；
-* 考虑到一次拖拽上传多个文件的情况，需要想办法把文件各自的进度信息一一对应
+* 在 state 中创建一个表示文件上传进度的变量
+* 在进度回调函数中，修改 state 中的值，可以使得相关组件重新渲染，反映文件最新的上传进度
 
 
-首先，创建state。考虑到一次上传多个文件，这里采用数组的结构。
+### 使用 antd 的 Progress 组件
+
+先来看看使用 antd 的 Progress 组件都需要哪些数据。组件中定义一个 state 值叫做 progressBars ，数组的每一项对应一个文件的进度条。
 
 ```
-... ...
-
-class App extends Component {
-  constructor (props, context) {
-    super(props, context)
-    this.state = {
-      progress: []
+state = {
+  progressBars: [
+    {
+      percent: 0,
+      name: 'aa.mp4',
+      status: 'normal',
+      uid: 234
+    },
+    {
+      percent: 10,
+      name: 'bb.mp4',
+      status: 'active',
+      uid: 463
+    },
+    {
+      percent: 70,
+      name: 'dd.mp4',
+      status: 'exception',
+      uid: 459
     }
-  }
+  ]
+}
+```
+
+参考：[antd 的进度条文档](https://ant.design/components/progress-cn/) ，就可以知道上面 percent 和 status 属性的作用。另外，name 是正在上传的文件名。而 uid 用来唯一的指定这个文件，后续会看到它的作用。
+
+这样，如果组件 jsx 中添加如下的代码
+
+```js
+{/* 进度条 */}
+{
+  this.state.progressBars.map(
+    t => {
+      return (
+        <div key={t.uid}>
+          {t.name}
+          <Progress percent={t.percent} status={t.status} />
+        </div>
+      )
+    }
+  )
+}
+```
+
+页面上就可以显示出美观的进度条了。
+
+### React 组件读取 percent 值
+
+当然，真正的进度条数据是当有一个（或者多个）文件被拖拽，onChange 函数被触发后才会生成的，所以，最初的 state 值先清空，如下
+
+```
+... ...
+state = {
+  progressBars: []
+}
+
 
 ... ...
 
 ```
 
-在开始上传文件前，为它初始化进度数据对象。
+下一步到 onChange 函数的 `if (status !== 'uploading') { ` 之内，添加
 
 ```
-... ...
-onChange(info) {
-  const status = info.file.status
-  if (status !== 'uploading') {
-    let file = info.file.originFileObj
-
-    // 为要上传的文件file生成一个空的进度条
-          let uploadObj = {
-            percent: 0,
-            name: file.name,
-            status: 'normal',
-            uid: file.uid
-          }
-
-          let [ ...clonedProgress ] = this.state.progress
-
-          clonedProgress.push(uploadObj)
-
-          this.setState({
-            progress: clonedProgress
-          })
-
-    //尝试在回调中引入cos-js-sdk 分块上传
-    var params = {
-      Bucket: 'hq123',
-      Region: 'ap-chengdu',
-      Key: `${file.name}`,
-      Body: file,
-    };
-    ... ...
-
+let progressBar = {
+           percent: 0,
+           name: file.name,
+           status: 'normal',
+           uid: file.uid
+         }
+this.setState({
+  progressBars: [ ...progressBars, progressBar]
+  })
 ```
 
 注：
-* 查阅antd的文档https://ant.design/components/upload-cn/ **onChange**部分，会知道，uid是文件唯一标识。
-* state中的值只能用setState()方法修改，所以此处先复制this.state.progress的副本，修改副本后，再将其赋值到state中。使用了ES6的新方法。
+* 查阅 antd 的文档 https://ant.design/components/upload-cn/ **onChange** 部分，会知道，uid 是文件唯一标识。
 
+此时，拖拽几个文件，可以看到页面上的确能够看到对应的进度条。只不过，进度条是不动的，解决这个问题就到 onProgress 函数内部添加代码
 
-当多个文件同时上传，由于上传是并发的，所以我们接收到的onProgress()函数每次返回的进度信息是乱序的。
-必须做一个筛选，让每一条进度信息“各找各妈”。
-
-这里，我们使用了ES6为数组添加的新方法 find() 和 findIndex(）,通过唯一的uid属性来进行筛选。
-  介绍： blablabla 《深入理解ES6》
-
-
-```
-... ...
-
-  let [ ...clonedTempProgress ] = that.state.progress
-
-  //筛选出本次上传进度信息的"主人" 以及它在数组中的index
-  let newUploadFileInfo = clonedTempProgress.find(
-    item => item.uid === file.uid
-  )
-  let thisFilesIndex = clonedTempProgress.findIndex(
-    item => item.uid === file.uid
-  )
-
-  //更新进度数据
-  let percent = progressData.percent*100
-  newUploadFileInfo.percent = percent
-
-  // 进度信息各回各家
-  clonedTempProgress[thisFilesIndex] = newUploadFileInfo
-
-  that.setState({
-    progress: clonedTempProgress
+```js
+onProgress: progressData => {
+  this.setState({
+    progressBars: this.state.progressBars.map(t => {
+      if (t.uid === file.uid) {
+        return { ...t, percent: progressData.percent*100}
+      }
+      return t
+    })
   })
-
-  ... ...
-
+}
 ```
 
-至此，我们就有了实时的进度数据。
-下一步，将其展示出来。这里用到了 antd 的进度条组件
-参考文档： https://ant.design/components/progress-cn/
-用map方法，为每一个文件的进度数据生成一个进度条。
+注：同时上传多个文件时，不同的文件进度有更新都会触发 onProgress 函数，所以需要通过 file.uid 来确认要更新那个文件的上传进度。
 
-code:
+至此，文件上传进度条已经可以正常工作了。
 
-```
-... ...
+### 文件上传状态
 
-{/* 进度条 */}
-        {
-          this.state.progress.map(
-            (item, index) => {
-              return (
-                <div key={index}>
-                  <text>{item.name}</text>
-                  <Progress percent={item.percent} status={item.status} />
-                </div>
-              )
-            }
-          )
-        }
-... ...
+可以通过更新 antd 的文件上传状态，也就是 https://ant.design/components/progress-cn/ 这里的 status 来获得更加完美的进度条效果。
+
+
+
+
+
+
+插入判断文件上传状态的代码：
 
 ```
-
-此时，试着上传一下，可以看到，随着文件成功上传，进度条已经能从0走到100了。但是样式不好看。
-下面，丰富一下进度条的样式：
-
-在上面的代码中，更新进度数据后，插入判断文件上传状态的代码
-```
-... ...
-
-// 精确更新进度
-  newUploadFileInfo.percent = percent
-
-  if (percent < 100) {
-    newUploadFileInfo.status = 'active'
-  } else if (percent === 100) {
-    newUploadFileInfo.status = 'success'
-  }
-
-  clonedTempProgress[thisFilesIndex] = newUploadFileInfo
-
-... ...
-
+  const status = percent < 100 ? 'active' : 'success'
 ```
 
-再试一次，发现文件上传成功后，进度条的样式发生了改变。
+具体代码插入位置，参考最终的 commit 。
+
+这样，可以看到，代码上传过程中，进度条有波纹（ active 的效果），上传接触后，进度条变为（绿色，success 的效果）。
+
 
 我们还需考虑上传失败时的情况。
 由于可能部分文件上传失败，我们用同样的方法，筛选出失败的文件，修改其上传状态。
 
-```
-... ...
-
-cos.sliceUploadFile(params, function(err, data) {
-  if(err) {
-  console.log(err);
-
-  // 进度条报错样式
-  let [ ...clonedTempProgress ] = that.state.progress
-  // es6: 筛选出本次上传进度信息的主人 以及它在数组中的index
-  let newUploadFileInfo = clonedTempProgress.find(
-    item => item.uid === file.uid
-  )
-  let thisFilesIndex = clonedTempProgress.findIndex(
-    item => item.uid === file.uid
-  )
-
-  //更新进度
-  newUploadFileInfo.status = 'exception'
-
-  clonedTempProgress[thisFilesIndex] = newUploadFileInfo
-
-  that.setState({
-    progress: clonedTempProgress
-  })
-  // 进度条报错结束
-
-}  else {
-    console.log(data);
-    message.success(`${file.name} 成功上传`)
-  }
-});
-//cos-js-sdk 分块上传 结束
-
-... ...
+```js
+cos.sliceUploadFile(params, (err, data) => {
+      if (err) {
+        this.setState({
+          progressBars: this.state.progressBars.map(t => {
+            if (t.uid === file.uid) {
+              const status =  'exception'
+              return { ...t, status}
+            }
+            return t
+          })
+        })
+        message.info(`${file.name} 上传失败`)
+      } else {
+        message.success(`${file.name} 成功上传`)
+      }
+    })
 ```
 
-至此，进度条完工
+至此，进度条完工。
 
 commit: progress bar
