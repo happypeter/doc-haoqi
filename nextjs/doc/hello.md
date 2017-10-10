@@ -6,7 +6,7 @@
 mkdir nextjs-demo
 cd nextjs-demo
 npm init -y
-npm install --save react react-dom next@4.0.0-beta.2
+npm install --save react react-dom next
 mkdir pages
 ```
 
