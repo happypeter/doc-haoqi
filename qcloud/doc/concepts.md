@@ -31,3 +31,6 @@ AppId 相当于一个命名空间，不同的 AppId 下面的 bucket 可以同�
     * 可以参照 [前端 js SDK v5版本](https://cloud.tencent.com/document/product/436/11459#.E5.88.86.E5.9D.97.E4.B8.8A.E4.BC.A0.E4.BB.BB.E5.8A.A1.E6.93.8D.E4.BD.9C)默认配置进行操作，其中的**开发环境**小节。
      - 视频：cors-settings
      - 不要忘记点保存
+
+
+- Region： https://cloud.tencent.com/document/product/436/6224

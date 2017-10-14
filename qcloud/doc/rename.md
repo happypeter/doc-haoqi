@@ -6,3 +6,9 @@
 cos.putObjectCopy()
 cos.deleteObject()
 ```
+
+
+### 下一步任务
+
+fileTable 只显示选中的文件夹中的文件。
+美化一下文件夹列表。
