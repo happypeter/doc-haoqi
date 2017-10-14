@@ -68,9 +68,9 @@ export default video
 
 到浏览器测试一下，video 页面中则会显示查询字符串参数 id 的数值。虽然通过查询字符串可以在页面中传递数据，但是这样的 URL 格式不美观。
 
-### 自定制 URL
+### 自定制URL
 
-有趣的事情是 Next.js 应用页面的 URL 是能够定制的，所以咱们不用担心页面 URL 的颜值，你想整成什么模样都可以。这一功能的实现需要借助 Next.js 的 [route masking](https://learnnextjs.com/basics/clean-urls-with-route-masking/route-masking) 特性，只需要修改 `pages/index.js` 文件中的一行代码：
+有趣的事情是 Next.js 应用页面的 URL 是能够定制的，所以咱们不用担心页面 URL 的颜值，你想整成什么模样都可以。这一功能的实现需要借助 Next.js 的[路由掩码](https://learnnextjs.com/basics/clean-urls-with-route-masking/route-masking) 特性，只需要修改 `pages/index.js` 文件中的一行代码：
 
 ```
 <Link as='/video/123' href='/video?id=123'>
@@ -82,9 +82,9 @@ export default video
 <Link as='/v/123' href='/video?id=123'>
 ```
 
-### 页面刷新时要注意的问题
+### 创建自定义服务器
 
-现在还有一个问题需要解决，若刷新 /v/123 页面，会出现 404 错误，原因是现在只是实现的客户端渲染，怎么实现服务器端渲染呢？创建一个新的文件 server.js，添加代码：
+现在还有一个问题需要解决，若刷新 /v/123 页面，会出现 404 错误，原因是在 pages 目录中没有 `v/123` 文件存在，我们可以使用 Next.js 的[自定义服务器API](https://github.com/zeit/next.js#custom-server-and-routing)来解决这个问题。我们使用 Express 来创建一个自定义服务器，在项目根目录下添加文件 server.js，代码如下：
 
 ```
 const express = require('express')
@@ -97,13 +97,6 @@ const handle = app.getRequestHandler()
 app.prepare()
 .then(() => {
   const server = express()
-
-  server.get('/v/:id', (req, res) => {
-    const id = req.params.id
-    const actualPage = '/video'
-    const queryParams = { id }
-    app.render(req, res, actualPage, queryParams)
-  })
 
   server.get('*', (req, res) => {
     return handle(req, res)
@@ -120,8 +113,34 @@ app.prepare()
 })
 ```
 
+然后修改 package.json 文件，更新 npm 的开发脚本：
+
+```
+"scripts": {
+  "dev": "node server.js"
+},
+```
+
+此时，运行 `npm run dev` 命令可以启动应用，不过刷新页面 `/v/123` 之后，仍然会出现404错误，想要解决这个问题，咱们还需要自定义一个匹配 `/v/123` URL 的路由。
+
+### 创建自定义路由
+
+更新 server.js 文件，在 `const server = express()` 代码之后，添加如下代码：
+
+```
+server.get('/v/:id', (req, res) => {
+  const id = req.params.id
+  const actualPage = '/video'
+  const queryParams = { id }
+  app.render(req, res, actualPage, queryParams)
+})
+```
+
+上述代码，把自定义的路由 `/v/:id` 映射到已经存在的 `pages/video` 页面文件上。代码保存之后，重新启动 Express 服务器，再次刷新 `/v/123` 页面，就能正确显示页面内容了。
 
 ### 同时响应 `123` 和 `123.html`
+
+若我们此时访问 `/v/123.html`，而不是 `/v/123`, 仍然会是404错误，解决方法是在服务器端去掉 `/v/123.html` 字符串中的 `.html` 后缀：
 
 ```
 server.get('/v/:id', (req, res) => {
@@ -130,3 +149,5 @@ server.get('/v/:id', (req, res) => {
   ...
 })
 ```
+
+至此，关于 Next.js 路由相关的问题就介绍完成了。
