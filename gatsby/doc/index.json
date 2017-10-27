@@ -1,0 +1,57 @@
+{
+  "vlink": "https://haoqicat-1253322599.costj.myqcloud.com/antd",
+  "name": "用 Gatsby 开发 haoduoshipin.com",
+  "price": "20",
+  "intro": "使用阿里的蚂蚁设计来制作一套后台系统，玩转第三方组件库",
+  "writing_to_who": "已经会 React 的，想要快速上手 Antd 的朋友",
+  "learning_goal": "Antd 基本套路，文档导读，各种 React 常用工具的配合",
+  "service": [
+    "拿到所有视频和文字稿",
+    "可以获取所有示例代码"
+  ],
+  "content": [
+    {
+      "header": "第一章 基础",
+      "section": [
+        {
+          "title": "为何要选择 Gatsby ？",
+          "link": "why"
+        },
+        {
+          "title": "跑一个 Hello world",
+          "link": "hello"
+        },
+        {
+          "title": "添加样式",
+          "link": "style"
+        },
+        {
+          "title": "",
+          "link": ""
+        },
+        {
+          "title": "",
+          "link": ""
+        }
+      ]
+    },
+    {
+      "header": "第二章 ",
+      "section": [
+        {
+          "title": "",
+          "link": ""
+        }
+      ]
+    },
+    {
+      "header": "第三章 ",
+      "section": [
+        {
+          "title": "",
+          "link": ""
+        }
+      ]
+    }
+  ]
+}

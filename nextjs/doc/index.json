@@ -26,8 +26,8 @@
           "link": "router"
         },
         {
-          "title": "密码验证和跳转",
-          "link": "redirect"
+          "title": "获取远端数据",
+          "link": "axios"
         },
         {
           "title": "配置文件",
