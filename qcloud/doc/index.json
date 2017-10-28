@@ -1,6 +1,6 @@
 {
   "vlink": "https://haoqicat-1253322599.costj.myqcloud.com/qcloud",
-  "name": "自己写腾讯云文件存储客户端",
+  "name": "跟 Peter 写腾讯云客户端",
   "price": "20",
   "intro": "腾讯云对象存储服务 cos 实战",
   "writing_to_who": "已经会 React 和 Reudx 基本使用的，想要学点腾讯云 API 操作和 redux 实战技巧的朋友",
@@ -11,19 +11,15 @@
   ],
   "content": [
     {
-      "header": "第一章 腾讯云接口调试",
+      "header": "第一章 展示所有文件",
       "section": [
         {
           "title": "前端环境搭建",
-          "link": "cra"
-        },
-        {
-          "title": "概念准备",
-          "link": "concepts"
+          "link": "1-cra"
         },
         {
           "title": "读取 Bucket 中的所有文件",
-          "link": "read"
+          "link": "2-read"
         },
         {
           "title": "文件上传到 bucket",
