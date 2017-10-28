@@ -1,8 +1,7 @@
 # 展示与删除
 
-
 首先，我们先来展示一下现在云端 Bucket 里的内容。
-这里用到了antd的Table组件：[文档](https://ant.design/components/table-cn/)
+这里用到了 antd 的 Table 组件：[文档](https://ant.design/components/table-cn/)
 
 根据文档，dataSource 属性即为指定的数据源，对应到这里，就是我们读取到的云端 bucket 中的对象。
 
@@ -78,7 +77,6 @@ Table 组件的另一个属性 columns 定义了表格列的配置描述。
 在删除函数中，我们使用 antd 组件的 Modal 组件，来生成一个模态窗，让用户确认一下。
 如果用户确认删除，则调用 js-SDK 的删除文件接口，否则什么也不做。
 
-
 然后，显示 Table 组件：
 
 ```
@@ -112,5 +110,3 @@ cos.deleteObject(delParams, (err, data) => {
 ```
 
 commit: delete
-
-FIXME: 现在差一个功能，就是新文件上传成功后，Table 中不能自动显示出来。这个就是一个简单的数据共享问题，不过看起来项目如果用 redux 会更好些了。

@@ -141,10 +141,6 @@ onProgress: progressData => {
 可以通过更新 antd 的文件上传状态，也就是 https://ant.design/components/progress-cn/ 这里的 status 来获得更加完美的进度条效果。
 
 
-
-
-
-
 插入判断文件上传状态的代码：
 
 ```

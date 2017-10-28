@@ -78,7 +78,6 @@ app.use(function (err, req, res, next) {
 app.listen(3000, () => console.log('running on port 3000...'))
 ```
 
-
 routes.js 内容如下：
 
 ```js
@@ -93,7 +92,6 @@ module.exports = router
 ```
 
 这样：npm start 就可以看到 api 显示出的 hello 了。
-
 
 添加 bucket.js ，
 

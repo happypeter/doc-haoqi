@@ -3,15 +3,15 @@
   "name": "自己写腾讯云文件存储客户端",
   "price": "20",
   "intro": "腾讯云对象存储服务 cos 实战",
-  "writing_to_who": "已经会 React 的，想要快速上手 Antd 的朋友",
-  "learning_goal": "Antd 基本套路，文档导读，各种 React 常用工具的配合",
+  "writing_to_who": "已经会 React 和 Reudx 基本使用的，想要学点腾讯云 API 操作和 redux 实战技巧的朋友",
+  "learning_goal": "Antd 基本套路，腾讯云文档导读，复杂 UI 项目，如何拆分任务步步为营",
   "service": [
     "拿到所有视频和文字稿",
     "可以获取所有示例代码"
   ],
   "content": [
     {
-      "header": "第一章 管理员登录",
+      "header": "第一章 腾讯云接口调试",
       "section": [
         {
           "title": "前端环境搭建",
