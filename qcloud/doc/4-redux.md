@@ -1,4 +1,4 @@
-客户端项目中请求 api ，然后把拿到的所有文件的数据存入 redux store 中。
+客户端项目中请求 api ，然后把拿到的所有文件的数据存入 redux store 中，然后让 React 组件去订阅这些数据。
 
 ### 搭建 redux 的 store
 
@@ -144,7 +144,152 @@ export default () => (
 到 App.js 中添加
 
 ```js
-componentDidMount () {
-  this.props.loadAllFiles()
+...
+import { loadAllFiles } from '../redux/actions'
+import { connect } from 'react-redux'
+
+
+class App extends Component {
+  componentDidMount () {
+    this.props.loadAllFiles()
+  }
+  ...
+}
+
+export default connect(null, { loadAllFiles })(App)
+```
+
+上面的写法就是去执行一个 action creator 叫做 `loadAllFiles` 。
+
+然后创建 src/redux/actions/index.js 去定义这个 action creator ：
+
+```js
+import axios from 'axios'
+
+export const loadAllFiles = () => {
+  return dispatch => {
+    axios.get('http://localhost:3008/bucket').then(
+      res => {
+        console.log(res.data)
+      }
+    )
+  }
 }
 ```
+
+上面使用了 `axios` ，所以需要运行
+
+```
+npm i axios
+```
+
+进行装包。 另外， `return dispatch =>` 这样的写法，让我们可以在 action creator 中发异步请求，这个需要 redux-thunk 生效才行，前面我们已经安装好了这个包。这还不够，需要到 redux/store.js 中添加
+
+```js
+import { createStore, applyMiddleware } from 'redux'
+...
+import thunk from 'redux-thunk'
+
+const middleware = [ thunk ]
+const store = createStore(rootReducer, applyMiddleware(middleware))
+...
+```
+
+这样，redux-thunk 就能工作了。
+
+这时来启动服务器端：
+
+```
+cd server/
+npm start
+```
+
+服务器启动之后，到浏览器中刷新一下 http://localhost:3000 ，这样前端代码就会发起向我们自己的服务器端的请求，但是被服务器端拒绝了。Chrome console 中报错：
+
+```
+Failed to load http://localhost:3008/bucket: No 'Access-Control-Allow-Origin' header is present on the requested resource. Origin 'http://localhost:3000' is therefore not allowed access.
+```
+
+翻译一下：
+
+```
+加载 http://localhost:3008/bucket 失败：请求的资源没有提供 `Access-Control-Allow-Origin` （访问-控制-允许-来源）这个报头。所以 http://localhost:3000 这个来源的请求不允许访问。
+```
+
+上面是个常见文件，解决的方法就是让服务器的资源提供 `Access-Control-Allow-Origin` 报头即可。具体做法是添加 **跨域资源共享** ( cors ) 这个包。
+
+所以到服务器端代码中，先来装包
+
+```
+cd server/
+npm i cors
+```
+
+上面的 cors （就是 Cross Origin Resource Sharing 跨域资源共享） 就是 express 框架下专门解决跨域问题的。
+
+
+然后打开 server/index.js 文件，稍作修改
+
+```diff
++++ const cors = require('cors')
+--- app.use('/', apiRouter)
++++ app.use('/', cors(), apiRouter)
+```
+
+也就是加载了 cors 中间件。这样跨域问题就解决了。
+
+到浏览器再次刷新。可以看到 Chrome console 中果然可以打印成腾讯云上的 bucket 信息了。具体的文件名列表在 res.data.Contents 中，数据形式是：
+
+
+```js
+0 : {Key: "aa/", LastModified: "2017-10-28T13:24:30.000Z", ETag: """", Size: "0", Owner: {…}, …}
+1 : {Key: "aa/aa.png", LastModified: "2017-10-28T13:26:10.000Z", ETag: ""8f1d18a9212115af3fea9b4051f6b81dfd1bc9cf"", Size: "687700", Owner: {…}, …}
+2 : {Key: "bb/", LastModified: "2017-10-28T13:27:49.000Z", ETag: """", Size: "0", Owner: {…}, …}
+3 : {Key: "bb/bb.png", LastModified: "2017-10-28T13:27:59.000Z", ETag: ""38673b617752d500152e6e0f8a988d6c893cfa52"", Size: "11186", Owner: {…}, …}
+```
+
+我们就把上面的这些信息保存到 redux 的状态数中，所以修改 actions/index.js 文件中的 `loadAllFiles` 函数为下面的内容：
+
+
+```js
+export const loadAllFiles = () => {
+  return dispatch => {
+    axios.get('http://localhost:3008/bucket').then(
+      res => {
+        const allFiles = res.data.Contents
+        dispatch({ type: 'LOAD_ALL_FILES', allFiles })
+      }
+    )
+  }
+}
+```
+
+这样，等数据从服务器端拿到后，就会保存到 allFiles 变量中，接下来通过 `{ type: 'LOAD_ALL_FILES', allFiles}` 这个 action 的形式，发送给 reducer 。下面就来定义接受这些数据的 reducer 函数。
+
+到 redux/reducers/index.js 中，把 `initState` 和 `case 'XXX'` 部分改为
+
+```js
+
+const initState = {
+  allFiles: []
+}
+...
+    case 'LOAD_ALL_FILES':
+      return {
+        ...state,
+        allFiles: action.allFiles
+      }
+
+```
+
+这样，action 中携带过来的 allFiles 数据就能真正的保存到状态树的 allFiles 字段了（ state.allFiles ）。同时由于 TableContainer 中订阅了 allFiles 字段，所以在 TableContainer 中也就可以拿到这些数据了。因为 TableContainer 中有
+
+```js
+console.log('TableContainer', this.props.allFiles)
+```
+
+所以 allFiles 的数据会被打印到浏览器终端中。
+
+### 总结
+
+文件列表数据 （ allFiles ）走通了一条完整的线，最终从腾讯云的接口中，到达了我们的 React 组件中。这样组件下一步就可以开发如何美观的展示这些数据的功能了。
