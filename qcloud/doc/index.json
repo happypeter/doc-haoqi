@@ -18,9 +18,22 @@
           "link": "1-cra"
         },
         {
-          "title": "读取 Bucket 中的所有文件",
-          "link": "2-read"
+          "title": "请求腾讯 API 的准备工作",
+          "link": "2-get-ready"
         },
+        {
+          "title": "列出 Bucket 中的所有文件",
+          "link": "3-read"
+        },
+        {
+          "title": "文件列表存入 Redux",
+          "link": "4-redux"
+        }
+      ]
+    },
+    {
+      "header": "第二章 XXX",
+      "section": [
         {
           "title": "文件上传到 bucket",
           "link": "write"
@@ -40,15 +53,6 @@
         {
           "title": "重命名",
           "link": "rename"
-        },
-      ]
-    },
-    {
-      "header": "第二章 XXX",
-      "section": [
-        {
-          "title": "",
-          "link": ""
         }
       ]
     }

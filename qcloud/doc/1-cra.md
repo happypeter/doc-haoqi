@@ -93,7 +93,6 @@ npm start
 
 全局的 css 我会放到 main.css 中。
 
-
 对应 App.js 这个容器组件，来创建一个展示组件 Main.js和它配对。先到 App.js 中添加对 Main.js 的导入和使用：
 
 ```js
