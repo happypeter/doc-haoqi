@@ -11,7 +11,7 @@
   ],
   "content": [
     {
-      "header": "第一章 展示所有文件",
+      "header": "第一章 读 Bucket 中的文件",
       "section": [
         {
           "title": "前端环境搭建",
@@ -28,31 +28,52 @@
         {
           "title": "文件列表存入 Redux",
           "link": "4-redux"
+        },
+        {
+          "title": "蚂蚁设计美观展示数据",
+          "link": "5-antd"
+        },
+        {
+          "title": "导航菜单中展示所有文件夹",
+          "link": "6-menu"
+        },
+        {
+          "title": "显示文件夹各自文件",
+          "link": "7-files"
         }
       ]
     },
     {
-      "header": "第二章 XXX",
+      "header": "第二章 上传文件",
       "section": [
         {
           "title": "文件上传到 bucket",
-          "link": "write"
+          "link": "8-upload"
+        },
+        {
+          "title": "用蚂蚁设计提升 UE",
+          "link": "9-antd-upload"
         },
         {
           "title": "进度条",
-          "link": "bar"
+          "link": "10-progress"
+        }
+      ]
+    },
+    {
+      "header": "第二章 更多操作",
+      "section": [
+        {
+          "title": "删除",
+          "link": "11-delete"
         },
         {
           "title": "创建文件夹",
-          "link": "dir"
+          "link": "12-dir"
         },
         {
-          "title": "删除",
-          "link": "delete"
-        },
-        {
-          "title": "重命名",
-          "link": "rename"
+          "title": "结语",
+          "link": "13-end"
         }
       ]
     }
