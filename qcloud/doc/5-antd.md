@@ -108,6 +108,11 @@ import FileTable from '../components/FileTable'
       </div>
     )
   }
+
+...
+
+--- getAllFiles
++++ getOnlyFiles
 ```
 
 这里稍微停一下，观察发现我们要传递给展示组件去显示的数据也就是 this.props.allFiles 其实有点问题，因为它通常长成这样
