@@ -335,32 +335,6 @@ index f88abe7..be7239b 100644
 有了上面的代码，删除了文件之后，文件名会自动从 table 中消失。
 
 
-### 文件夹
-
-至此，代码有一个问题，就是如果删除的是文件夹中最后一个文件，那么这个文件夹也会消失。好在修复并不难
-
-
-```diff
-diff --git a/client/src/redux/reducers/index.js b/client/src/redux/reducers/index.js
-index be7239b..9d2674b 100644
---- a/client/src/redux/reducers/index.js
-+++ b/client/src/redux/reducers/index.js
-@@ -45,7 +45,7 @@ export const getAllFiles = state => {
- }
-
- export const getDirNames = state => {
--  const dirNames = getAllFiles(state).reduce((arr, t) => {
-+  const dirNames = state.allFiles.reduce((arr, t) => {
-     const dirName = t.Key.split('/')[0]
-     if (arr.indexOf(dirName) === -1) { arr.push(dirName)}
-     return arr
-```
-
-修改之前，是首先从 state.allFiles 剔除了只有文件夹的的条目（通过 `getAllFiles(state)`
-)，然后再去筛选文件夹的。现在，只要用原始的 allFiles 数据进行 reduce 运算，最终 getDirNames 的返回值中，就会包含空文件夹了。
-
-有了这个修改，再去删除一个文件夹中的最后一个文件，这个文件夹就会屹立不动了。
-
 ### 总结
 
 整个删除的确完成了。

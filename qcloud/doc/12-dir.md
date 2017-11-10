@@ -128,7 +128,7 @@ index 9d2674b..bc57d6e 100644
 +  ]
 +}
 +
- export const getAllFiles = state => {
+ export const getOnlyFiles = state => {
    return state.allFiles.filter(
      t => t.Key.split('/')[1]
 ```

@@ -78,7 +78,7 @@ export const setCurrentDir = (dir) => ({
 
 ```js
 export const getCurrentDirFiles = state => {
-  return getAllFiles(state).filter(
+  return getOnlyFiles(state).filter(
     t => {
       return t.Key.split('/')[0] === getCurrentDir(state)
     }
@@ -89,7 +89,7 @@ export const getCurrentDirFiles = state => {
 到 src/containers/FileTableContainer.js 中，修改如下
 
 ```diff
----  import { getAllFiles } from '../redux/reducers'
+---  import { getOnlyFiles } from '../redux/reducers'
 +++  import { getCurrentDirFiles } from '../redux/reducers'
 ...
 const { allFiles } = this.props
@@ -98,7 +98,7 @@ const { currentDirFiles } = this.props
 ---  <FileTable allFiles={allFiles} />
 +++  <FileTable currentDirFiles={currentDirFiles} />
 ...
----  allFiles: getAllFiles(state)
+---  allFiles: getOnlyFiles(state)
 +++  currentDirFiles: getCurrentDirFiles(state)
 ```
 

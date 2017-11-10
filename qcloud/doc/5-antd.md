@@ -1,14 +1,12 @@
-引入[蚂蚁设计](https://ant.design/) 使用 Table 组件来美观的展示文件列表。
+本节就是真的来写页面了，引入[蚂蚁设计](https://ant.design/) 使用 Table 组件来美观的展示文件列表。
 
 ### 文件改名
 
 真正使用 Table 之前要处理一个小问题，也就是要把 TableContainer 改一下名字，因为按照常规 TableContainer 对应的展示组件就应该叫 Table 了，跟 antd 我们要使用的组件重名。
 
-
 所以我们先把 TableContainer.js 改一下名字为 FileTableContainer.js ，里面的内容也调整一下：
 
 ```diff
-
 --- class TableContainer extends Component {
 +++ class FileTableContainer extends Component {
 
@@ -28,7 +26,6 @@
 
 到这里，改名完成，到浏览器查看，程序能够正常运行即可。
 
-
 ### antd 大块布局
 
 先使用 [Layout](https://ant.design/components/layout-cn/) 来把页面大布局做好。
@@ -41,6 +38,7 @@
 npm i antd
 ```
 
+这样，强大的蚂蚁设计组件库就免费到手。
 
 到 Main.js 做一下修改，最终改成这样：
 
@@ -51,7 +49,6 @@ import FileTableContainer from '../containers/FileTableContainer'
 import styled from 'styled-components'
 import { Layout } from 'antd'
 const { Header, Sider, Content } = Layout
-
 
 const headerHeight = 70
 
@@ -84,10 +81,7 @@ export default () => (
 
 没有实质性的功能，就是用 `Layout` 组件实现了一个带侧边栏（ `Sider` ）的布局。同时侧边栏中未来放菜单，如果顶头不好看，所以现在加一个 `<LogoWrap />` 占据顶部。
 
-
-
 然后，到我们存放全局 css 的文件 main.css 中添加
-
 
 ```css
 @import '~antd/dist/antd.css';
@@ -96,7 +90,6 @@ export default () => (
 注意末尾的 `;` 不能删。
 
 这样，浏览器中可以看到一个灰黑白三色的布局了。
-
 
 ### 使用 antd 的 Table 组件
 
@@ -136,17 +129,17 @@ import FileTable from '../components/FileTable'
 ]
 ```
 
-上的数据省略了不少内容，但是我想要突出的是，整个的所谓 allFiles 列表中，其实有些只是列出了文件夹，所以这部分要从数组中除去。具体做法就是到 redux/reducers/index.js 中，把原有的 `getAllFiles` 函数改成下面这样
+上的数据省略了不少内容，但是我想要突出的是，整个的所谓 allFiles 列表中，其实有些只是列出了文件夹，所以这部分要从数组中除去。具体做法就是到 redux/reducers/index.js 中，添加
 
 ```js
-export const getAllFiles = state => {
+export const getOnlyFiles = state => {
   return state.allFiles.filter(
     t => t.Key.split('/')[1]
   )
 }
 ```
 
-这样，getAllFiles(state) 最终得到的数据中就不会有那些空文件夹了，也就是最终得到的数据就变为：
+这样，getOnlyFiles(state) 最终得到的数据中就不会有那些空文件夹了，也就是最终得到的数据就变为：
 
 
 ```js
@@ -162,14 +155,12 @@ export const getAllFiles = state => {
 
 这样就符合我们在组件中使用的要求了。
 
-
 接下来添加 src/components/FileTable.js 内容如下：
 
 ```js
 import React from 'react'
 import { Table } from 'antd'
 import moment from 'moment'
-
 
 const tableColumns = [
   {
@@ -234,11 +225,11 @@ columns={tableColumns}
 
 但是每列有了各自的 `dataIndex` 的设置，render 的 text 的值就会是 Key 或者 LastModified 的具体值了。
 
-另外，需要通过 `rowKey` 来保证 Table 每一行都需要有一个独立的 key ，我们的数据中虽然没有 id ，但是有每个文件都有自己的 Etag 数据，都是独一无二的，恰好可以用在 `rowKey={item => item.ETag}` 中。
+另外，需要通过 `rowKey` 来保证 Table 每一行都有一个独立的 key ，我们的数据中虽然没有 id ，但是有每个文件都有自己的 Etag 数据，都是独一无二的，恰好可以用在 `rowKey={item => item.ETag}` 中。
 
-另外，render 函数中可以使用各种技巧对数据显示格式进行处理，例如，我们采用了注明的 [momentjs](https://momentjs.com/) 对时间显示格式做了调整。
+另外，render 函数中可以使用各种技巧对数据显示格式进行处理，例如，我们采用了大名鼎鼎的 [momentjs](https://momentjs.com/) 对时间显示格式做了调整。
 
-至此，页面上就显示出文件列表了，这一节我们想做的功能也就完成了。
+至此，页面上就显示出文件列表了，这一节我们想做的主体功能也就完成了。
 
 ### 完善一下样式
 
