@@ -313,7 +313,7 @@ index ce6d9c9..30f6a28 100644
 页面中进行上传，Chrome 终端中输出
 
 ```js
-{Location: "catgo-1253322599.ap-beijing.myqcloud.com/aa/peter.txt", Bucket: "catgo", Key: "aa/peter.txt", ETag: ""8f1a42da36ce65010ad06e1282741bc6-1"", statusCode: 200, …}
+{Location: "cici-1253322599.ap-beijing.myqcloud.com/aa/peter.txt", Bucket: "catgo", Key: "aa/peter.txt", ETag: ""8f1a42da36ce65010ad06e1282741bc6-1"", statusCode: 200, …}
 ```
 
 可以看到有上传后的文件链接生成，显然上传成功了。
