@@ -72,7 +72,7 @@ var params = {
 
 - `SecretId` 和 `SecretKey` 可以理解为我们使用 API 时候的用户名和密码，用来鉴权
 
-到[控制台](https://console.cloud.tencent.com/capi)可以获取到 SecretId, SecretKey 。
+到[控制台](https://console.cloud.tencent.com/capi)可以获取到 AppId, SecretId, SecretKey 这三项内容，实际测试发现 AppId 在很多情况下也是必须的，所以后续一并填入配置文件。
 
 继续往下看文档，到 [Nodejs SDK](https://cloud.tencent.com/document/product/436/8629) 文档的 **getBucket** 部分，可以看到，使用 getBucket 接口本身有两个必须的参数
 
@@ -108,6 +108,7 @@ atom config.js
 
 ```js
 const config = {
+  AppId: '1253322599',
   SecretId: 'FakeNr9E83Mjx2vc8vb3KQJ0UmsmT0NtWIs',
   SecretKey: 'FakehcVDj2CG7mF4mqnY7TecOyO5Obdj',
   Bucket: 'cici',
@@ -117,10 +118,10 @@ const config = {
 module.exports = config
 ```
 
-注：上面的各项内容替换成您自己的信息。
+上面的各项内容替换成您自己的信息。
 
 上面 config.js 中包含机密信息，所以要添加到 server/.gitignore 配置文件中，避免不小心上传到 github.com 。然后创建文件的拷贝 server/config.example.js 文件，把里面的机密信息删除掉，然后把这拷贝上传到 github.com 是没有问题的。
 
 ### 总结
 
-总结一下本小节，存储桶创建和配置好之后，咱们又把接口需要的各项参数信息都保持到了配置文件中。这样原材料就都有了，下一节就可以动手开工了。
+至此，《请求腾讯云 API 的准备工作》这个小节就胜利完成了。存储桶创建和配置好之后，咱们又把接口需要的各项参数信息都保存到了配置文件中。这样原材料就都有了，下一节就可以动手开工了。
