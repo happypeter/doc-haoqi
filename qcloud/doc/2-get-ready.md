@@ -1,3 +1,5 @@
+# 请求腾讯 API 的准备工作
+
 为了跑通腾讯云接口，拿到 bucket 中的读权限（暂时不考虑写），首先需要配置好 bucket ，然后拿到 SecretId 等这些信息，本节全部来搞定。
 
 下面的操作步骤基本上和 [Javascript SDK 文档](https://cloud.tencent.com/document/product/436/11459) 上给出的顺序一致，稍有调整。

@@ -3,8 +3,8 @@
   "name": "跟 Peter 写腾讯云客户端",
   "price": "20",
   "intro": "腾讯云对象存储服务 cos 实战",
-  "writing_to_who": "已经会 React 和 Reudx 基本使用的，想要学点腾讯云 API 操作和 redux 实战技巧的朋友",
-  "learning_goal": "Antd 基本套路，腾讯云文档导读，复杂 UI 项目，如何拆分任务步步为营",
+  "writing_to_who": "已经会 React 和 Redux 基本使用的，想要学腾讯云 API 操作和 redux 实战技巧的朋友",
+  "learning_goal": "Antd 套路种种，腾讯云接口采坑，复杂 UI 项目如何进行任务拆分",
   "service": [
     "拿到所有视频和文字稿",
     "可以获取所有示例代码"
@@ -38,7 +38,7 @@
           "link": "6-menu"
         },
         {
-          "title": "显示文件夹各自文件",
+          "title": "显示各自文件",
           "link": "7-files"
         }
       ]
@@ -64,7 +64,7 @@
       "header": "第二章 更多操作",
       "section": [
         {
-          "title": "删除",
+          "title": "删除文件",
           "link": "11-delete"
         },
         {
