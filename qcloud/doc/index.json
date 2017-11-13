@@ -57,23 +57,27 @@
         {
           "title": "进度条",
           "link": "10-progress"
+        },
+        {
+          "title": "进度条增强",
+          "link": "11-progress-more"
         }
       ]
     },
     {
-      "header": "第二章 更多操作",
+      "header": "第三章 更多操作",
       "section": [
         {
           "title": "删除文件",
-          "link": "11-delete"
+          "link": "12-delete"
         },
         {
           "title": "创建文件夹",
-          "link": "12-dir"
+          "link": "13-dir"
         },
         {
           "title": "结语",
-          "link": "13-end"
+          "link": "14-end"
         }
       ]
     }
