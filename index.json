@@ -215,6 +215,12 @@
       "cover": "http://haoqicat-1253322599.costj.myqcloud.com/posters/antd.png",
       "title": "蚂蚁设计实战",
       "link": "/antd"
+    },
+    {
+      "id": "37",
+      "cover": "http://haoqicat-1253322599.costj.myqcloud.com/posters/qcloud.png",
+      "title": "跟 Peter 做腾讯云客户端",
+      "link": "/qcloud"
     }
   ]
 }
