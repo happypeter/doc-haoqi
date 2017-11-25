@@ -51,22 +51,22 @@ header 中输入文字。快捷键 `t` 然后拖拽。输入”组件名“三�
 
 页面重命名。左侧侧边栏上的跟 `Symbols` 页面平级的那个 `Page 1` 页面，重命名为 `Diagram` 。以后这个 Page 就专门用来放组件嵌套图。 
 
-
 覆盖 symbol 内容。到 `Diagram` 页面上，目前已经有一个 symol 在这里了，选中它，到右侧 `Overrides` 这一部分，把 `组件名` 这一项覆盖成 `Hero` 。Hero 组件中放网站介绍。
 
 插入另个顶级组件。菜单栏中选 `insert -> Symbols -> Component` ，这样可以再页面中插入另外一个组件进来，组件名覆盖为 `Action` 。顶级组件一共就这两个了。
 
-Hero 内嵌两兄弟。一个是 `Logo` ，另外一个是 `Text` 。
+`Hero` 内嵌两兄弟。一个是 `Logo` ，另外一个是 `Text` 。一个放图标，一个放文字。
 
+`Text` 内嵌两兄弟。一个是 `Title`，另外一个是 `Slogan` 。标题和口号。
 
+Home 页面上我想放的组件就是这么多了。这个图一方面服务我后面做设计图，另一方面也给写代码梳理了思路。
 
-
+至此，《画组件嵌套图》这部分就胜利完成了。
 
 
 ### 搜索素材
 
 进入下一部分《搜索素材》。
-
 
 设计方面没有灵感，所以先来搜搜素材。google 一下这几个关键字的组合
 
@@ -74,12 +74,26 @@ Hero 内嵌两兄弟。一个是 `Logo` ，另外一个是 `Text` 。
 sketchappsources material design ecommerce
 ```
 
-`sketchappsouces` 是我自己常用的一个搜 sketch 图的网站。我想做的是一个电商网站，所以搜 `ecommerce`，同时我超喜欢 `material design` ，材料设计，所以就有了这里的这个关键词组合。
+`sketchappsouces` 是我自己常用的一个搜 sketch 图的网站， `ecommerce` 是电商，同时我超喜欢 `material design` ，材料设计，所以就有了这里的这个关键词组合。
 
-这样，打开的界面中，可以看到很多非常高大上的设计图。
+浏览一下找到的内容。打开的界面中，稍微翻翻可以看到很多非常高大上的设计图。根据需要选择即可。
 
-我于是选择了一套 [Matta - Small Material UI Kit Sketch Resource](https://www.sketchappsources.com/free-source/2758-material-design-ui-kit-sketch-freebie-resource.html) 作为我设计的触发点。
+我于是选择了一套 [Matta - Small Material UI Kit Sketch Resource](https://www.sketchappsources.com/free-source/2758-material-design-ui-kit-sketch-freebie-resource.html) 作为我设计的起点。点击下载，并用 sketch 打开。不错不错，大部分我想要的页面要素都有。
 
-### 设计首页
+我需要一个简单的手指图标。到 http://www.iconfont.cn/ 上搜 `hand` 找一个好看的，下载 svg 。这个就作为网站的 logo 。
 
-先用大块划分出大小各级组件来。
+这样，设计参考和 svg 图标资源就都到手了。
+
+至此，《搜索素材》这部分就胜利完成。
+
+### 出高保真图
+
+进入下一部分《出高保真图》。
+
+### 总结
+
+进入最后一部分《总结》。
+
+来复盘一下。
+
+这样，《用 Sketch 来设计首页》这个小节就胜利完成了。
