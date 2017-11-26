@@ -36,8 +36,8 @@
           "link": "5-form"
         },
         {
-          "title": "Sidebar",
-          "link": "6-sidebar"
+          "title": "通过 Redux 设置 header 文本",
+          "link": "6-redux"
         },
         {
           "title": "轮播图",
