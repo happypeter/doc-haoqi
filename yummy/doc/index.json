@@ -16,19 +16,19 @@
       "header": "第一章：用户系统之展示组件",
       "section": [
         {
-          "title": "设计图",
+          "title": "用 Sketch 来设计首页",
           "link": "1-design"
         },
         {
-          "title": "create-react-app 和 react-router",
+          "title": "搭建前端环境以及确定 CSS 使用规范",
           "link": "2-cra"
         },
         {
-          "title": "CSS 的故事",
-          "link": "3-css"
+          "title": "实现 Home 页面",
+          "link": "3-home"
         },
         {
-          "title": "react-router 下的布局文件",
+          "title": "添加 router 和布局文件",
           "link": "4-layout"
         },
         {

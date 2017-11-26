@@ -179,9 +179,9 @@ index 0000000..923790c
 +++ b/client/src/containers/LoginContainer.js
 @@ -0,0 +1,6 @@
 +import React from 'react'
-+import Signup from '../components/Signup'
++import Login from '../components/Login'
 +
-+const LoginContainer = props => <Signup {...props} />
++const LoginContainer = props => <Login {...props} />
 +
 +export default LoginContainer
 diff --git a/client/src/containers/SignupContainer.js b/client/src/containers/SignupContainer.js
