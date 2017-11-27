@@ -1,0 +1,125 @@
+{
+  "vlink": "https://haoqicat-1253322599.costj.myqcloud.com/ride-cli-monster",
+  "name": "驾驭命令行怪兽",
+  "price": "58",
+  "intro": "Mac 命令行开发技巧，Linux 服务器命令行管理技巧。",
+  "writing_to_who": "简单一句话：本书专门为摩登 JS 开发者量身打造。区别于市面上的很多 Linux 书籍，Peter 值得骄傲的地方就是本书不是为系统管理员而写，而是为开发者而生。",
+  "learning_goal": "Bash 命令行下的文件系统操作，权限控制，nginx 服务器配置。Mac 中 zsh 配置使用技巧，以及各个提高工作效率的命令行工具介绍。侧重实用技巧，并且对初学者友好，不去唠叨太理论的东西。" ,
+  "service": [
+    "参加本课程微信讨论群",
+    "本课程视频，以及文字稿",
+    "实例代码",
+    "本课程后续更新的内容"
+  ],
+  "content": [
+    {
+      "header": "第一章：Ubuntu 也是很好的开发机",
+      "section": [
+        {
+          "title": "Peter 和 Ubuntu 的故事",
+          "link": "1-1-peter-and-ubuntu"
+        },
+        {
+          "title": "安装 Ubuntu 的各种不同的方式",
+          "link": "1-2-ubuntu-ways"
+        },
+        {
+          "title": "安装 Ubuntu 的操作步骤",
+          "link": "1-3-ubuntu-install"
+        },
+        {
+          "title": "Ubuntu 上安装 Sublime 和 Chrome 等",
+          "link": "1-4-sublime-chrome"
+        },
+        {
+          "title": "Ubuntu 上的终端配置小技巧",
+          "link": "1-5-ubuntu-terminal"
+        },
+        {
+          "title": "深度 Linux 操作系统",
+          "link": "1-6-deepin"
+        }
+      ]
+    },
+    {
+      "header": "第二章：Mac 最好的开发机",
+      "section": [
+        {
+          "title": "为何 Mac 是高手最爱？",
+          "link": "2-1-why-mac"
+        },
+        {
+          "title": "Oh My Zsh",
+          "link": "2-2-zsh"
+        },
+        {
+          "title": "用 trash 不要用 rm",
+          "link": "2-3-trash"
+        },
+        {
+          "title": "使用 z 不要 cd",
+          "link": "2-4-z"
+        }
+      ]
+    },
+    {
+      "header": "第三章：通用命令行技巧",
+      "section": [
+        {
+          "title": "cd 跳转命令",
+          "link": "3-1-cd"
+        },
+        {
+          "title": "操作文件和文件夹",
+          "link": "3-2-file"
+        },
+        {
+          "title": "sudo 和用户权限",
+          "link": "3-3-sudo"
+        }
+      ]
+    },
+    {
+      "header": "第四章：部署项目到网络服务器",
+      "section": [
+        {
+          "title": "任务概述",
+          "link": "4-1-overview"
+        },
+        {
+          "title": "申请并登陆阿里云服务器",
+          "link": "4-2-ecs-login"
+        },
+        {
+          "title": "免密码登陆和远程拷贝",
+          "link": "4-3-ssh"
+        },
+        {
+          "title": "上传代码到 coding.net",
+          "link": "4-4-coding-push"
+        },
+        {
+          "title": "下载项目到服务器",
+          "link": "4-5-coding-pull"
+        },
+        {
+          "title": "配置 nginx",
+          "link": "4-6-nginx"
+        },
+        {
+          "title": "一键部署脚本",
+          "link": "4-7-script"
+        }
+      ]
+    },
+    {
+      "header": "第五章：Goodbye",
+      "section": [
+        {
+          "title": "更多学习建议",
+          "link": "5-1-goodbye"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,131 @@
+{
+  "vlink": "https://haoqicat-1253322599.costj.myqcloud.com/svghere",
+  "cover_video": "index",
+  "name": "SVG 甜点",
+  "price": "31",
+  "intro": "介绍 SVG 制作图标以及其他网站开发中常用的技巧",
+  "writing_to_who": "Web 开发者",
+  "learning_goal": "Sketch/AI 制作简单 SVG 图，SVG 图标使用，SVG 动态效果",
+  "service": [
+    "所有相关代码",
+    "课程有效期一年",
+    "一年内所有课程改版内容免费获"
+  ],
+  "content": [
+    {
+      "header": "第一章：你好 SVG",
+      "section": [
+        {
+          "title": "SVG 缘何性感？",
+          "link": "1-intro"
+        }
+      ]
+    },
+    {
+      "header": "第二章：使用 AI 来制作 SVG",
+      "section": [
+        {
+          "title": "本章我们都要做点啥",
+          "link": "2-1-ai"
+        },
+        {
+          "title": "用 AI 作图以及导出参数设置",
+          "link": "2-2-make"
+        },
+        {
+          "title": "SVG 优化",
+          "link": "2-3-optimize"
+        },
+        {
+          "title": "可以获得 SVG 的网站",
+          "link": "2-4-find"
+        },
+        {
+          "title": "把栅格图像转换为 SVG",
+          "link": "2-5-to-svg"
+        }
+      ]
+    },
+    {
+      "header": "第三章：使用 SVG 的各种方式",
+      "section": [
+        {
+          "title": "使用 img 标签或 background",
+          "link": "3-1-bg"
+        },
+        {
+          "title": "使用 inline SVG 的优势",
+          "link": "3-2-inline"
+        },
+        {
+          "title": "使用 css 操作 SVG",
+          "link": "3-3-css"
+        }
+      ]
+    },
+    {
+      "header": "第四章：成套图标系统",
+      "section": [
+        {
+          "title": "图标系统制作的基本方法",
+          "link": "4-1-system"
+        },
+        {
+          "title": "更多相关技巧",
+          "link": "4-2-system-2"
+        }
+      ]
+    },
+    {
+      "header": "第五章：snap.svg",
+      "section": [
+        {
+          "title": "snap.svg 简介",
+          "link": "5-1-intro"
+        },
+        {
+          "title": "snap.svg 试驾",
+          "link": "5-2-geton"
+        },
+        {
+          "title": "snap.svg 动画效果",
+          "link": "5-3-animate"
+        },
+        {
+          "title": "总结",
+          "link": "5-4-wrapup"
+        }
+      ]
+    },
+    {
+      "header": "第六章：Highcharts 生成图表",
+      "section": [
+        {
+          "title": "简介",
+          "link": "6-1-intro"
+        },
+        {
+          "title": "概念热身",
+          "link": "6-2-warmup"
+        },
+        {
+          "title": "可视化 JSON 数据",
+          "link": "6-3-json"
+        }
+      ]
+    },
+    {
+      "header": "第七章：收尾",
+      "section": [
+        {
+          "title": "SVG 生态系统",
+          "link": "7-1-ecosys"
+        },
+        {
+          "title": "再见",
+          "link": "7-2-goodbye"
+        }
+      ]
+    }
+  ]
+}

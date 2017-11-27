@@ -1,0 +1,66 @@
+{
+  "vlink": "https://haoqicat-1253322599.costj.myqcloud.com/alipay",
+  "name": "支付宝收款集成",
+  "price": "88",
+  "intro": "Rails 项目中接通支付宝担保交易接口实现站内收款（课程已过期）",
+  "writing_to_who": "警告：课程已经过期了，因为支付宝那边已经取消了担保交易接口。但是，课程依然是有参考价值的，因为现在可以供企业用户申请的即时到帐接口，其实跟担保交易接口的集成方式是一样的，只是更简单一些而已。",
+  "learning_goal": "注意：项目的代码也已经有一年多没有维护了，Peter 目前也放弃了 Rails 框架，所以课程暂时没有更新的计划。另外再次提醒，支付宝那边的即时到帐接口的申请是需要企业资质的，这个也是 Peter 决定暂不更新这门课程的原因。",
+  "service": [
+    "可以微信联系 Peter 提出课程建议",
+    "但是 Peter 不承诺答疑服务",
+    "原来购买过本课程的朋友，请微信联系 Peter"
+  ],
+  "content": [
+    {
+      "header": "第一章：接口集成",
+      "section": [
+        {
+          "title": "1 获取 PID 和 KEY",
+          "link": "1-pid"
+        },
+        {
+          "title": "2 搭建 Rails 基本项目",
+          "link": "2-app-setup"
+        },
+        {
+          "title": "3 新建订单",
+          "link": "3-new-order"
+        },
+        {
+          "title": "4 构建请求 URL",
+          "link": "4-request-url"
+        },
+        {
+          "title": "5 同步通知",
+          "link": "5-return-url"
+        },
+        {
+          "title": "6 自动发货",
+          "link": "6-send-goods"
+        }
+      ]
+    },
+    {
+      "header": "第二章：通知和验证",
+      "section": [
+        {
+          "title": "7 异步通知",
+          "link": "7-notify"
+        },
+        {
+          "title": "8 验证是否支付宝请求",
+          "link": "8-verify"
+        }
+      ]
+    },
+    {
+      "header": "第三章 Goodbye",
+      "section": [
+        {
+          "title": "9 总结",
+          "link": "9-end"
+        }
+      ]
+    }
+  ]
+}

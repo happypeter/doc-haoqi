@@ -1,0 +1,78 @@
+{
+  "vlink": "https://haoqicat-1253322599.costj.myqcloud.com/o-o-js",
+  "name": "JS 面向对象之旅",
+  "price": "18",
+  "intro": "用 ES6 入门面向对象编程，语法甜美，而且直接面向实用",
+  "writing_to_who": "对编程语言有基本的认识，起码知道函数，参数这些概念，但是对面向对象编程一无所知的新手。写过很多年 jQuery ，但是其实写前端一直没怎么用面向对象思想的开发者。",
+  "learning_goal": "类和对象的概念图解代码小例子演示。为后续上手摩登 JS 技术和框架，例如 Nodejs 和 React 打下基础。",
+  "service": [
+    "参加本课程微信讨论群",
+    "本课程后续更新的内容"
+  ],
+  "content": [
+    {
+      "header": "第一章 课程概述",
+      "section": [
+        {
+          "title": "预习内容",
+          "link": "1-1-pre"
+        },
+        {
+          "title": "什么是面向对象编程",
+          "link": "1-2-oop"
+        },
+        {
+          "title": "使用 Babel 编译 ES6",
+          "link": "1-3-babel"
+        }
+      ]
+    },
+    {
+      "header": "第二章 Class 核心知识",
+      "section": [
+        {
+          "title": "第一个 class",
+          "link": "2-1-class"
+        },
+        {
+          "title": "理解 this 指向",
+          "link": "2-2-this"
+        },
+        {
+          "title": "bind",
+          "link": "2-3-bind-p1"
+        },
+        {
+          "title": "bind 的例子",
+          "link": "2-4-bind-p2"
+        },
+        {
+          "title": "静态方法",
+          "link": "2-5-static"
+        }
+      ]
+    },
+    {
+      "header": "第三章 继承",
+      "section": [
+        {
+          "title": "父类和子类",
+          "link": "3-1-extends"
+        },
+        {
+          "title": "super 调用父类方法",
+          "link": "3-2-super-use"
+        }
+      ]
+    },
+    {
+      "header": "第四章 结束语",
+      "section": [
+        {
+          "title": "进一步学习建议",
+          "link": "4-1-next-step"
+        }
+      ]
+    }
+  ]
+}
