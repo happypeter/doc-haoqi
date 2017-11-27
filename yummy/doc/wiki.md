@@ -4,11 +4,9 @@
 
 
 第一章 认证系统
-- sketch 图
-  - 组件化设计，没写代码之前，现在 sketch 里面就能把组件划分好
-  - sketch 中可以显示距离，可以拷贝 CSS
-  - 
-- 首页
+
+- API 文档就不用写了，
+  - 用 postman 调通感觉还是很有必要
 - 登录注册
 - 侧边栏
 
@@ -19,66 +17,12 @@
 
 第三章 购物车
 
-第四章 后台管理系统
+注意：后台管理系统，会放到《蚂蚁设计实战》中去讲解。
 
 第五章 结语
 
 
 
-### 代码风格
-https://standardjs.com/
-
-### css 规范
-
-[好奇猫 CSS 使用规范](https://github.com/happypeter/onestep/wiki)
-
-- 全局 css 放到 src/assets/global.css 中，在 App 中导入，挺干净利落的。
-- CSS 的写法有学问：也是低耦合。也就是，
-  - 父组件中把大块儿布局（尤其是高度值）都确定好，子组件一般高度设置为 100%；
-  - 个别情况，子组件高度不确定，那么父组件大块布局可以用 flex-direction: culumn ，同时其中一个元素 flex-grow: 1 的形式
-    - 这样子组件中如果高度有改动，父组件中的代码也是完全不用改的。
-- styled-components 也不怕 class 名的
-  - 例如组件内使用了一些插件，所以有些 class 名是去不掉的
-  - 这样没关系，直接在顶级的 Wrap 的样式内部嵌套这些 class 名的样式即可，跟写到 css 文件里面没啥区别
-- 有些组件中直接把 css 拷贝进了 Wrap ，这个可以保留，让大家看看迁移到 styled-components 其实非常容易，因为其实 styled-components 就是直接把内容拷贝成独立的 css 文件然后再运行。
-
-### 布局文件
-
-路由和布局文件要协同，达成以下目标
-
-- 首页除外，其他页面都有相同的 Header
-- Header 高度固定就是 80px ，页面主体内容要沾满页面剩余高度
-  - 使用 flexbox 达成即可
-  - 在 components/Layout 组件内把 Header 和 页面主体所占据的区域划分好。
-
-- 各个页面的高度控制思路
-  - 父组件中把 header 和 Main 的高度配置好
-  - 以后 Main 中的所有组件，高度只要设置为 100% 就可以完美显示了
-  - 而不用像以前那样傻乎乎的设置 window.innerHeight - 80
-
-### 认证和授权
-
-这个是一大块，判断用户是否登录，要看 isAuthenticated 是 true 还是 false ，
-页面刷新的时候，需要等待 isFetching 变为 false 的时候再判断
-
-- 登录过程 isFetching 改版逻辑
-  - 用户点登录按钮，发起 LOGIN_REQUEST 这时有 isFetching 设置为 true
-    - 接下来的 LOGIN_SUCCESS 或者 LOGIN_FAILURE 两种情况都把 isFetching 设置为 false
-
-- currentUser
-  - 不要把所有的当前用户数据都保持到 auth.currentUser 中，只存 id 即可
-  - 必要时候去 user.byId 中去取，定义一个 getCurrentUser 方法，在 mapStateToProps 中使用
-
-
-### Action 中使用 getState 以及 selectors
-
-这样 Action 中就能拿到所有的 store 数据以及派生数据了，于是这些数据就不必从组建中传递给 action 了。
-Cool
-
-### fetch 各种资源的时机
-
-UPDATE: 看了 sound-redux 的源码，是在 componentWillMount 中请求的。
-用户没有登录前，就只能看到个首页，很多资源根本就不需要去 fetch .
 
 用户的登录态完全由 store 中的 isAuthenticated 去控制。
 
@@ -145,19 +89,6 @@ const show = props.currentUser &&
 ```
 
 也就是通过 && 来防止取值的时候报错。
-
-
-### 展示组件层级明晰
-
-- 有了一句话 container ，页面上所有的布局都会交给展示组件。
-- 展示组件要层级分明，较高层级的展示组件中只包含大块布局，每个大块布局中包裹一个 container 即可，不要有任何的页面细节
-- 总之，每一级组件就干那个级别应该干的事情。
-
-### 一个重要的问题，
-
-一个 selector 能不能接收 state 之外的参数？
-
-看了一下 sound-redux 项目，答案是否定的，毕竟 selector 是在 mapStateToProps 中使用，除了 state 也没有什么变量可以用的。
 
 
 ### 解决初始值为空造成的报错
@@ -243,10 +174,6 @@ Dan 的习惯用 REQUEST_XXX （而不用其他人喜欢的 XXX_START），用 D
 - 失败当然就是 CHECKOUT_FAILURE 了
 
 上面的六条都是 DAN 的 redux 官方 examples 中的命名方式。相关的一个包是 redux-promise-middleware 可以简化上述过程。
-
-### 高复用度组件
-
-类似 Avatar 这种，一定要抽离，避免重复定义
 
 
 ### 组件规范
@@ -343,3 +270,51 @@ this.props.updateAvatar({formData})
 ```
 
 导致，传递给 axios 的实际数据是一个空对象，所以请求的 Content-Type 一直就都是 application/json 。
+
+
+# 轮播图
+
+使用了 https://github.com/akiran/react-slick 。
+
+### 坑：关于 dish-card 的高度
+
+dish-card 是我自己定义的。
+
+下面在定义 slideStr 的时候，dish-card 之外必须包裹一层 div ，这样 dish-card 自身设置的高度才会生效。
+
+```
+let slideStr = [
+  <div className='dish-card-wrap' key='1'>
+    <div className='dish-card'>
+      hh
+    </div>
+  </div>,
+  <div className='dish-card-wrap' key='2'>
+    <div className='dish-card'>
+    </div>
+  </div>
+]
+
+let slides = (
+  <Slider {...settings}>
+    { slideStr}
+  </Slider>
+)
+```
+
+### 坑：关于 dot 的拜访
+
+下面的几个点，我希望用 flexbox 形式让它们始终停留在屏幕最底端，不过由于作者对 dot 的位置设置用了
+
+```
+position: absolute;
+margin-top: -25px;
+```
+
+这样的操作，导致设置 flexbox 遇到了困难。所以，还是干脆给卡片本身设置了：
+
+```
+height: 75vh
+```
+
+下方给 dot 留出了足够的显示空间。这样效果也并不难看，而且也能适应大部分屏幕尺寸。
