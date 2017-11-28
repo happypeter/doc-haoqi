@@ -1,4 +1,4 @@
-
+Settings参考这里的方式写 https://github.com/andrewngu/sound-redux/blob/master/client/src/constants/ApiConstants.js
 
 ### 章节划分
 
