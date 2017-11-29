@@ -1,7 +1,7 @@
 {
-  "vlink": "http://haoqicat-1253322599.costj.myqcloud.com/yummy",
+  "vlink": "http://haoqicat-1253322599.costj.myqcloud.com/yummy-p2",
   "cover_video": "",
-  "name": "REACT 社交化电商--架构篇",
+  "name": "REACT 社交化电商--功能篇",
   "price": "24",
   "intro": "使用 React+Redux+AntDesign 开发的电商系统，融入了 follow 朋友，查看朋友更新等社交化因素，深入使用了 Redux",
   "writing_to_who": "已经入门 React 的学习者，了解 Redux/React-router 基本使用，想要查看一门详细的实战课程的朋友",
@@ -73,7 +73,7 @@
     {
       "header": "第三章 添加增强型功能和授权",
       "section": [
-        {
+         {
           "title": "持久化登录态",
           "link": "13-refresh"
         },
