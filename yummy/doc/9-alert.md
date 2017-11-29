@@ -246,7 +246,7 @@ index f566a4a..a698021 100644
 -  return state
 +  switch (action.type) {
 +    case types.ALERT:
-+      return { ...state, show: true }
++      return { show: true }
 +    default:
 +      return state
 +  }
@@ -375,8 +375,8 @@ index a698021..1232268 100644
  const alert = (state=initAlert, action) => {
    switch (action.type) {
      case types.ALERT:
--      return { ...state, show: true }
-+      return { ...state, show: true, msg: action.msg }
+-      return {  show: true }
++      return {  show: true, msg: action.msg }
      default:
        return state
    }
@@ -525,9 +525,9 @@ index 1232268..490055b 100644
 @@ -19,6 +19,8 @@ const alert = (state=initAlert, action) => {
    switch (action.type) {
      case types.ALERT:
-       return { ...state, show: true, msg: action.msg }
+       return { show: true, msg: action.msg }
 +    case types.HIDE_ALERT:
-+       return { ...state, show: false, msg: '' }
++       return { show: false, msg: '' }
      default:
        return state
    }
