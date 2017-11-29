@@ -256,6 +256,7 @@ index 4769944..3ad409b 100644
 +
 +export const logout = () => {
 +  history.push('/')
++  window.localStorage.removeItem('userId')
 +  return dispatch => dispatch({ type: types.LOGOUT })
 +}
 ```
