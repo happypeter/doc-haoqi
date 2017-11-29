@@ -1,0 +1,107 @@
+{
+  "vlink": "https://haoqicat-1253322599.costj.myqcloud.com/redux-hello",
+  "cover_video": "index",
+  "name": "Hello Redux",
+  "price": "40",
+  "intro": "课程过期，已经有第二版了，在 haoqicat.com/redux-hello-v2",
+  "writing_to_who": "不算基础课程，适合有基本 JS 能力的同学，看了《塔顶上 redux 课程觉得看不懂的同学",
+  "learning_goal": "Redux 三大概念，redux-thunk 和组件间通信的一些最简单的案例",
+  "service": [
+      "所有课程视频和文字稿",
+      "所有相关代码",
+      "课程有效期为一年"
+  ],
+  "content": [
+    {
+      "header": "第一章：基础内容",
+      "section": [
+        {
+          "title": "你好 Redux",
+          "link": "1-hello"
+        },
+        {
+          "title": "搭建基本 React-Webpack 环境",
+          "link": "2-env"
+        },
+        {
+          "title": "内部 State 使用",
+          "link": "3-state"
+        },
+        {
+          "title": "Redux Store 数据大本营",
+          "link": "4-store"
+        },
+        {
+          "title": "React 充电：组件何时会被再次 render",
+          "link": "5-rerender"
+        },
+        {
+          "title": "connect 动态读取 store 数据",
+          "link": "6-connect"
+        }
+      ]
+    },
+    {
+      "header": "第二章：处理两类数据",
+      "section": [
+        {
+          "title": "添加 React-Router",
+          "link": "7-router"
+        },
+        {
+          "title": "root Reducer",
+          "link": "8-root-reducer"
+        },
+        {
+          "title": "每篇 post 显示自己的评论",
+          "link": "9-post-comment"
+        },
+        {
+          "title": "修复提交评论功能",
+          "link": "10-submit-comment"
+        },
+        {
+          "title": "添加点赞功能",
+          "link": "11-likes"
+        },
+        {
+          "title": "完成首页列表",
+          "link": "12-list"
+        }
+      ]
+    },
+    {
+      "header": "第三章：提高篇",
+      "section": [
+        {
+          "title": "理解 Redux 的单向数据流",
+          "link": "13-flow"
+        },
+        {
+          "title": "组件内不出现 state",
+          "link": "14-no-state"
+        },
+        {
+          "title": "引入 redux-thunk",
+          "link": "15-thunk"
+        },
+        {
+          "title": "redux-thunk 实现异步操作",
+          "link": "16-async"
+        },
+        {
+          "title": "从服务器端加载数据",
+          "link": "17-load"
+        },
+        {
+          "title": "整理数据",
+          "link": "18-data-trans"
+        },
+        {
+          "title": "收尾",
+          "link": "19-finish"
+        }
+      ]
+    }
+  ]
+}

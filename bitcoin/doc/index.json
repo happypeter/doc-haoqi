@@ -1,0 +1,109 @@
+{
+  "vlink": "https://haoqicat-1253322599.costj.myqcloud.com/bitcoin",
+  "cover_video": "",
+  "name": "快乐新知比特币",
+  "price": "57",
+  "intro": "比特币的一些入门级知识，课程里的幻灯片我可是下了功夫的",
+  "writing_to_who": "课程的目的是普及区块链和比特币知识，又看了课程后去买比特币的同学，赔赚都跟 Peter 无关哈",
+  "learning_goal": "内容产生于 2014 年前两个季度，李笑来先生对我付出的劳动进行了全额资助。最早托管在 knewcoin 网站上，所以视频中会出现很多 knewcoin 字样",
+  "service": [
+    "所有课程视频和文字稿",
+    "所有相关代码",
+    "课程有效期为一年"
+  ],
+  "content": [
+    {
+      "header": "第一章：比特币基础",
+      "section": [
+        {
+          "title": "比特币的由来",
+          "link": "000-history"
+        },
+        {
+          "title": "挖矿",
+          "link": "001-mining"
+        },
+        {
+          "title": "如何获得比特币？",
+          "link": "002-how-to-get"
+        },
+        {
+          "title": "钱包",
+          "link": "003-wallet"
+        },
+        {
+          "title": "交易所购买比特币",
+          "link": "004-buy-in-exchange"
+        }
+      ]
+    },
+    {
+      "header": "第二章：专题介绍 blockchain.info",
+      "section": [
+        {
+          "title": "第一部分",
+          "link": "005-blockchaininfo-p1"
+        },
+        {
+          "title": "第二部分",
+          "link": "006-blockchaininfo-p2"
+        },
+        {
+          "title": "第三部分",
+          "link": "007-blockchaininfo-p3"
+        }
+      ]
+    },
+    {
+      "header": "第三章：钱包分类",
+      "section": [
+        {
+          "title": "纸钱包",
+          "link": "008-paperwallet"
+        },
+        {
+          "title": "钱包分类",
+          "link": "009-wallet-cat"
+        }
+      ]
+    },
+    {
+      "header": "第四章：趣味网络安全",
+      "section": [
+        {
+          "title": "哈希算法",
+          "link": "010-hash"
+        },
+        {
+          "title": "数字签名",
+          "link": "011-digi-sig"
+        },
+        {
+          "title": "加密通信怎么玩？",
+          "link": "012-crypto"
+        },
+        {
+          "title": "Merkle 树原理",
+          "link": "013-merkle-tree"
+        },
+        {
+          "title": "分而不散的 P2P 网络",
+          "link": "014-p2p"
+        }
+      ]
+    },
+    {
+      "header": "第五章：收尾",
+      "section": [
+        {
+          "title": "两种文化的融合",
+          "link": "015-two-culture"
+        },
+        {
+          "title": "比特币底层原理",
+          "link": "016-under"
+        }
+      ]
+    }
+  ]
+}

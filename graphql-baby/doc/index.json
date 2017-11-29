@@ -1,0 +1,88 @@
+{
+  "vlink": "https://haoqicat-1253322599.costj.myqcloud.com/graphql-baby",
+  "cover_video": "",
+  "name": "GraphQL 婴儿",
+  "price": "38",
+  "intro": "",
+  "writing_to_who": "不是初级课程，适合已经对 RESTful 架构有了解，自己动手实现过 API 的朋友们。即使项目不用，看看课程中实际的 Express 代码，对迅速掌握 GraphQL 的基本思想也是好使的。",
+  "learning_goal": "GraphQL 基本概念，使用 API 调试工具 GraphiQL ，基于 Express 框架，实现各种请求接口，了解 GraphQL Schema 文件的格式，使用 GraphQL 对应 Mongodb 的一对多关系型数据。",
+  "service": [
+    "所有课程视频和文字稿",
+    "课程最终代码",
+    "课程服务期为一年"
+  ],
+  "content": [
+    {
+      "header": "第一章 GraphQL 基础知识简介",
+      "section": [
+        {
+          "title": "GraphQL 简介",
+          "link": "1-intro"
+        },
+        {
+          "title": "安装 GraphiQL",
+          "link": "2-graphiql-install"
+        },
+        {
+          "title": "演示 GraphiQL 的基本使用",
+          "link": "3-graphiql-usage"
+        },
+        {
+          "title": "搭建一个最简单的 Express 应用",
+          "link": "4-express"
+        },
+        {
+          "title": "编写一个 GraphQL Schema",
+          "link": "5-graphql"
+        },
+        {
+          "title": "搭建一个 GraphQL Server",
+          "link": "6-graphql-server"
+        }
+      ]
+    },
+    {
+      "header": "第二章 GraphQL 查询操作",
+      "section": [
+        {
+          "title": "使用 MongoDB 数据库存储数据",
+          "link": "7-mongoose"
+        },
+        {
+          "title": "构建获取单个用户信息的 GraphQL API",
+          "link": "8-graphql-user-api"
+        },
+        {
+          "title": "构建获取所有用户信息的 GraphQL API",
+          "link": "9-graphql-api-users"
+        },
+        {
+          "title": "构建获取用户链接资源的 GraphQL API",
+          "link": "10-graphql-hierarchical"
+        }
+      ]
+    },
+    {
+      "header": "第三章 GraphQL Mutation 操作",
+      "section": [
+        {
+          "title": "实现添加用户 GraphQL API",
+          "link": "11-graphql-mutation"
+        },
+        {
+          "title": "实现更新和删除用户的 GraphQL API",
+          "link": "12-graphql-update-api"
+        }
+      ]
+    },
+    {
+      "header": "第四章 Goodbye",
+      "section": [
+        {
+          "title": "下一步的学习建议",
+          "link": "13-end"
+        }
+      ]
+    }
+  ]
+}

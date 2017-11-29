@@ -1,0 +1,146 @@
+{
+  "vlink": "https://haoqicat-1253322599.costj.myqcloud.com/gitbeijing",
+  "cover_video": "gitbeijing-intro",
+  "name": "Git 北京",
+  "price": "47",
+  "intro": "摩登 JS 开发者所需的最实用的 Git 版本控制功夫，命令行中遨游以及与远端 Github/Coding 仓库互动的技巧。",
+  "writing_to_who": "摩登 JS 全栈开发者。使用其他类型语言框架（ RubyOnRails 等）进行 Web 开发的朋友。对 Git 版本控制一无所知的，初入编程之门的新人。",
+  "learning_goal": "Git 版本控制图解教程，介绍版本控制的重要概念。本地版本控制协同 Github 远端操作。高级部分，介绍开辟新分支合并分支，解决 merge 冲突，分析常见错误。",
+  "service": [
+   "本课程视频，以及文字稿",
+   "本课程后续更新的内容"
+  ],
+  "content": [
+    {
+      "header": "第一章：课程路线图",
+      "section": [
+        {
+          "title": "如何学习 Gitbeijing ？",
+          "link": "1-1-howto"
+        }
+      ]
+    },
+    {
+      "header": "第二章：搬进 Github",
+      "section": [
+        {
+          "title": "本章简介",
+          "link": "2-1-intro"
+        },
+        {
+          "title": "浏览器中使用 github",
+          "link": "2-2-browser"
+        },
+        {
+          "title": "本地安装 Git",
+          "link": "2-3-local"
+        },
+        {
+          "title": "创建本地仓库",
+          "link": "2-4-create"
+        },
+        {
+          "title": "删除一个仓库",
+          "link": "2-5-remove-repo"
+        },
+        {
+          "title": "版本控制四步走",
+          "link": "2-6-vc4"
+        },
+        {
+          "title": "回滚历史",
+          "link": "2-7-throw"
+        },
+        {
+          "title": "连接 Github",
+          "link": "2-8-connect-github"
+        }
+      ]
+    },
+    {
+      "header": "第三章：深入命令行",
+      "section": [
+        {
+          "title": "添加 ssh key",
+          "link": "3-1-sshkey"
+        },
+        {
+          "title": "配置系统",
+          "link": "3-2-config-system"
+        },
+        {
+          "title": "~/.gitconfig 中的东东",
+          "link": "3-3-gitconfig"
+        }
+      ]
+    },
+    {
+      "header": "第四章：搬进 Coding.net",
+      "section": [
+        {
+          "title": "为何迁移到 Coding ？",
+          "link": "4-1-why"
+        },
+        {
+          "title": "Coding 的页面托管服务",
+          "link": "4-2-coding-pages"
+        },
+        {
+          "title": "提交多个分支",
+          "link": "4-3-coding-more-branch"
+        },
+        {
+          "title": "Atom/git/coding 的三角关系",
+          "link": "4-4-three"
+        }
+      ]
+    },
+    {
+      "header": "第五章：分支专题",
+      "section": [
+        {
+          "title": "简单分支操作",
+          "link": "5-1-simple-branch"
+        },
+        {
+          "title": "合并分支",
+          "link": "5-2-merge"
+        },
+        {
+          "title": "Github 工作流",
+          "link": "5-3-github-flow"
+        },
+        {
+          "title": "贡献开源项目的流程",
+          "link": "5-4-fork-flow"
+        }
+      ]
+    },
+    {
+      "header": "第六章：更多 Github 技巧",
+      "section": [
+        {
+          "title": "Issues 的使用",
+          "link": "6-1-issues"
+        },
+        {
+          "title": "Github Pages 搭建免费网站",
+          "link": "6-2-pages"
+        },
+        {
+          "title": "更多 Github 的秘密",
+          "link": "6-3-more"
+        }
+      ]
+    },
+    {
+      "header": "第七章：Goodbye",
+      "section": [
+        {
+          "title": "更多学习建议",
+          "link": "7-1-bye"
+        }
+      ]
+    }
+  ]
+}

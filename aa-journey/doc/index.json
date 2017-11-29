@@ -1,0 +1,170 @@
+{
+  "vlink": "https://haoqicat-1253322599.costj.myqcloud.com/aa-journey",
+  "cover_video": "index",
+  "name": "认证授权双A之旅",
+  "price": "40",
+  "intro": "认证，授权，登录登出，Cookie-Session，以及其他",
+  "writing_to_who": "不算基础课程，适合有基本 JS 能力的同学，但是又比案例课程简单，讲的细致很多",
+  "learning_goal": "Cookie ，Session，用户登录态管理，购物车功能实现，API 设计，API 使用，Nodejs+React 前后台分离的架构",
+  "service": [
+      "所有课程视频和文字稿",
+      "所有相关代码",
+      "课程有效期为一年"
+  ],
+  "content": [
+    {
+      "header": "第一章：初级内容",
+      "section": [
+        {
+          "title": "cookie",
+          "link": "1-cookie"
+        },
+        {
+          "title": "session",
+          "link": "2-session"
+        },
+        {
+          "title": "Express Session 接口实现登录功能（上半部分）",
+          "link": "3-session-demo-p1"
+        },
+        {
+          "title": "Express Session 接口实现登录功能（下半部分）",
+          "link": "4-session-demo-p2"
+        }
+      ]
+    },
+    {
+      "header": "第二章：创建商品分类",
+      "section": [
+        {
+          "title": "后台 API",
+          "link": "5-new-cat-p1"
+        },
+        {
+          "title": "前端功能--基本环境搭建",
+          "link": "6-new-cat-p2"
+        },
+        {
+          "title": "前端功能--路由",
+          "link": "7-new-cat-p3"
+        },
+        {
+          "title": "展示所有商品分类",
+          "link": "8-new-cat-p4"
+        },
+        {
+          "title": "添加分类",
+          "link": "9-new-cat-p5"
+        },
+        {
+          "title": "删除分类",
+          "link": "10-new-cat-p6"
+        }
+      ]
+    },
+    {
+      "header": "第三章：创建商品和用户登录",
+      "section": [
+        {
+          "title": "创建商品",
+          "link": "11-new-product"
+        },
+        {
+          "title": "用户注册登录（ API 功能 ）",
+          "link": "12-signup-api"
+        },
+        {
+          "title": "用户注册登录（ 前端功能 ）",
+          "link": "13-signup-react"
+        }
+      ]
+    },
+    {
+      "header": "第四章：redux 实现注册登录功能",
+      "section": [
+        {
+          "title": "添加 CSS",
+          "link": "14-css"
+        },
+        {
+          "title": "数据入 Store",
+          "link": "15-store"
+        },
+        {
+          "title": "触发 Reducer",
+          "link": "16-reducer"
+        },
+        {
+          "title": "刷新页面保持用户名不消失",
+          "link": "17-localstorage"
+        },
+        {
+          "title": "通过本地随机数换取服务器端用户信息",
+          "link": "18-getbyid"
+        },
+        {
+          "title": "维持登录态",
+          "link": "19-show-username"
+        },
+        {
+          "title": "退出登录",
+          "link": "20-logout"
+        }
+      ]
+    },
+    {
+      "header": "第五章：完成最终案例",
+      "section": [
+        {
+          "title": "按照设计稿开发",
+          "link": "21-design"
+        },
+        {
+          "title": "何时使用 defaultState ？",
+          "link": "22-default-state"
+        },
+        {
+          "title": "添加删除分类",
+          "link": "23-cat"
+        },
+        {
+          "title": "Airbnb 的 React 代码规范",
+          "link": "24-airbnb"
+        },
+        {
+          "title": "新建课程",
+          "link": "25-new-course"
+        },
+        {
+          "title": "添加购物车",
+          "link": "26-cart"
+        },
+        {
+          "title": "禁用购买按钮",
+          "link": "27-buy"
+        },
+        {
+          "title": "提交订单",
+          "link": "28-order"
+        },
+        {
+          "title": "个人中心显示已购买课程",
+          "link": "29-profile"
+        },
+        {
+          "title": "授权检测",
+          "link": "30-require-auth"
+        }
+      ]
+    },
+    {
+      "header": "第六章：结语",
+      "section": [
+        {
+          "title": "下一步的学习",
+          "link": "31-next-step"
+        }
+      ]
+    }
+  ]
+}

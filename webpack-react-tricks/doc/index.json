@@ -1,0 +1,70 @@
+{
+  "vlink": "https://haoqicat-1253322599.costj.myqcloud.com/webpack-react-tricks",
+  "name": "Webpack-React 环境搭建技巧",
+  "price": "31",
+  "intro": "从简单到简单，哈哈，一步步的介绍如何搭建开发 React 项目所需要的 Webpack 构建环境",
+  "writing_to_who": "有基本的 HTML/JS/CSS 开发能力的朋友，对 React 有基本了解",
+  "learning_goal": "从 Webpack 最基本的如何打包 ES6 模块开始，演示如何编译 React 组件，CSS 模块，如何实现 Sourcemap ，书写 npm 脚本等实用技巧",
+  "service": [
+    "本课程视频，以及文字稿",
+    "示例代码",
+    "课程服务期限为一年"
+  ],
+  "content": [
+    {
+      "header": "第一章 Webpack 经典配置",
+      "section": [
+        {
+          "title": "Webpack 简介",
+          "link": "1-webpack-intro"
+        },
+        {
+          "title": "Webpack-Babel 编译 ES6",
+          "link": "2-webpack-es6"
+        },
+        {
+          "title": "Webpack 打捆 ES6 模块",
+          "link": "3-webpack-module"
+        },
+        {
+          "title": "Webpack 编译 React",
+          "link": "4-react"
+        }
+      ]
+    },
+    {
+      "header": "第二章 略高级操作",
+      "section": [
+        {
+          "title": "使用 Sourcemap 提供准确报错位置",
+          "link": "5-sourcemap"
+        },
+        {
+          "title": "Npm Scripts",
+          "link": "6-npm-scripts"
+        },
+        {
+          "title": "使用 webpack-dev-server 辅助开发",
+          "link": "7-dev-server"
+        },
+        {
+          "title": "模块热替换",
+          "link": "8-hmr"
+        },
+        {
+          "title": "加载 CSS",
+          "link": "9-css"
+        }
+      ]
+    },
+    {
+      "header": " 第三章 结语",
+      "section": [
+        {
+          "title": "进一步的学习思路",
+          "link": "10-end"
+        }
+      ]
+    }
+  ]
+}
