@@ -1,10 +1,10 @@
 ### 请求 API 实现登录注册
 
-欢迎进入新的小节 《请求 API 实现登录注册》。
+欢迎进入新的小节 《请求 API 实现登录注册》。用代码，而不是 postman 来请求 API 。
 
-### Action 创建器中使用 axios
+### Action 中使用 axios
 
-进入《 Action 创建器中使用 axios》这个部分。以请求注册接口为例。
+进入《 Action 中使用 axios》这部分。先来请求注册接口。
 
 安装 axios 。
 
@@ -14,23 +14,23 @@ npm i axios
 
 这样代码中就能用了。
 
-API 链接添加到常量文件中。
+请求之前，先把 API 链接添加到常量文件中。
 
 ```diff
-diff --git a/client/src/constants/ApiContants.js b/client/src/constants/ApiContants.js
+diff --git a/client/src/constants/ApiConstants.js b/client/src/constants/ApiConstants.js
 new file mode 100644
 index 0000000..e517f7c
 --- /dev/null
-+++ b/client/src/constants/ApiContants.js
++++ b/client/src/constants/ApiConstants.js
 @@ -0,0 +1,3 @@
 +const API_HOSTNAME = '//localhost:3008'
 +
 +export const SIGNUP_URL = `${API_HOSTNAME}/user/signup`
 ```
 
-写到一个地方，多个地方都能用。
+写到一个地方，随时复用，方便多多。
 
-创建一个 Action 创建器文件 authActions.js ，里面添加 signup 。
+创建一个 Action 文件 authActions.js ，里面添加注册对应的 action 。
 
 ```diff
 diff --git a/client/src/actions/authActions.js b/client/src/actions/authActions.js
@@ -56,8 +56,54 @@ index 0000000..98b51a1
 
 打印服务器返回的成功或者报错信息。
 
-来使用 signup 这个函数。
+来使用 signup 这个函数，先到容器组件中导入
 
+```diff
+diff --git a/client/src/containers/SignupContainer.js b/client/src/containers/SignupContainer.js
+index c7403d0..24d4395 100644
+--- a/client/src/containers/SignupContainer.js
++++ b/client/src/containers/SignupContainer.js
+@@ -2,9 +2,11 @@ import React from 'react'
+ import Signup from '../components/Signup'
+ import { setTitle } from '../actions/commonActions'
+ import { connect } from 'react-redux'
++import { signup } from '../actions/authActions'
+ 
+ const SignupContainer = props => <Signup {...props} />
+ 
+ export default connect(null, {
+-  setTitle
++  setTitle,
++  signup
+ })(SignupContainer)
+```
+
+传递给展示组件。
+
+展示组件中继续传递。
+
+```diff
+diff --git a/client/src/components/Signup.js b/client/src/components/Signup.js
+index 3a028f1..7c1fd17 100644
+--- a/client/src/components/Signup.js
++++ b/client/src/components/Signup.js
+@@ -9,7 +9,10 @@ class Signup extends Component {
+ 
+   render () {
+     return (
+-      <Form config={signupConfig} />
++      <Form
++        config={signupConfig}
++        onFormSubmit={this.props.signup}
++      />
+     )
+   }
+ }
+```
+
+交给 Form 组件去处理。
+
+Form 组件中。
 
 ```diff
 diff --git a/client/src/components/Form.js b/client/src/components/Form.js
@@ -73,69 +119,33 @@ index 76cfa04..c4b7b63 100644
    }
  
    render() {
-diff --git a/client/src/components/Signup.js b/client/src/components/Signup.js
-index 523f67f..c237b8c 100644
---- a/client/src/components/Signup.js
-+++ b/client/src/components/Signup.js
-@@ -8,7 +8,10 @@ class Signup extends Component {
-   }
-   render () {
-     return (
--      <Form config={signupConfig} />
-+      <Form
-+        config={signupConfig}
-+        onFormSubmit={this.props.signup}
-+      />
-     )
-   }
- }
-diff --git a/client/src/containers/SignupContainer.js b/client/src/containers/SignupContainer.js
-index c7403d0..21c3914 100644
---- a/client/src/containers/SignupContainer.js
-+++ b/client/src/containers/SignupContainer.js
-@@ -1,10 +1,12 @@
- import React from 'react'
- import Signup from '../components/Signup'
- import { setTitle } from '../actions/commonActions'
-+import { signup } from '../actions/authActions'
- import { connect } from 'react-redux'
- 
- const SignupContainer = props => <Signup {...props} />
- 
- export default connect(null, {
--  setTitle
-+  setTitle,
-+  signup
- })(SignupContainer)
 ```
 
-这样，每次表单提交就都可以执行 signp 这个 Action 创建器了。
+用户点注册按钮的时候，执行这个函数。
 
 来看看本部分的劳动成果。到注册页面，填写用户名密码，注册成功然后重复注册，终端会显示出成和失败信息。
 
-至此，《 Action 创建器中使用 axios》这部分就胜利完成了。
+至此，《 Action 中使用 axios》这部分就胜利完成了。
 
 ### 调通登录功能
 
-进入《调通登录功能》这个部分。思路跟前一部分完全一样。
+进入下一部分《调通登录功能》。思路跟前一部分完全一样。
 
 ```diff
 diff --git a/client/src/actions/authActions.js b/client/src/actions/authActions.js
-index 9f2bb1b..05229d5 100644
+index 58434ee..b737787 100644
 --- a/client/src/actions/authActions.js
 +++ b/client/src/actions/authActions.js
-@@ -1,5 +1,5 @@
+@@ -1,4 +1,4 @@
+-import { SIGNUP_URL } from '../constants'
++import { SIGNUP_URL, LOGIN_URL } from '../constants/ApiConstants'
  import axios from 'axios'
--import { SIGNUP_URL } from '../constants/ApiContants'
-+import { LOGIN_URL, SIGNUP_URL } from '../constants/ApiContants'
  
  export const signup = data => dispatch => {
-   axios.post(SIGNUP_URL, data).then(res => {
-@@ -11,3 +11,19 @@ export const signup = data => dispatch => {
+@@ -11,3 +11,18 @@ export const signup = data => dispatch => {
      }
    })
  }
-+
 +
 +export const login = data => {
 +  return dispatch => {
@@ -152,11 +162,15 @@ index 9f2bb1b..05229d5 100644
 +  }
 +}
 diff --git a/client/src/components/Login.js b/client/src/components/Login.js
-index d002f64..fd0de94 100644
+index ff79b4c..fd0de94 100644
 --- a/client/src/components/Login.js
 +++ b/client/src/components/Login.js
-@@ -9,7 +9,10 @@ class Login extends Component {
- 
+@@ -6,10 +6,13 @@ class Login extends Component {
+   componentDidMount () {
+     this.props.setTitle('登录')
+   }
+-  
++
    render () {
      return (
 -      <Form config={loginConfig} />
@@ -167,25 +181,24 @@ index d002f64..fd0de94 100644
      )
    }
  }
-diff --git a/client/src/constants/ApiContants.js b/client/src/constants/ApiContants.js
+diff --git a/client/src/constants/ApiConstants.js b/client/src/constants/ApiConstants.js
 index e517f7c..eddf76e 100644
---- a/client/src/constants/ApiContants.js
-+++ b/client/src/constants/ApiContants.js
+--- a/client/src/constants/ApiConstants.js
++++ b/client/src/constants/ApiConstants.js
 @@ -1,3 +1,4 @@
  const API_HOSTNAME = '//localhost:3008'
  
  export const SIGNUP_URL = `${API_HOSTNAME}/user/signup`
 +export const LOGIN_URL = `${API_HOSTNAME}/user/login`
 diff --git a/client/src/containers/LoginContainer.js b/client/src/containers/LoginContainer.js
-index 6d8b399..78deadd 100644
+index 6d8b399..0205759 100644
 --- a/client/src/containers/LoginContainer.js
 +++ b/client/src/containers/LoginContainer.js
-@@ -1,10 +1,12 @@
- import React from 'react'
+@@ -2,9 +2,11 @@ import React from 'react'
  import Login from '../components/Login'
  import { setTitle } from '../actions/commonActions'
-+import { login } from '../actions/authActions'
  import { connect } from 'react-redux'
++import { login } from '../actions/authActions'
  
  const LoginContainer = props => <Login {...props} />
  
@@ -205,9 +218,9 @@ index 6d8b399..78deadd 100644
 
 ### 实现页面跳转
 
-进入《实现页面跳转》这个部分。注册和登录成功后，需要自动跳转到操作盘页面，主要一个技巧就是在 Action 创建器文件中获得 history 对象。
+进入下一部分《实现页面跳转》。注册和登录成功后，需要自动跳转到操作盘页面，主要一个技巧就是在 Action 文件中获得 history 对象。
 
-要在 Action 创建器中使用 history 对象，需要把 React-router 的代码稍微改一下，先来引入一个专门的 history 文件。
+要在 Action 创建器中使用 history 对象，需要把 React-router 的代码稍微改一下，因为 React-router 默认使用自己内置的 history ，而 action 文件不在  react-router 的包裹范围内，所以用不了这个 history 。所以需要来定义一个全局的 history 文件。
 
 ```diff
 diff --git a/client/src/utils/routerUtils.js b/client/src/utils/routerUtils.js
@@ -221,33 +234,33 @@ index 0000000..96dc48a
 +export const history = createBrowserHistory()
 ```
 
-官方文档上有对 `createBrowserHistory` 的详细解释。
+然后在各个地方都使用这个 history ，就能实现导航了。
 
-接下来，在全局的 Router 中使用这个专门创建的 history 。
+接下来， Router 中使用这个专门创建的 history 。
 
 
 ```diff
 diff --git a/client/src/containers/App.js b/client/src/containers/App.js
-index 46a3123..bc421cc 100644
+index 9cbb500..6c36bde 100644
 --- a/client/src/containers/App.js
 +++ b/client/src/containers/App.js
-@@ -2,16 +2,17 @@ import React, { Component } from 'react'
- import HomeContainer from './HomeContainer'
+@@ -2,8 +2,9 @@ import React, { Component } from 'react'
  import '../assets/global.css'
+ import HomeContainer from './HomeContainer'
  import LayoutContainer from './LayoutContainer'
 +import { Router } from 'react-router'
++import { history } from '../utils/routerUtils'
  import {
 -  BrowserRouter as Router,
    Switch,
    Route
  } from 'react-router-dom'
-+import { history } from '../utils/routerUtils'
- 
+@@ -11,7 +12,7 @@ import {
  class App extends Component {
    render () {
      return (
 -      <Router>
-+      <Router history={history}>
++      <Router history={history} >
          <Switch>
            <Route exact path='/' component={HomeContainer} />
            <Route component={LayoutContainer} />
@@ -285,7 +298,7 @@ index 05229d5..562b529 100644
          if(err.response){
 ```
 
-这里 push 到 history 中的东西会直接反映到全局的 router 中，页面跳转也就可以实现了。
+这样页面跳转也就可以实现了。
 
 来看看本部分的劳动成果。页面中分别尝试登录和注册。可以看到成功后页面都会跳转到 /dashboard 操作盘页面。
 
@@ -296,7 +309,5 @@ index 05229d5..562b529 100644
 进入最后一部分《结语》。
 
 先来复盘一下本节的思路。首先引入了 axios 来取代 postman 发送 API 请求，让我们可以从页面中直接实现登录和注册，然后介绍了如何自定义 history 对象，来实现从 Action 中进行页面跳转的功能。
-
-再来看看本节的最终劳动成果。分别到登录注册页面，输入正确的信息，页面上可以实现跳转到操作盘页面的效果。输出错误的信息，终端中可以打印出错误来。
 
 至此，《请求 API 实现登录注册》这一小节就胜利完成了。

@@ -8,15 +8,35 @@
 
 拷贝 Signup 命名为 SignupWithAlert 。添加一个黑底白字透明度为60%的小框框。这个是咱们的全局提示框，意思是任何页面中有错误都可以呼叫这个小框框来展示。
 
-既然是全局提示，那么就把他添加在一个全局的位置。
+
+先添加容器组件。
+
+```diff
+diff --git a/client/src/containers/AlertBoxContainer.js b/client/src/containers/AlertBoxContainer.js
+new file mode 100644
+index 0000000..38f1876
+--- /dev/null
++++ b/client/src/containers/AlertBoxContainer.js
+@@ -0,0 +1,6 @@
++import React from 'react'
++import AlertBox from '../components/AlertBox'
++
++const AlertBoxContainer = props => <AlertBox {...props} />;
++
++export default AlertBoxContainer
+````
+
+一个连接各方代码的中间人。
+
+再来添加展示组件。
 
 ```diff
 diff --git a/client/src/components/AlertBox.js b/client/src/components/AlertBox.js
 new file mode 100644
-index 0000000..cf7c0a7
+index 0000000..002aa9a
 --- /dev/null
 +++ b/client/src/components/AlertBox.js
-@@ -0,0 +1,28 @@
+@@ -0,0 +1,27 @@
 +import React, { Component } from 'react'
 +import styled from 'styled-components'
 +
@@ -32,7 +52,6 @@ index 0000000..cf7c0a7
 +
 +export default AlertBox
 +
-+
 +const Wrap = styled.div`
 +  position: fixed;
 +  top: 50%;
@@ -45,6 +64,15 @@ index 0000000..cf7c0a7
 +  line-height: 1.8;
 +  background-color: rgba(0,0,0,.8);
 +`
+```
+
+就是一个小框框么，没有多复杂。
+
+
+既然是全局提示，那么就把它添加在一个全局的位置。
+
+
+```diff
 diff --git a/client/src/components/Layout.js b/client/src/components/Layout.js
 index d56950e..4368d12 100644
 --- a/client/src/components/Layout.js
@@ -65,21 +93,9 @@ index d56950e..4368d12 100644
      <Header>
        { title }
      </Header>
-diff --git a/client/src/containers/AlertBoxContainer.js b/client/src/containers/AlertBoxContainer.js
-new file mode 100644
-index 0000000..38f1876
---- /dev/null
-+++ b/client/src/containers/AlertBoxContainer.js
-@@ -0,0 +1,6 @@
-+import React from 'react'
-+import AlertBox from '../components/AlertBox'
-+
-+const AlertBoxContainer = props => <AlertBox {...props} />;
-+
-+export default AlertBoxContainer
 ```
 
-添加到了布局文件中，通过 styled-components 的形式添加了 CSS ，通过 `postion fixed` 和 `transform` 的配合实现了一个小块的居中。
+添加到了布局文件中。
 
 来看看本部分的劳动成果。除了首页，其他页面上现在都默认显示一个提示框了。所谓全局的效果已经出来了。
 
@@ -87,11 +103,9 @@ index 0000000..38f1876
 
 ### redux 状态控制显示
 
-进入《redux 状态控制显示》这个部分。默认提示框肯定是隐藏的，需要有一个专门的 redux 字段来控制它。
-
+进入下一部分《redux 状态控制显示》。默认提示框肯定是隐藏的，需要有一个专门的 redux 字段来控制它。
 
 redux 中添加 alert 字段。
-
 
 ```diff
 diff --git a/client/src/reducers/common.js b/client/src/reducers/common.js
@@ -131,6 +145,8 @@ index 001f20b..a3e8d83 100644
 +export const getShowAlert = state => state.common.alert.show
 ```
 
+状态树中的固有字段，直接拿。
+
 容器组件中先来拿到这个值。
 
 ```diff
@@ -157,7 +173,6 @@ export default connect(mapStateToProps)(LayoutContainer)
 
 这样展示组件 Layout 中就拿到了一个新属性 showAlert 。
 
-
 展示组件里来使用这个属性。
 
 ```diff
@@ -180,7 +195,6 @@ index 4368d12..52b6d4b 100644
  ```
 
 就可以通过 `showAlert` 来决定要不要显示提示框了。
-
 
 来看一下本部分的劳动成果。手动修改 redux 中的 alert.show 的默认值试一下。可以看到是否显示提示框完全在于这个状态值。
 
@@ -224,29 +238,21 @@ index ff04bc3..d8c55bf 100644
 
 作用很简单，就是向 reducer 发出修改信号。
 
-定义对应的 reducer 
+定义对应的 reducer 。
 
 ```diff
-diff --git a/client/src/constants/ActionTypes.js b/client/src/constants/ActionTypes.js
-index e136088..70a1f16 100644
---- a/client/src/constants/ActionTypes.js
-+++ b/client/src/constants/ActionTypes.js
-@@ -1,2 +1,2 @@
- export const SET_TITLE = 'SET_TITLE'
--export const SHOW_ALERT = 'SHOW_ALERT'
-+export const ALERT = 'ALERT'
 diff --git a/client/src/reducers/common.js b/client/src/reducers/common.js
-index f566a4a..a698021 100644
+index b6fe3a7..9a55093 100644
 --- a/client/src/reducers/common.js
 +++ b/client/src/reducers/common.js
-@@ -15,7 +15,12 @@ const initAlert = {
+@@ -11,11 +11,16 @@ const title = (state='', action) => {
  }
  
  const alert = (state=initAlert, action) => {
 -  return state
 +  switch (action.type) {
 +    case types.ALERT:
-+      return { show: true }
++      return { ...state, show: true }
 +    default:
 +      return state
 +  }
@@ -257,8 +263,7 @@ index f566a4a..a698021 100644
 
 收到 `ALERT` 这个 action ，执行对 show 状态的修改。
 
-
-当登录或者注册失败的时候，触发 action 。
+那什么时候触发 acton 呢？可能性未来会有很多。当前就是，当登录或者注册失败的时候，触发 action 。
 
 ```diff
 diff --git a/client/src/actions/authActions.js b/client/src/actions/authActions.js
@@ -339,24 +344,11 @@ index 1b9136d..a00c6af 100644
 +export const alert = msg => ({
 +   type: types.ALERT, msg
  })
-diff --git a/client/src/components/AlertBox.js b/client/src/components/AlertBox.js
-index cf7c0a7..27a6928 100644
---- a/client/src/components/AlertBox.js
-+++ b/client/src/components/AlertBox.js
-@@ -5,7 +5,7 @@ class AlertBox extends Component {
-   render() {
-     return(
-       <Wrap>
--        提示信息提示信息提示信息提示信息
-+        { this.props.alertMsg }
-       </Wrap>
-     )
-   }
 ```
 
-发送给 reducer 。
+这样报错信息就会发出。
 
-reducer 中还需要添加一个状态值 msg 。
+到 reducer 中接收一下。
 
 ```diff
 diff --git a/client/src/reducers/common.js b/client/src/reducers/common.js
@@ -382,10 +374,27 @@ index a698021..1232268 100644
    }
 ```
 
-这样，msg 状态值就修改好了。
+这样，msg 状态值就保存到状态树中了。
+
+下面开始读取，先定义 selector
+
+```diff
+diff --git a/client/src/selectors/commonSelectors.js b/client/src/selectors/commonSelectors.js
+index a3e8d83..b76e61e 100644
+--- a/client/src/selectors/commonSelectors.js
++++ b/client/src/selectors/commonSelectors.js
+@@ -1,2 +1,3 @@
+ export const getTitle = state => state.common.title
+ export const getShowAlert = state => state.common.alert.show
++export const getAlertMsg = state => state.common.alert.msg
+```
+
+拿到存储的 msg 。
+
+下面去容器组件中去使用 selector
 
 
-最后一步是定义对应的 selector ，并在容器组件中拿到 msg 数据。
+
 
 ```diff
 diff --git a/client/src/containers/AlertBoxContainer.js b/client/src/containers/AlertBoxContainer.js
@@ -405,16 +414,11 @@ index 38f1876..8acc110 100644
 +  alertMsg: getAlertMsg(state)
 +})
 +export default connect(mapStateToProps)(AlertBoxContainer)
-
-diff --git a/client/src/selectors/commonSelectors.js b/client/src/selectors/commonSelectors.js
-index a3e8d83..b76e61e 100644
---- a/client/src/selectors/commonSelectors.js
-+++ b/client/src/selectors/commonSelectors.js
-@@ -1,2 +1,3 @@
- export const getTitle = state => state.common.title
- export const getShowAlert = state => state.common.alert.show
-+export const getAlertMsg = state => state.common.alert.msg
 ```
+
+传递给展示组件。
+
+展示组件中来显示报错信息。
 
 这样，整个流程就完成了。
 
