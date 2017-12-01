@@ -4,11 +4,11 @@
 
 ### 运行 happy-api-starter
 
-进入下一部分《运行 happy-api-starter》。通过一个 express 的项目脚手架代码，直接运行起一个后端 API 服务器。
+首先进入《运行 happy-api-starter》这部分。通过一个 express 的项目脚手架代码，直接运行起一个后端 API 服务器。
 
 首先保证系统已经安装了 mongodb 数据看。Mac 系统可以参考[官方文档](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/)，使用  Homebrew 来安装。
 
-下载一个 express 的脚手架 happy-api-starter。到[官网的发布页面](https://github.com/happypeter/happy-api-starter/releases) 下载 v1.0.0 版本的压缩包，然后解压，重命名文件夹为 api 放到咱们的项目中和 client 平级即可。这样很多 express 搭建的基础步骤就都省了。
+下载一个 express 的脚手架 happy-api-starter。到[官网的发布页面](https://github.com/happypeter/happy-api-starter/releases) 下载 v1.0.0 版本的压缩包，然后解压。放到咱们的项目中和 client 平级即可，这样很多 express 搭建的基础步骤就都省了。
 
 安装依赖。命令行中执行
 
@@ -131,7 +131,5 @@ POST localhost:3008/user/login
 进入最后一部分《总结》。
 
 先来复盘一下本节思路。核心任务就是搭建 API 服务器，但是其实使用 express 的时候总有一些重复性的任务，我们没有在这方面拖延，而是直接使用了一个脚手架程序 happy-api-starter ，直接获得了整套的认证 API ，最后，也是很重要的一个任务，通过使用 Postman 这个 API 调试功能，我们保证了 API 运行是正常的，也了解了 API 调用时候的输入和返回数据的详情。
-
-再来看看本节的最终劳动成果。总结起来一句话：为下一步前端开发准备好了后端的 API 支撑。
 
 至此，《实现认证 API》这个小节就胜利结束了。

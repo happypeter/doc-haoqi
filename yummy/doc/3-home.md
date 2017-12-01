@@ -37,7 +37,7 @@ index 33f6522..0769ff7 100644
 
 进入下一部分《使用 flexbox 进行布局》。布局要保证一定的弹性，适应不同尺寸的手机。
 
-添加两个 styled 组件进 Home 组件
+添加两个 styled-components 组件进 Home 组件
 
 
 ```diff
@@ -77,7 +77,7 @@ index 0769ff7..51b0de8 100644
 
 Hero 顶天花板，Action 贴地。
 
-浏览器中缩放一下屏幕。打开 chrome 的设备模式，切换成 iphone5 ，再切换到 iphone6 plus 。会发现布局中只是空闲空间有变化，所以内容区域我可以放心填入内容了。
+浏览器中缩放一下屏幕试试。打开 chrome 的设备模式，切换成 iphone5 ，再切换到 iphone6 plus 。会发现布局中只是空闲空间有变化，所以内容区域我可以放心填入内容了。
 
 至此，《使用 Flexbox 进行布局》这部分就胜利完成了。
 
@@ -86,7 +86,7 @@ Hero 顶天花板，Action 贴地。
 
 进入下一部分，《填充各组件内容》。来把文字图片按钮都加进来。
 
-Sketch 图中导出 svg。选中 svg ，右侧边栏底部，点 `Make Exportable` ，文件 `format` 选 `svg` ，最后点 `export Logo` 。
+第一步先到 Sketch 图中导出 svg。选中 svg ，右侧边栏底部，点 `Make Exportable` ，文件 `format` 选 `svg` ，最后点 `export Logo` 。
 
 Hero 中添加 Logo 和 Text 两个兄弟。svg 图标放到 src/assets 中，代码修改一下
 
@@ -137,7 +137,7 @@ index 51b0de8..b86d7f9 100644
 
 `Text` 部分依然是空的。
 
-浏览器中查看一下。切换到浏览器。可以看到 Logo 显示已经没有问题了。
+查看一下。切换到浏览器。可以看到 Logo 显示已经没有问题了。
 
 添加 Text 部分的内容。到 Sketch 中拷贝 Title 和 Solgan 字体的 CSS ，粘贴到代码中
 
@@ -189,27 +189,18 @@ index b86d7f9..71c58e9 100644
 文字就添加好了。
 
 
-再来添加按钮。到 Action 内部来加。
-
+再来添加按钮。到 Action 内部填充一下。
 
 ```diff
 diff --git a/client/src/components/Home.js b/client/src/components/Home.js
-index 71c58e9..276315a 100644
+index 5fced6b..ea3b794 100644
 --- a/client/src/components/Home.js
 +++ b/client/src/components/Home.js
-@@ -2,7 +2,6 @@ import React, { Component } from 'react'
- import styled from 'styled-components'
- import logo from '../assets/Logo.svg'
- 
--
- class Home extends Component {
-   render () {
-     return (
-@@ -18,7 +17,14 @@ class Home extends Component {
+@@ -17,7 +17,14 @@ class Home extends Component {
              </Slogan>
            </Text>
          </Hero>
--        <Action></Action>
+-        <Action />
 +        <Action>
 +          <a>
 +            注册
@@ -221,18 +212,20 @@ index 71c58e9..276315a 100644
        </Wrap>
      )
    }
-@@ -34,9 +40,7 @@ const Wrap = styled.div`
-   justify-content: space-between;
- `
- 
--const Hero = styled.div`
--  border: 2px solid yellow;
--`
-+const Hero = styled.div``
- 
- const Logo = styled.img`
-   display: block;
-@@ -62,6 +66,19 @@ const Slogan = styled.div`
+```
+
+加了登录和注册两个按钮。
+
+
+接下来给他们添加样式。
+
+
+```diff
+diff --git a/client/src/components/Home.js b/client/src/components/Home.js
+index ea3b794..838bd7f 100644
+--- a/client/src/components/Home.js
++++ b/client/src/components/Home.js
+@@ -68,6 +68,19 @@ const Slogan = styled.div`
  `
  
  const Action = styled.div`
@@ -256,10 +249,31 @@ index 71c58e9..276315a 100644
  `
 ```
 
+利用 styled-components 可以嵌套样式的能力，添加了链接样式。
 
-`a` 标签未来会换成 react-router 的 Link 。
+最后把辅助开发的边框删除。
 
-浏览器中开一下把。切换到浏览器。可以看到首页样式已经完成了。
+```diff
+diff --git a/client/src/components/Home.js b/client/src/components/Home.js
+index 838bd7f..276315a 100644
+--- a/client/src/components/Home.js
++++ b/client/src/components/Home.js
+@@ -40,9 +40,7 @@ const Wrap = styled.div`
+   justify-content: space-between;
+ `
+ 
+-const Hero = styled.div`
+-  border: 2px solid yellow;
+-`
++const Hero = styled.div``
+ 
+ const Logo = styled.img`
+   display: block;
+```
+
+`Hero` 就变成一个空壳了。
+
+来看看本部分达成的最终结果吧。切换到浏览器。可以看到首页样式已经完成了。
 
 至此，《填充各组件内容》这部分就胜利完成了。
 

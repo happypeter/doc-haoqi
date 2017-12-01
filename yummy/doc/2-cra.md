@@ -1,13 +1,12 @@
-# 搭建前端环境以及确定 CSS 使用规范
+# 确定 CSS 使用规范
 
-
-进入第二小节《前端环境搭建。我们先来创建一个 [Create-react-app](https://github.com/facebookincubator/create-react-app) 的项目，然后调整一下文件结构，并确定 CSS 书写规范。
+进入第二小节《确定 CSS 使用规范》。我们先来创建一个 [Create-react-app](https://github.com/facebookincubator/create-react-app) 的项目，然后调整一下文件结构，核心在于确定基于 styled-components 技术的 CSS 使用规范。
 
 ### 创建  Git 仓库
 
 进入第一部分《创建 Git 仓库》。任务就是创建项目，并用 Git 对它进行版本控制。
 
-创建一个项目。先创建一个文件夹，并用 Atom 打开，里面创建一个 README.md 文件，写一行项目介绍。
+第一步，创建一个项目。先创建一个文件夹，并用 Atom 打开，里面创建一个 README.md 文件，写一行项目介绍。
 
 ```
 mkdir yummy
@@ -16,12 +15,17 @@ atom .
 
 添加项目说明文件 README.md
 
-```md
-# 好奇猫《 React 社交化电商》课程代码
+```diff
+diff --git a/README.md b/README.md
+new file mode 100644
+index 0000000..4769abf
+--- /dev/null
++++ b/README.md
+@@ -0,0 +1 @@
++# 好奇猫《 React 社交化电商》课程代码
 ```
 
 这样，一个项目就有了。
-
 
 下一步，来把它初始化成一个 git 仓库。运行
 
@@ -41,7 +45,6 @@ git init
 
 进入下一部分，《创建客户端项目》。用 create-react-app 来创建客户端项目脚手架，并重新组织一下文件结构。
 
-
 创建项目脚手架。到 yummy 内，运行 create-react-app 进行脚手架创建：
 
 ```
@@ -51,14 +54,10 @@ create-react-app client
 
 `client/` 文件夹之中就有了一些脚手架代码和 Webpack/Babel 等工具的最佳配置。
 
-删除我不用的文件。用 atom 打开项目，删除 src/ 中的所有文件， 然后自己创建 src/index.js 内容如下
+下一步来，删除我不用的文件。用 atom 打开项目，删除 src/ 中的所有文件， 然后自己创建 src/index.js 内容如下
 
 ```js
-import React from 'react'
-import ReactDOM from 'react-dom'
-import App from './containers/App.js'
-
-ReactDOM.render(<App />, document.getElementById('root'))
+a
 ```
 
 渲染 App 组件到 id 为 `root` 的 DOM 节点上。
@@ -133,7 +132,7 @@ index 23be5d7..aa1d7be 100644
 
 这样 global.css 也就生效了。
 
-全局的 css 以后就都往这一个文件里放了。
+全局的 css 以后就都会往这一个文件里放。
 
 至此，《存放全局 css 》这一部分就胜利完成了。
 
@@ -213,6 +212,8 @@ index 0000000..61ffee3
 +export default Home
 ```
 
+暂时先写个文字占位符。
+
 到 App.js 中导入使用 HomeContainer 
 
 ```diff
@@ -236,9 +237,13 @@ index aa1d7be..1ba8071 100644
    }
 ```
 
+就是验证一下组件是否生效。
+
 浏览器页面中显示了 `Home` 字样，表示 Home 组件成功运行了。
 
 到 Home.js 中实际使用一下 styled-components 。
+
+
 
 
 ```diff
@@ -271,18 +276,18 @@ index 61ffee3..33f6522 100644
 +`
 ```
 
-上面的 Wrap 就是一个带样式的组件。
+这里的 Wrap 就是所谓的一个带样式的组件。
 
 页面上可以看到背景色了，styled-components 也就用起来了。
 
-至此，《写局部 CSS 》
+至此，《写局部 CSS 》这部分就胜利完成。
 
 ### 总结
 
-进入最后一部分《总结》。复盘一下本小节都干了什么。
+进入最后一部分《总结》。
 
-首先创建了项目文件夹，然后用 git 做了版本控制，接下来用 create-react-app 创建了项目脚手架，并按照我自己的需要重新组织了结构，主要就是区分了展示组件和容器组件。后续，比较大的篇幅用在了如何组织项目的 css 。全局样式存放到了 global.css 文件中，局部样式一律用 styled-components 来写。
+复盘一下本小节都干了什么。首先创建了项目文件夹，然后用 git 做了版本控制，接下来用 create-react-app 创建了项目脚手架，并按照我自己的需要重新组织了结构，主要就是区分了展示组件和容器组件。后续，比较大的篇幅用在了如何组织项目的 css 。全局样式存放到了 global.css 文件中，局部样式一律用 styled-components 来写。
 
 最终，我们的项目代码运行起来了，而且有了 Home 组件，下一步就可以在这个组件里实现设计了。
 
-至此，《搭建前端环境以及确定 CSS 使用规范》这个小节就胜利完成了。
+至此，《确定 CSS 使用规范》这个小节就胜利完成了。
