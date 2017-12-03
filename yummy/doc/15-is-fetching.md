@@ -1,8 +1,6 @@
 # 处理加载状态
 
-欢迎进入新的一节《处理加载状态》。用户执行操作后往往需要去请求网络数据，这时候就有一个数据加载时间，需要显示一个旋转加载图标，这样用户体验才足够好。
-
-下面来把代码回滚到上一节结束时的状态，分多个部分详细拆解一下如何达成最终效果。
+欢迎进入新的一节《处理加载状态》。用户执行操作后往往需要去请求网络数据，这时候就有一个数据加载时间，需要显示一个风火轮加载图标，这样用户体验才足够好。
 
 ### 设置加载状态字段
 
@@ -28,8 +26,7 @@ index 109eddb..2da22a9 100644
 +export const SIGNUP_FAILURE = 'SIGNUP_FAILURE'
 ```
 
-LOGIN_REQUEST 和 SIGNUP_REQUEST 用来记录异步请求发起之前的那一瞬间，也就是加载过程的开始时间点，下划线 FAILURE 和之前我们定义过的下划线 SUCCESS 对应的这些 action 都是加载过程的结束时间点，各自表征因为请求成功而停止或者请求失败而停止。
-
+LOGIN_REQUEST 和 SIGNUP_REQUEST 用来记录异步请求发起之前的那一瞬间，也就是加载过程的开始时间点，下划线 FAILURE 和之前我们定义过的下划线 SUCCESS 对应的这些 action 都是加载过程的结束时间点。
 
 再来添加 isFetching 对应的 reducer
 
@@ -66,7 +63,6 @@ index 30d7afa..207bc5a 100644
 ```
 
 其实这个思路在上一步就都梳理清楚了。
-
 
 再来看这些类型的 action 都在何时发出。
 
@@ -110,7 +106,7 @@ index 6981bb9..03fc260 100644
            dispatch(alert(msg))
 ```
 
-注册请求发起前，发出 LOGIN_REQUEST ，请求成功，发出 LOGIN_SUCCESS ，请求失败，发出 LOGIN_FAILURE 。
+请求发起前，发出 LOGIN_REQUEST ，请求成功，发出 LOGIN_SUCCESS ，请求失败，发出 LOGIN_FAILURE 。
 
 看看这部分达成的效果。登录或者注册过程开始，终端中可以看到 isFetching 会被设置为 true ，随后不管操作成功或者是失败 isFetching 都会变为 false 。这正是我们需要的效果。
 
@@ -123,12 +119,11 @@ index 6981bb9..03fc260 100644
 
 先来装包。
 
-```
+```bash
 npm i react-spinner
 ```
 
 react 的风火轮效果。
-
 
 首先要加载 css 。
 
@@ -147,7 +142,6 @@ index 97ce458..9a81f06 100644
 
 导入一些全局的内容进来，总觉得脏兮兮的。
 
-
 要拿到 isFetching 数据，首先来定义 selector
 
 ```diff
@@ -163,9 +157,7 @@ index 7b4b01a..4394afa 100644
 
 因为其他资源也有可能设置 isFetching 状态，所以这里名字叫  getAuthIsFetching  。
 
-
 容器组件中读取 isFetching
-
 
 ```diff
 diff --git a/client/src/containers/LoginContainer.js b/client/src/containers/LoginContainer.js
@@ -249,17 +241,18 @@ index d40809f..9c796d7 100755
            }
 ```
 
+只要  isFetching 为 true ，就显示风火轮。
+
 看看本部分达成的效果。登录的时候，不管输入信息是否正确，都能显示加载图标。
 
 至此，《添加 Spinner》这部分就胜利完成了。
-
 
 ### 结语
 
 进入最后一部分《结语》。
 
-复盘一下本节思路。首先先从数据底层用 isFetching 来体现价值持续时间，界面层面上使用了一个加载风火轮来体现加载过程。
+复盘一下本节思路。首先先从数据底层用 isFetching 来体现加载过程，界面层面上使用了一个风火轮来体现加载过程。
 
 至此《处理加载状态》这个小节就胜利完成了。
 
-同时咱们的这门课《React 社交化电商--架构篇》也结束了，基本的技术思路确定了，只为能撑住大量实用功能的开发，欢迎大家光临本课程的续集《 React 社交化电商--功能篇》。好的，我是 Peter ，下一门课程中，咱们再见！
+同时咱们的这门课《React 社交化电商--架构篇》也结束了，基本的技术架构确定了，只为能撑住大量实用功能的开发，欢迎大家光临本课程的续集《 React 社交化电商--功能篇》。好的，我是 Peter ，下一门课程中，咱们再见！

@@ -1,6 +1,6 @@
 # 管理当前用户信息
 
-欢迎进入新的一节《管理当前用户信息》。核心就是对 currentUser 这个变量的管理，用它来存放当前用户的各种信息。
+欢迎进入新的一节《管理当前用户信息》。核心就是对 currentUser 这个变量的管理，用它来存放当前用户详细信息。
 
 ### redux 中存储当前用户
 
@@ -95,7 +95,7 @@ index 0000000..764432a
 +}
 ```
 
-fetchusers 意思是去取用户信息，这个过程中可以发出多个 action ，例如出了我们这里的接收 users 之外，还可以发出请求失败等其他 action 。
+fetchusers 意思是去取用户信息，这个过程中可以发出多个 action ，例如除了我们这里的接收 users 之外，还可以发出请求失败等其他 action 。
 
 代码中用到了 USERS_URL ，需要定义一下。
 
@@ -109,6 +109,8 @@ index eddf76e..7b772c2 100644
  export const LOGIN_URL = `${API_HOSTNAME}/user/login`
 +export const USERS_URL = `${API_HOSTNAME}/users`
 ```
+
+对应获取所有用户信息的接口。
 
 接下来要去组件中触发 fetchUsers 这个 action 。因为 users 数据未来会在多个组件中用到，所以干脆就在程序加载的时候获取它。
 
@@ -170,9 +172,9 @@ index 4151e3e..194aaa2 100644
  })
 ```
 
- 导入一下 user ，然后加到 combineReducers 中。
- 
- 添加 user reducer 。
+导入一下 user ，然后加到 combineReducers 中。
+
+添加 user reducer 。
 
 ```diff
 diff --git a/client/src/actions/userActions.js b/client/src/actions/userActions.js
@@ -333,7 +335,7 @@ index f3e0545..f6acfcd 100644
 
 首先参数中结构赋值拿到 currentUser ，然后替换原先的固定字符串为当前用户的名字。
 
-看看本部分达成的效果。
+看看本部分达成的效果。登录成后侧边栏中可以看到真实的用户名了。
 
 至此，《Reselect 获取派生数据》这部分就胜利完成了。
 
@@ -343,6 +345,5 @@ index f3e0545..f6acfcd 100644
 
 先来复盘一下本节的思路。宏观上的核心目的就是拿到当前用户数据，具体做法是先把当前用户 id 保存到 redux 中，然后拿到所有用户信息，二者在 selector 中进行混合运算就可以派生出 currentUser 数据，重复运算对带来性能问题，所以引入了 reselect 来进行数据的缓存。
 
-再来看看本节的最终劳动成果。可见的成果非常简单明了，用户登录后可以看得见自己的用户名了。底层的成果非常的坚固实用，用 reselect 实现 selector 这种形式可以让我们在 redux 中只保留最简数据，为后续添加功能提供了坚实的基础。
 
 至此，《管理当前用户信息》这一小节就胜利完成了。

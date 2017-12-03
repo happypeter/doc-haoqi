@@ -127,6 +127,7 @@ index 0000000..0ade86c
 @@ -0,0 +1 @@
 +export const getIsAuthenticated = state => state.auth.isAuthenticated
 ```
+
 读取 `isAuthenticated` 值。
 
 容器组件中使用 selector 。
@@ -152,7 +153,7 @@ index c68b062..c997885 100644
 ```
 
 首先导入 selector 和 connect ，然后 mapStateToProps 中使用 selector 获取 isAuthenticated 的值。
-展示组件中来使用拿到的数据。
+
 
 接下来展示组件中使用 isAuthenticated 。
 
@@ -260,10 +261,7 @@ index d15fd32..ca68251 100644
 
 发出 action  同时页面跳转到首页。
 
-
-容器组件中拿到这个 Action 
-
-
+容器组件中拿到这个 Action
 
 ```diff
 diff --git a/client/src/containers/SidebarContainer.js b/client/src/containers/SidebarContainer.js
@@ -381,7 +379,5 @@ index 9436087..e7fa118 100644
 进入最后一部分《结语》。
 
 先来复盘一下本节的思路。整个登录态的心脏就是 isAuthenticated 状态，代码第一步首先添加了它，并且通过 authActions 和 auth reudcer 在适当的时机是设置它。界面层面上，展示组件通过订阅 isAuthenticated ，可以让用户登录前后看到不同的界面内容，这样用户就会对登录态有所感知。最后实现了退出登录功能，实现了对登录态的销毁。
-
-再来看看本节的最终劳动成果。用户登录注册成功，侧边栏显示用户名和退出按钮，点退出按钮，用户可以退出登录。
 
 至此，《控制登录态》这一小节就胜利完成了。

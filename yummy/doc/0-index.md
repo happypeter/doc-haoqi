@@ -8,14 +8,13 @@
 
 侧重的知识点包括：
 
-- action/selector 承担容器组件的各种功能
-- redux 中 isFetching 状态位
+- 容器组件的杂七杂八的代码巧妙分拆到 action 和 selector 中
+- redux 中通过对 isFetching 状态位的控制，实现对页面加载状态的控制
 - reducer 拆分组合技巧
 - 基于 styled-components 技术的 css 架构思路
-- redux thunk 下的 action 分拆组合
-- 通过 redux-thunk 和后端 API 进行沟通
+- redux thunk 下的 action 中如何使用 history 和 store 中的数据
+- redux-thunk 和后端 API 进行沟通
 - react-router 和布局文件如何配合
-- 维持登录态，设置受保护页面等各种具体问题的解决方案
 
 需要注意的是，本课程中不会侧重基础知识讲解，并且关于社交化和电商的具体功能，会放到本课程的续集《 React 社交化电商--功能篇》中去实现。
 
@@ -28,6 +27,6 @@
 
 - 第一个，注册和登录功能。通过用户名密码注册
 - 第二个，登录后的加载 Spinner
-- 第三个，受保护页面。访问 /settings 页面，会直接被重定向到登录页，并提示请先注册。用户注册后，会被自动带到之前被拒绝的页面。
+- 第三个，受保护页面。访问 /settings 页面，会直接被重定向到登录页，并提示请先登录。用户登录后，会被自动带到之前被拒绝的页面。
 
 好了，介绍内容就是这些《React 社交化电商--架构篇》欢迎你。

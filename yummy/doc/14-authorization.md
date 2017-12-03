@@ -2,8 +2,6 @@
 
 欢迎来到新的一节《访问权限控制》。话题很大，这里只是实现一点，用户未登录，不能访问一些受保护页面的，会被直接重定向回到登录页，登录成功，能够自动跳转回被拒绝的那个页面。
 
-下面来把代码回滚到上一节结束时的状态，分多个部分详细拆解一下如何达成最终效果。
-
 ### 定义 PrivateRoute
 
 进入第一部分《定义 PrivateRoute》。这是本小节的心脏。
@@ -89,7 +87,7 @@ index 0000000..d4356cf
 
 暂时只添加一个容器组件吧。
 
-还需要传入 isAuthenicated 
+还需要传入 isAuthenicated
 
 ```diff
 diff --git a/client/src/containers/LayoutContainer.js b/client/src/containers/LayoutContainer.js
@@ -136,8 +134,6 @@ index 782dab6..145bba9 100644
 
 至此，《定义 Private Route 》这部分就胜利完成了。
 
-
-
 ### 重定向回老页面
 
 进入下一部分《重定向回老页面》，让用户登录成功后还能回到之前被拒绝的页面，这部分的支点和核心我们建立在状态树中的 common.referrer 字段，如果其中保存着老页面的链接，就执行重定向，如果没有就不执行。
@@ -160,7 +156,7 @@ index bb81170..109eddb 100644
 
 一共两个，一个用来设置，一个用来清空。
 
-添加 reducer 
+添加 reducer
 
 ```diff
 diff --git a/client/src/reducers/common.js b/client/src/reducers/common.js
@@ -189,7 +185,7 @@ index 620f5e0..9f5214a 100644
  })
 ```
 
-对应两个操作，一共设置，一共清空。
+对应两个操作，一个设置，一个清空。
 
 再来定义读取 referrer 的选择器
 
@@ -377,13 +373,14 @@ index c60dd8d..2a9de19 100644
 +  && dispatch(alert('请先登录'))
  }
 ```
+发起设置 referrer 的 action 后，发一下 alert 。
 
-看看本部分达成的效果。未登录条件下访问 /settings 这两个受保护页面，会被重定向到登录页，登录成功后应用可以把用户带回先前被拒绝访问的 /settings 页面。
+看看本部分达成的效果。未登录条件下访问 /settings 这个受保护页面，会被重定向到登录页，登录成功后应用可以把用户带回先前被拒绝访问的 /settings 页面。
 
 ### 总结
 
 进入最后一部分《总结》。
 
-来复盘一下本节思路。一个未登录的用户在访问到一个受保护页面的时候，例如个人设置， /settins 页面，会被 Private 中的语法自动重定向到首页，同时路由中会携带 location.state = '/settings' 这样的数据到首页。首页组件挂载后会判断 location.state 是否有数据，如果答案是肯定的，那就把 '/settings' 这个老页面的链接保存到 redux 的 common.referrer 字段。而这个字段也就是本节实现功能的中枢了。登录后页面往哪里跳转，完全由它决定。
+来复盘一下本节思路。一个未登录的用户在访问到一个受保护页面的时候，例如个人设置， /settins 页面，会被 Private Route 中的语法自动重定向到首页，同时路由中会携带 location.state = '/settings' 这样的数据到首页。首页组件挂载后会判断 location.state 是否有数据，如果答案是肯定的，那就把 '/settings' 这个老页面的链接保存到 redux 的 common.referrer 字段。而这个字段也就是本节实现功能的中枢了。登录后页面往哪里跳转，完全由它决定。
 
 至此《访问权限控制》这个小节就胜利完成了。
