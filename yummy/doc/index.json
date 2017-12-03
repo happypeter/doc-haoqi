@@ -1,11 +1,11 @@
 {
   "vlink": "http://haoqicat-1253322599.costj.myqcloud.com/yummy",
-  "cover_video": "",
+  "cover_video": "index-v2",
   "name": "REACT 社交化电商--架构篇",
   "price": "24",
-  "intro": "使用 React+Redux+AntDesign 开发的电商系统，融入了 follow 朋友，查看朋友更新等社交化因素，深入使用了 Redux",
+  "intro": "React/Redux 实用技术架构以及一些常见小问题的解决",
   "writing_to_who": "已经入门 React 的学习者，了解 Redux/React-router 基本使用，想要查看一门详细的实战课程的朋友",
-  "learning_goal": "登录注册，添加移除朋友，查看朋友更新，社交化项目的数据库技巧",
+  "learning_goal": "学习 Redux 实战技巧，活用 action/selector ，实现受保护页面，加载风火轮等各种效果",
   "service": [
     "所有课程视频和文字稿",
     "所有相关代码",
