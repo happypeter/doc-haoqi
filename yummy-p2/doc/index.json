@@ -13,15 +13,15 @@
   ],
   "content": [
     {
-      "header": "第一章：搭建技术架构",
+      "header": "第一章：制作非电商和社交但是很实用的各项功能",
       "section": [
         {
-          "title": "用 Sketch 来设计首页",
-          "link": "1-design"
+          "title": "制作走马灯样式的猜你喜欢页面",
+          "link": "1-dishes"
         },
         {
-          "title": "搭建前端环境以及确定 CSS 使用规范",
-          "link": "2-cra"
+          "title": "使用服务器端的数据",
+          "link": "2-dish-api"
         },
         {
           "title": "实现 Home 页面",
@@ -42,10 +42,10 @@
       ]
     },
     {
-      "header": "第二章 实现认证功能",
+      "header": "第二章 社交化功能",
       "section": [
         {
-          "title": "实现认证 API",
+          "title": "friendly url",
           "link": "7-api"
         },
         {
@@ -71,7 +71,7 @@
       ]
     },
     {
-      "header": "第三章 添加增强型功能和授权",
+      "header": "第三章 电商类功能",
       "section": [
          {
           "title": "持久化登录态",
