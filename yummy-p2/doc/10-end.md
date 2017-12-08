@@ -8,7 +8,58 @@
 
 到首页路由位置进行修改。
 
-redirect---
+```diff
+diff --git a/client/src/containers/App.js b/client/src/containers/App.js
+index e5ef741..fba998e 100644
+--- a/client/src/containers/App.js
++++ b/client/src/containers/App.js
+@@ -9,10 +9,12 @@ import { Router } from 'react-router'
+ import { history } from '../utils/routerUtils'
+ import {
+   Switch,
+-  Route
++  Route,
++  Redirect
+ } from 'react-router-dom'
+ import { fetchDishes } from '../actions/dishActions'
+ import { fetchComments } from '../actions/commentActions'
++import { getIsAuthenticated } from '../selectors/authSelectors'
+ class App extends Component {
+   componentDidMount () {
+@@ -26,7 +28,18 @@ class App extends Component {
+     return (
+       <Router history={history} >
+         <Switch>
+-          <Route exact path='/' component={HomeContainer} />
++          <Route exact path='/' render={
++              props => {
++                if (!this.props.isAuthenticated) {
++                  return <HomeContainer />
++                } else {
++                  return < Redirect to = {{
++                    pathname: '/dashboard'
++                  }} />
++                }
++              }
++            }
++          />
+           <Route component={LayoutContainer} />
+         </Switch>
+       </Router>
+@@ -34,7 +47,11 @@ class App extends Component {
+   }
+ }
+-export default connect(null, {
++const mapStateToProps = state => ({
++  isAuthenticated: getIsAuthenticated(state)
++})
++
++export default connect(mapStateToProps, {
+   fetchUsers,
+   fetchCurrentUser,
+   fetchDishes,
+```
+
 
 使用了 render 功能，跟直接指定 component 不同，写路由的时候可以使用 render 函数的形式，这样就可以根据条件判断决定具体要执行的操作了，例如我们这里先判断用户是否登录，来决定是要展示首页，还是要重定向到操作盘页面。
 
@@ -22,7 +73,37 @@ redirect---
 
 到操作盘的展示组件中判断一下即可。
 
-no-update
+
+```diff
+diff --git a/client/src/components/Dashboard.js b/client/src/components/Dashboard.js
+index 027b2ff..13d1dce 100644
+--- a/client/src/components/Dashboard.js
++++ b/client/src/components/Dashboard.js
+@@ -9,9 +9,14 @@ class Dashboard extends Component {
+     const cardList = commentsCopy.map(comment =>
+       <DashboardItem key={comment._id} comment={comment} />
+     )
++    const noUpdate = (
++      <NoUpdate>
++        暂无好友更新
++      </NoUpdate>
++    )
+     return (
+       <Wrap>
+-        { cardList }
++        {friendComments.length === 0 ? noUpdate : cardList}
+       </Wrap>
+     )
+   }
+@@ -25,3 +30,7 @@ const Wrap = styled.div`
+   padding-bottom: 10px;
+   padding-top: 10px;
+ `
++
++const NoUpdate = styled.div`
++  padding: 10px;
++`
+```
 
 如果没有好友更新，就显示 no-update 部分的文字。
 
