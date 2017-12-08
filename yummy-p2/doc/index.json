@@ -58,16 +58,12 @@
           "link": "8-add"
         },
         {
-          "title": "访问权限控制",
-          "link": "14-authorization"
+          "title": "实现购物车各项功能",
+          "link": "9-cart"
         },
         {
-          "title": "体现加载状态",
-          "link": "15-is-fetching"
-        },
-        {
-          "title": "结语",
-          "link": "16-goodbye"
+          "title": "添加增强型功能",
+          "link": "10-end"
         }
       ]
     }
