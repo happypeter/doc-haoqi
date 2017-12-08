@@ -24,20 +24,12 @@
           "link": "2-dish-api"
         },
         {
-          "title": "实现 Home 页面",
-          "link": "3-home"
+          "title": "制作甜点详情页",
+          "link": "3-dish"
         },
         {
-          "title": "添加 router 和布局文件",
-          "link": "4-layout"
-        },
-        {
-          "title": "复用 form 组件",
-          "link": "5-form"
-        },
-        {
-          "title": "通过 Redux 设置 header 文本",
-          "link": "6-redux"
+          "title": "添加评论功能",
+          "link": "4-comments"
         }
       ]
     },
@@ -45,28 +37,16 @@
       "header": "第二章 社交化功能",
       "section": [
         {
-          "title": "friendly url",
-          "link": "7-api"
+          "title": "上传头像",
+          "link": "5-avatar"
         },
         {
-          "title": "请求 API 实现登录注册",
-          "link": "8-axios"
+          "title": "添加好友",
+          "link": "6-follow"
         },
         {
-          "title": "显示报错提示",
-          "link": "9-alert"
-        },
-        {
-          "title": "添加侧边栏",
-          "link": "10-sidebar"
-        },
-        {
-          "title": "控制登录态",
-          "link": "11-auth"
-        },
-        {
-          "title": "管理当前用户信息",
-          "link": "12-current-user"
+          "title": "查看好友更新",
+          "link": "7-dashboard"
         }
       ]
     },
@@ -74,8 +54,8 @@
       "header": "第三章 电商类功能",
       "section": [
          {
-          "title": "持久化登录态",
-          "link": "13-refresh"
+          "title": "添加商品到购物车",
+          "link": "8-add"
         },
         {
           "title": "访问权限控制",
