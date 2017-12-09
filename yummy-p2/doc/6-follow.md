@@ -4,7 +4,7 @@
 
 ### 添加用户展示页面
 
-进入下一部分《添加用户展示页面》。如果我看到一个评论人的头像，点进入，看到的就是这个用户的展示也，上面会有一个 follow 按钮，跟 twitter 上一样，点一下我就是这个人的粉丝了。
+进入下一部分《添加用户展示页面》。如果我看到一个评论人的头像，点进入，看到的就是这个用户的展示页，上面会有一个 follow 按钮，点一下我就是这个人的粉丝了。
 
 先来添加页面，把页面样式做出来
 
@@ -212,7 +212,7 @@ index 9a2b1bc..c9173c8 100644
 
 ### 前端确立 follow 逻辑
 
-进入下一部分《前端确立 follow 逻辑》。基本逻辑就是 currentUser 有一个 followings 数据，是一个由我粉的这些人的 id 组成的数据，如果我正查看的这用户的 id 包含其中，那我就已经粉过他了。
+进入下一部分《前端确立 follow 逻辑》。基本逻辑就是 currentUser 有一个 followings 数据，是一个由我粉的这些人的 id 组成的数组，判断一个用户是否是我 follow 的人，关键看他的 id 是否在这个数组中。
 
 来瞄准 follow 按钮做文章
 
@@ -322,10 +322,9 @@ index c9173c8..1a288f9 100644
 +})(UserContainer)
 ```
 
+首先，按钮要显示 follow 发出 follow Action ，还是显示 unfollow 发出 unfollow action ，完全是由 isFriend 这个状态位决定的，而 isFriend 的判断条件则是当前用户的 followings 数组中是否包含正在查看的这个用户的 id ，container 中去拿到这些变量还有接口这个不用多说，再来看 user Actions 文件中对 follow 和 unfollow 的定义，其实也非常简单，就是把当前用户的 id 跟被查看用户的 id 都发给服务器，由服务器去更新数据库上的 .followings 数据，然后把更新后的结果返回给客户端，因为客户端需要这些数据来更新 redux 从而能更新页面显示。
 
-首先按钮要显示 follow 发出 follow Action 还是显示 unfollow 发出 unfollow action 完全是由 isFriend 这个状态位决定的，而 isFriend 的判断条件则是当前用户的 followings 数组中是否包容正在查看的这个用户的 id ，container 中去拿到这些变量还有接口这个不用多说，再来看 user Actions 文件中对 follow 和 unfollow 的定义，其实也非常简单，就是把当前用户的 id 跟被查看用户的 id 都发给服务器，由服务器去更新数据库上的 .followings 数据，然后把更新后的结果返回给客户端，因为客户端需要这些数据来更新 redux 从而能更新页面显示。
-
-看看本部分达成的效果。页面上看不出明显变化，点一下 follow 按钮可以看到发往服务器的请求并没有被接收，但是通过前端代码，其实 API 怎么写逻辑也已经搞清楚了。
+看看本部分达成的效果。页面上看不出明显变化，点一下 follow 按钮可以看到发往服务器的请求并没有被接收，但是通过前端代码，其实 API 怎么写逻辑也基本搞清楚了。
 
 至此，《前端确立 follow 逻辑》这部分就胜利完成了。
 
@@ -448,6 +447,7 @@ index b68408b..8ce5f9d 100755
 定义了 addFollowing 和 removeFollowing 两个接口，分别用来从当前用户的 followings 数据中增删用户 id 。
 
 看看本部分达成的效果。到用户展示界面，点 follow ，按钮会变为 unfollow ，表示 follow 成功，点 unfollow 按钮，就又回到可 follow 状态。
+
 至此，《后端更新用户的 followings 数据》这部分就胜利完成了。
 
 ### 个人中心页面显示好友列表
@@ -550,7 +550,6 @@ index 0000000..edbbdb1
 +`
 ```
 
-
 使用临时数据，把列表样式先做了出来。
 
 然后去得到当前用户真正的好友列表。
@@ -622,7 +621,7 @@ index 4394afa..92fff50 100644
  export const getIsAuthFetching = state => state.auth.isFetching
 ```
 
-通过定义 selector ，很容易把当前用户的 followings 数组里面的一个 id ，变成拥有 avatar _id 等信息的一个用户对象。
+通过定义选择器，很容易把当前用户的 followings 数组里面的一个 id ，变成拥有 avatar _id 等信息的一个用户对象。
 
 看看本部分达成的效果。当前用户 billie 首先前往 happypeter 用户的个人展示页，点 follow ，然后回到自己的 /settings 页面就可以看到 happypeter 出现在列表中了。如果 billie 想取消对 happypeter 的关注，只需要点 happypeter 的用户名，进入他的个人展示页，点 unfollow ，然后再次回到 /settings 页面，就可以看到 happypeter 已经不见了。
 
@@ -673,15 +672,14 @@ index 92fff50..2dc4a86 100644
 
 现在，如果 localStorge 中保存了 userId ，那么页面刷新的时候 isAuthenticated 默认值为 true 。代码中另外一处修改是因为 CurrentUser 初始值为空，那么 currentUser.following.include 就会执行报错，所以加了代码防范一下这种情况。
 
-
 看看本部分达成的效果。这样再到 /settings 页面，刷新一下，问题就没有了。
-至此，《修复私有路由 Bug》这部分就胜利完成了。
 
+至此，《修复私有路由 Bug》这部分就胜利完成了。
 
 ### 结语
 
 进入最后一部分《结语》
 
-复盘一下本节思路。
+复盘一下本节思路。核心问题就是确定数据的结构，根据只存最简数据的原则，我的好友之所以是我的好友，只是因为我在数据库和 redux 中都保存了 followings 数组，数组中包含这个人的 id 。而其他的操作就是围绕这个数据结构去开展，例如如果想取消关注，就去 followings 数组中剔除这个人的 id 即可，而如果要得到我的所有好友的详情，也只需要去定义一个选择器，拿到 followings 数组和所有用户数据进行一下混合运算就可以得出。
 
 至此，《添加好友》就胜利完成了。

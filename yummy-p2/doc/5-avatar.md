@@ -1,10 +1,12 @@
 # 上传头像
 
-欢迎来到新的一节《上传头像》。允许用户可以在个人中心上传自己的头像。
+欢迎来到新的一节《上传头像》。允许用户在个人中心上传自己的头像。
 
 ### 添加个人中心页面
 
-进入下一部分《添加个人中心页面》。对应的路由是 /settings 。
+进入《添加个人中心页面》这个部分。对应的路由是 /settings 。
+
+先把链接，路由和页面大块布局加上。
 
 ```diff
 diff --git a/client/src/components/Layout.js b/client/src/components/Layout.js
@@ -106,11 +108,9 @@ index bb2351e..07732e0 100644
  export default SettingsContainer
 ```
 
-把页面路由和链接添加了进来。
+侧边栏上加了指向个人中心页面的链接，展示组件中做了大块布局。
 
-下面来把上传 avatar 部分的界面添加进来
-
-
+下面来把上传头像部分的界面添加进来。
 
 ```diff
 diff --git a/client/src/actions/commentActions.js b/client/src/actions/commentActions.js
@@ -256,17 +256,14 @@ index 0000000..8a1ab70
 仅仅是做了样式，真正的文件上传功能没有实现。
 
 看看本部分达成的效果。点 /settings 页面上的头像，可以打开文件浏览器进行文件选择了。
+
 至此，《添加个人中心页面》这部分就胜利完成了。
 
 ### 前端发送数据
 
 进入下一部分《前端发送数据》。其中特别要注意的就是数据格式。
 
-
 首先来在用户选中文件之后，触发一个 action 创建器
-
-
-
 
 ```diff
 diff --git a/client/src/actions/userActions.js b/client/src/actions/userActions.js
@@ -310,8 +307,6 @@ index 8a1ab70..2d66f0b 100644
 用户选中文件后会触发 updateAvatar 这个 action 创建器，其中使用 e.target.files[0] 可以拿到文件对象。文件对象简单来说只是一个文件名，没有文件主体数据。所以需要使用 FileReader 来读取主体数据并且转换为可以在网上发送的 base64 格式。readAsDataURL 函数执行结束之后，reader.onload 回调函数会被触发。回调函数里面，我们就可以用 e.target.result 打印出文件主体数据了。
 
 接下来把需要发送的数据整理成 formData ，也就是表单数据的格式。
-
-
 
 
 ```diff
@@ -373,9 +368,7 @@ index e724013..33b848c 100644
 
 进入下一部分《补充一些前端功能》。一个就是就是发送数据时要把当前用户 id 也发送给服务器，另一个就是对文件是不是图片做一下类型检查。
 
-首先拿到当前用户 id ，一个好消息是用来 redux-thunk 后，action 创建器中是可以拿到整个状态树的
-
-
+首先拿到当前用户 id ，一个好消息是用 redux-thunk 后，action 创建器中是可以拿到整个状态树的
 
 
 ```diff
@@ -406,9 +399,6 @@ index 6e3fdfb..31c2397 100644
 通过 getState 参数拿到状态树，然后用 getCurrentUserId 选择器来把当前用户 id 拿到，附着在表单的 userId 字段上。
 
 接下来检查文件类型
-
-
-
 
 ```diff
 diff --git a/client/src/actions/userActions.js b/client/src/actions/userActions.js
@@ -450,7 +440,8 @@ index 31c2397..dfd0b88 100644
 
 对文件是否为图片，是否小于1M，进行了检查，检查不通过，直接发出警告信息，不进行上传。
 
-看看本部分达成的效果。
+看看本部分达成的效果。试着上传一个其他类型的文件，页面中会显示警告信息，上传一个大于1M的文件，也会看到警告信息。
+
 至此，《补充一些前端功能》这部分就胜利完成了。
 
 ### 上传到服务器
@@ -467,9 +458,6 @@ npm i multer
 
 
 然后写代码。
-
-
-
 
 ```diff
 diff --git a/happy-api-starter-1.0.0/controllers/user.js b/happy-api-starter-1.0.0/controllers/user.js
@@ -534,6 +522,7 @@ req.file { fieldname: 'avatar',
 进入下一部分《更新服务器字段》。上传成功了，还有很多后续工作要做。例如，要把上传的头像信息保存到数据库中这个用户对应的条目，
 
 
+添加保存到数据库的代码。
 
 ```diff
 diff --git a/client/src/actions/userActions.js b/client/src/actions/userActions.js
@@ -614,9 +603,9 @@ index 397a85f..347cdf7 100755
 ```
 
 
-这样，客户端才能拿到用户的 avatar 数据。
+这样，到时候才能拿到用户的 avatar 数据。
 
-看看本部分达成的效果。命令行中用 mongo shell 查看一下数据库数据，
+看看本部分达成的效果。再次上传一下，命令行中用 mongo shell 查看一下数据库数据，
 
 ```
 mongo
@@ -632,11 +621,6 @@ db.users.find({username : "happypeter"})
 ### 更新客户端 redux 数据
 
 进入下一部分《更新客户端 redux 数据》。拿到服务器端返回的包含新 avatar 的 user 数据，更新 redux ，这样新头像才能无需刷新直接显示到页面上。
-
-
-
-
-
 
 ```diff
 diff --git a/client/src/actions/userActions.js b/client/src/actions/userActions.js
@@ -699,11 +683,7 @@ index 8318164..7e63483 100644
 
 当前用户更新后的数据从服务端拿到之后，发送到 reducer ，在所有用户信息中找到当前用户，并更新它的数据。
 
-
 修改侧边栏中的头像链接。
-
-
-
 
 ```diff
 diff --git a/client/src/assets/avatar.png b/client/src/assets/avatar.png
@@ -742,8 +722,6 @@ index bbe688c..6d15f7f 100644
 
 首先是 /settings 的路由，再就是退出登录功能
 
-
-
 ```diff
 diff --git a/client/src/actions/authActions.js b/client/src/actions/authActions.js
 index 94fb5cd..0551a14 100644
@@ -776,8 +754,8 @@ index 1887c36..1c391b8 100644
 
 ### 结语
 
-进入最后一部分《结语》
+进入最后一部分《结语》。
 
-复盘一下本节思路。
+复盘一下本节思路。本节主要完成头像上传功能，首先保证了前端发送数据的格式，然后再到后端调通 Multer 接口，后端把带有 avatar 文件名的 user 信息发送回前端，前端用这个数据来更新 redux ，这样才能在整个 app 范围内看到头像的变化。
 
 至此，《上传头像》就胜利完成了。

@@ -1,30 +1,12 @@
 # 添加评论功能
 
-欢迎来到新的一节《添加评论功能》。前端后端整个走一个基本功能开发流程。
+欢迎来到新的一节《添加评论功能》。先做前端评论界面，再添加后端评论 API 。
 
 ### 先写界面
 
-进入下一部分《先写界面》。美观的界面先出来，后面眼睛会比较愉悦一些。
+进入第一部分《先写界面》。美观的界面先出来，思路会更清晰。
 
 先列出已有评论。
-
-
-
-
-```diff
-diff --git a/client/src/constants/ApiConstants.js b/client/src/constants/ApiConstants.js
-index c176707..23e1f67 100644
---- a/client/src/constants/ApiConstants.js
-+++ b/client/src/constants/ApiConstants.js
-@@ -4,5 +4,5 @@ export const SIGNUP_URL = `${API_HOSTNAME}/user/signup`
- export const LOGIN_URL = `${API_HOSTNAME}/user/login`
- export const USERS_URL = `${API_HOSTNAME}/users`
- export const USER_BY_ID_URL = `${API_HOSTNAME}/user/:id`
--export const posterUrl = poster => `${API_HOSTNAME}/uploads/posters/${poster}`
-+export const posterUrl = poster => poster && `${API_HOSTNAME}/uploads/posters/${poster}`
- export const DISHES_URL = `${API_HOSTNAME}/dishes`
-```
-
 
 ```diff
 diff --git a/client/src/components/DishComments.js b/client/src/components/DishComments.js
@@ -271,14 +253,14 @@ index 0000000..2d207d6
 表单里面做出一个受控组件的效果，然后到 DishComments 中导入一下，因为评论是逆序显示的，所以这里正好评论框就放在评论列表之上。
 
 看看本部分达成的效果。界面上看一下，样式都有了。
+
 至此，《先写界面》这部分就胜利完成了。
 
 ### 后端添加评论种子数据
 
-每一条评论数据都不仅仅是有自己的 _id 和 content ，还应该有是谁，也就是 User ，在哪个甜点，也就是 dish 上， 发布的。
+进入下一部分《后端添加评论种子数据》, 每一条评论数据都不仅仅是有自己的 _id 和 content ，还应该有是谁，也就是 User ，在哪个甜点，也就是 dish 上， 发布的。
 
 先到服务器，添加 comment 的数据模型文件
-
 
 
 ```diff
@@ -306,8 +288,6 @@ index 0000000..b5ee726
 
 再到 controller 中定义获取所有评论接口
 
-
-
 ```diff
 diff --git a/happy-api-starter-1.0.0/controllers/comment.js b/happy-api-starter-1.0.0/controllers/comment.js
 new file mode 100644
@@ -330,10 +310,6 @@ index 0000000..7ce02aa
 在取出所有评论数据的时候，同时添加进来了 user 和 dish 的相关字段，包含用户的 username 和 avatar ，也就是用户名和头像，还有 dish ，也就是甜点的 poster 海报。
 
 再来定义种子数据接口。
-
-
-
-
 
 ```diff
 diff --git a/happy-api-starter-1.0.0/controllers/comment.js b/happy-api-starter-1.0.0/controllers/comment.js
@@ -647,7 +623,7 @@ index 0000000..093548f
 +)
 ```
 
-也一样是跟 dish 一样的过程，先定义 selector 然后 container 中通过 selector 拿到数据，交给展示组件去显示到界面上。其中稍微复杂点的就是按照 dish 的 id ，对所有评论做了分组，存放到了 commentsByDishId 这个变量中了。
+也一样是，先定义选择器，按照 dish 的 id ，对所有评论做了分组，存放到了 commentsByDishId 这个变量中了， 然后容器中拿到数据，展示组件显示到界面上。
 
 看看本部分达成的效果。页面中已经能显示真实的用户名，和评论内容了，如果未来我们上传头像功能开发完毕，这里的头像也应该可以显示真实的头像了。
 
@@ -656,8 +632,6 @@ index 0000000..093548f
 ###  使用 momentjs 调整时间格式
 
 进入下一部分《使用 momentjs 调整时间格式》。把评论的发布时间显示出来。
-
-
 
 ```diff
 diff --git a/client/src/components/DishCommentsItem.js b/client/src/components/DishCommentsItem.js
@@ -690,17 +664,17 @@ index 7784a7a..a7292f5 100644
          <Content>
 ```
 
-看看本部分达成的效果。页面上的时间就变成中文的多久以前了。
-至此，《使用 momentjs 调整时间格式》这部分就胜利完成了。
+加载 moment ，然后要加载中文语言包，最后把数据库中的时间格式变换成我们自己想要的。
 
+看看本部分达成的效果。页面上的时间就变成中文的多久以前了。
+
+至此，《使用 momentjs 调整时间格式》这部分就胜利完成了。
 
 ### 添加评论
 
 进入下一部分《添加评论》。把评论内容保存到数据库中。
 
 添加 API 。
-
-
 
 ```diff
 diff --git a/happy-api-starter-1.0.0/controllers/comment.js b/happy-api-starter-1.0.0/controllers/comment.js
@@ -752,8 +726,6 @@ index 77a8958..e7b774f 100755
 点发送可以看到保存成功的信息，证明接口工作正常了。
 
 下面回到前端代码。写 action/reducer 代码。
-
-
 
 ```diff
 diff --git a/client/src/actions/commentActions.js b/client/src/actions/commentActions.js

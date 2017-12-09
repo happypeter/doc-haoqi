@@ -1,10 +1,10 @@
 # 制作甜点详情页
 
-欢迎来到新的一节《制作甜点详情页》
+欢迎来到新的一节《制作甜点详情页》。显示甜点的海报，价格和购买按钮等信息，涉及到使用嵌套方式复用样式以及 svg 图表进行数据可视化的内容。
 
 ### 添加页面
 
-进入下一部分《添加页面》。
+进入第一部分《添加页面》。先把甜点详情页，也就是 /dish/xxid 链接页面的样式写好。
 
 首先添加页面和路由
 
@@ -61,12 +61,9 @@ index 0000000..6475cf4
 +export default DishContainer
 ```
 
-甜点的展示组件定义到 dish.js 中，然后来添加展示组件，以及路由。
+甜点的展示组件定义到 Dish.js 中，然后来添加容器组件，以及路由。
 
-先来添加大块样式。
-
-
-
+页面样式比较多，按照由粗到细的原则，先来添加大块布局的样式。
 
 ```diff
 diff --git a/client/src/components/Dish.js b/client/src/components/Dish.js
@@ -126,13 +123,9 @@ index 2f56b01..47b92a1 100644
 +`
 ```
 
-添加了海报区 ImgWrap ，和下面的详情区域 Card 。
+添加了海报区的 ImgWrap ，和下面的详情区的 Card 。
 
-详情区域里面再来添加新内容
-
-
-
-
+详情区里面再来添加新内容。
 
 ```diff
 diff --git a/client/src/components/Dish.js b/client/src/components/Dish.js
@@ -269,22 +262,17 @@ index 0000000..0395dc7
 +export default DishBuyAreaContainer
 ```
 
-
-
-添加了 DishBuyArea 组件进来，依然是为了实现设计图，没有具体功能。
+添加了 DishBuyArea 组件进来，购买按钮就在这个区域。
 
 看看本部分达成的效果。这样，页面上的效果跟设计图一致了。
 
 至此，《添加页面》这部分就胜利完成了。
 
-
 ### 准备数据
 
-进入下一部分《准备数据》。总体思路是这样，既然所有的甜点数据都已经加载到 redux 中了，所以只需要写好 selector 就能拿到一个甜品的数据了。
+进入下一部分《准备数据》。总体思路是这样，所有的甜点数据都已经加载到 redux 中了，所以只需要添加选择器就能拿到一个甜点的数据了。
 
 依然是一个熟悉的套路。
-
-
 
 ```diff
 diff --git a/client/src/components/Dish.js b/client/src/components/Dish.js
@@ -354,12 +342,9 @@ index b3b832e..6220340 100644
 +)
 ```
 
-添加 selector ，然后 container 中使用 selector 拿到数据，最后传递给展示组件使用，这样海报数据就有了。
+添加选择器 ，然后容器组件中使用选择器拿到数据，最后传递给展示组件使用，这样海报数据就有了。
 
-到 DishBuyArea 自己的 container 中再次取一次数据。
-
-
-
+到 DishBuyArea 自己的容器组件中再次取一次数据。
 
 ```diff
 diff --git a/client/src/components/DishBuyArea.js b/client/src/components/DishBuyArea.js
@@ -410,8 +395,7 @@ index 0395dc7..f64e30a 100644
 +export default connect(mapStateToProps)(withRouter(DishBuyAreaContainer))
 ```
 
-
-说明一下，因为 DishBuyArea 自己还会用到很多其他的 Dish 组件用不到的接口，所以单纯创建了一个自己的 Container 文件来跟外界沟通。另外本着良好封装的原则，DishBuyArea 自己的数据完全由自己的 container 来组织，不去由 Dish 组件传入，withRouter 的作用是让我们可以在 DishBuyArea 展示组件内拿到路由信息，从而拿到 dishId 。
+说明一下，因为 DishBuyArea 自己还会用到很多其他的 Dish 组件用不到的接口，所以单纯创建了一个自己的容器组件来跟外界沟通。另外本着良好封装的原则，DishBuyArea 自己的数据完全由自己的 container 来组织，尽量不从 Dish 组件传入，withRouter 的作用是让我们可以在 DishBuyArea 展示组件内拿到路由信息，从而拿到 dishId 。
 
 看看本部分达成的效果。页面上海报以及各项信息现在都是服务器上的实际数据了。
 
@@ -419,10 +403,9 @@ index 0395dc7..f64e30a 100644
 
 ### 复用 section 标题
 
-进入下一部分《复用 section 标题》。下面要添加多个部分，每个部分的标题和副标题的样式都是一样的，想要复用 css 其实有多种方式，我这里采用了一种比较好玩的。
+进入下一部分《复用 section 标题》。下面要添加多个部分，每个部分的标题和副标题的样式都是一样的，想要复用 css 和 html 其实有多种方式，我这里采用了一种比较好玩的。
 
 Dish 详情页，还要添加 DishInfo 和 DishComments 两部分进来。
-
 
 ```diff
 diff --git a/client/src/components/Dish.js b/client/src/components/Dish.js
@@ -588,15 +571,15 @@ index 0000000..8fa1d5c
 +export default DishInfoContainer
 ```
 
-两个部分的标题部分都被移动到了 DishSection 组件内，同时，通过 React.children.map 和 CloneElement 的综合实验，DishSection 把自己的一个成员函数，setSubTitle 传递给了各个子组件，到两个子组件中，都可以通过 setSubTitle 函数把自己的标题文本传递给父组件了，这样，在 Dish.js 中最终写成的 JSX 代码也是很优雅的，两个 Section ，里面各自嵌套一个组件。
+两个部分内容的标题部分都被移动到了 DishSection 组件内，同时，通过 React.children.map 和 CloneElement 的综合使用，DishSection 把自己的一个成员函数，setSubTitle 传递给了各个子组件，到两个子组件中，都可以通过 setSubTitle 函数把自己的标题文本传递给父组件了，这样，在 Dish.js 中最终写成的 JSX 代码也是很优雅的，两个 Section ，里面各自嵌套一个组件。
 
 看看本部分达成的效果。页面上两个部分的标题都显示出来了，而且 Html 标签和 CSS 都是复用的。
+
 至此，《复用 section 标题》这部分就胜利完成了。
 
 ### 添加数据可视化内容
 
 进入下一部分《添加数据可视化内容》。项目中添加 svg 图表进来，让页面生动起来。
-
 
 先装包
 
@@ -740,12 +723,13 @@ index 0000000..f13b44b
 这部分跟课程主线关系不大，所以就不详细讲了。但是想要明确一下，所谓数据可视化，不仅仅要能展示数据，而且要能跟数据进行互动，所以才有了这里的这些函数。
 
 看看本部分达成的效果。点饼状图的每一部分，下面能显示出这部分的详情。
+
 至此，《添加数据可视化内容》这部分就胜利完成了。
 
 ### 结语
 
 进入最后一部分《结语》
 
-复盘一下本节思路。
+复盘一下本节思路。本节的展示性内容比较多，主要技巧有如何复用 html/css ，我们这里采用了嵌套组件的形式，另外一个技巧就是数据可视化，可以构建生动的互动型数据展示效果。
 
 至此，《制作甜点详情页》就胜利完成了。
