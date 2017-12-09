@@ -221,6 +221,12 @@
       "cover": "http://haoqicat-1253322599.costj.myqcloud.com/posters/qcloud.png",
       "title": "跟 Peter 做腾讯云客户端",
       "link": "/qcloud"
+    },
+    {
+      "id": "38",
+      "cover": "http://haoqicat-1253322599.costj.myqcloud.com/posters/yummy-p2.png",
+      "title": "React 社交化电商--功能篇",
+      "link": "/yummy-p2"
     }
   ]
 }
