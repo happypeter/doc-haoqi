@@ -41,13 +41,13 @@ index 2750476..0c4fb15 100644
        </Wrap>
 ```
 
-Home.js 又改了一下。跟原生 form 一样，添加 onSubmit 事件即可。但是如果按钮，不指定 Type=submit 那么点按钮就不会有任何反应，但是蚂蚁设计的按钮的 type 属性用来干别的了，为了区分，所以这里需要些 htmlType=submit 。
+Home.js 又改了一下。跟普通 react 组件的 form 一样，添加 onSubmit 事件即可。但是如果按钮，不指定 Type=submit 那么点按钮就不会有任何反应，但是蚂蚁设计的按钮的 type 属性用来干别的了，为了区分，所以这里需要写 htmlType=submit 。
 
 这样，页面中点提交按钮，就可以看到 handleSubmit 函数中的打印语句已经生效了。
 
 ### 获取用户输入
 
-进入《获取用户输入》这个任务。咱们不用 react 的那种受控组件的形式来拿数据，而主要来使用蚂蚁设计提供的 Form 接口，看一下[参考文档](https://ant.design/components/form-cn/)。
+下一步来《获取用户输入》。咱们不用 react 的那种受控组件的形式来拿数据，而主要来使用蚂蚁设计提供的 Form 接口，看一下[参考文档](https://ant.design/components/form-cn/)。
 
 
 ```diff
@@ -120,20 +120,14 @@ index 0c4fb15..d23dde2 100644
 下面来《触发 action 创建器》。把拿到的数据交给 action 创建器去处理。
 
 ```diff
-diff --git a/admin/src/actions/authActions.js b/admin/src/actions/authActions.js
-new file mode 100644
-index 0000000..fc7da8d
---- /dev/null
-+++ b/admin/src/actions/authActions.js
-@@ -0,0 +1,3 @@
+/admin/src/actions/authActions.js
+
 +export const login = data => dispatch => {
 +  console.log('action', data)
 +}
-diff --git a/admin/src/components/Home.js b/admin/src/components/Home.js
-index d23dde2..69cc333 100644
---- a/admin/src/components/Home.js
-+++ b/admin/src/components/Home.js
-@@ -6,7 +6,7 @@ const FormItem = Form.Item
+
+/admin/src/components/Home.js
+
  class Home extends Component {
    handleSubmit = e => {
      e.preventDefault()
@@ -141,11 +135,9 @@ index d23dde2..69cc333 100644
 +    this.props.login(this.props.form.getFieldsValue())
    }
    render () {
-diff --git a/admin/src/containers/HomeContainer.js b/admin/src/containers/HomeContainer.js
-index 2310816..13ab15b 100644
---- a/admin/src/containers/HomeContainer.js
-+++ b/admin/src/containers/HomeContainer.js
-@@ -1,9 +1,12 @@
+
+/admin/src/containers/HomeContainer.js
+
  import React from 'react'
  import Home from '../components/Home'
  import { connect } from 'react-redux'
@@ -164,12 +156,12 @@ index 2310816..13ab15b 100644
 
 ### 页面跳转
 
-进入《页面跳转》这个任务。真实的登录过程还要复杂的多，但是咱们这里就简化了，登录后主要用 react-router 做一下页面跳转。
+登录信息提交后我要进行一下《页面跳转》。真实的登录过程还要复杂的多，但是咱们这里就简化了，登录后主要用 react-router 做一下页面跳转。
 
 先装包
 
 ```
-npm i react-router
+npm i react-router-dom
 ```
 
 包装好了。
@@ -179,8 +171,6 @@ npm i react-router
 ```diff
 diff --git a/admin/src/actions/authActions.js b/admin/src/actions/authActions.js
 index fc7da8d..0e3c3d9 100644
---- a/admin/src/actions/authActions.js
-+++ b/admin/src/actions/authActions.js
 @@ -1,3 +1,6 @@
 +import { history } from '../utils/routerUtils'
 +
@@ -212,8 +202,6 @@ index 0000000..6e456ae
 +const Wrap = styled.div``
 diff --git a/admin/src/containers/App.js b/admin/src/containers/App.js
 index 30fb3d0..fb1d430 100644
---- a/admin/src/containers/App.js
-+++ b/admin/src/containers/App.js
 @@ -1,13 +1,23 @@
  import React, { Component } from 'react'
  import '../assets/global.css'
@@ -242,9 +230,6 @@ index 30fb3d0..fb1d430 100644
  }
 diff --git a/admin/src/containers/DashboardContainer.js b/admin/src/containers/DashboardContainer.js
 new file mode 100644
-index 0000000..b9a9b0a
---- /dev/null
-+++ b/admin/src/containers/DashboardContainer.js
 @@ -0,0 +1,9 @@
 +import React from 'react'
 +import Dashboard from '../components/Dashboard'
@@ -257,29 +242,23 @@ index 0000000..b9a9b0a
 +export default connect(mapStateToProps)(DashboardContainer)
 diff --git a/admin/src/utils/routerUtils.js b/admin/src/utils/routerUtils.js
 new file mode 100644
-index 0000000..96dc48a
---- /dev/null
-+++ b/admin/src/utils/routerUtils.js
 @@ -0,0 +1,3 @@
 +import createBrowserHistory from 'history/createBrowserHistory'
 +
 +export const history = createBrowserHistory()
 ```
 
-App.js 中添加两条路由规则，其中一个指向 dashboard ，这里没有使用 react-router 自带的 history 而是到 routerUtils 文件中自己初始化一个 history 对象，目的就是方便在 react-router 够不着的位置，例如 action 文件中使用 history 。添加 dashboard 的容器和展示组件就不用说了。
+这次一共修改了五个文件。App.js 中添加两条路由规则，其中一个指向 dashboard ，这里没有使用 react-router 自带的 history ，而是到 utils/ 文件夹下的 routerUtils 文件中自己初始化一个 history 对象，目的就是方便在 react-router 够不着的位置，例如 action 文件。到 actions/authActions.js 中使用 history ，进行页面跳转到 /dashboard 的操作。containers 文件夹下添加了 Dashboard 的容器组件 DashboardContainer 。Components 文件夹下添加了展示组件 Dashboard ，暂时都是空的。
 
 看看达成的效果。点登录，可以跳转到 dashboard 页面。
 
 ### 密码校验
 
-进入《密码校验》这个任务。
-
+下一步要做的是《密码校验》。
 
 ```diff
 diff --git a/admin/src/actions/authActions.js b/admin/src/actions/authActions.js
 index 0e3c3d9..d029a2e 100644
---- a/admin/src/actions/authActions.js
-+++ b/admin/src/actions/authActions.js
 @@ -1,6 +1,11 @@
  import { history } from '../utils/routerUtils'
  export const login = data => dispatch => {
@@ -295,8 +274,6 @@ index 0e3c3d9..d029a2e 100644
  }
 diff --git a/admin/src/components/Home.js b/admin/src/components/Home.js
 index 69cc333..ce72c4f 100644
---- a/admin/src/components/Home.js
-+++ b/admin/src/components/Home.js
 @@ -1,12 +1,22 @@
  import React, { Component } from 'react'
  import styled from 'styled-components'
@@ -321,8 +298,6 @@ index 69cc333..ce72c4f 100644
    render () {
 ```
 
-使用了 Promise 的形式，这样我就可以把全局提示写到展示组件中了，而不用到 action 创建函数中去直接呼叫。
+修改了两个文件。到 authActions.js 中，对传入的数据进行简单的判断，返回值使用了 Promise 的形式，携带必要的信息给呼叫 action 创建器的组件。那么，到 Home.js 中，可以用 .then 来接受成功信息，使用蚂蚁设计的全局提示，也就是 message 组件显示出来，对应报错信息，.catch 中的做法也是一样的。
 
 看看达成的效果。输入正确的用户名密码，可以跳转到 dashboard 页面，提示信息为登录成功，否则不跳转，显示登录失败。
-
-至此，《提交表单》这一关就通过了。
