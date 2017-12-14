@@ -1,14 +1,10 @@
 # 添加删除甜点功能
 
-欢迎来到新的一关《添加删除甜点功能》。先把后端删除甜点 API ，调通，然后前端调用 API ，最后优化一下用户体验。
+这次来《添加删除甜点功能》。思路是先把后端删除甜点 API 调通，然后前端调用 API ，最后优化一下用户体验。
 
 ### 添加删除数据 API
 
-进入《添加删除数据 API》这个任务。先要添加后端的 API ，然后调用即可。
-
-先到 happy-api-starter 中添加删除一个甜点的 API
-
-
+那就先来《添加删除数据 API》。
 
 ```diff
 diff --git a/happy-api-starter-1.0.0/controllers/dish.js b/happy-api-starter-1.0.0/controllers/dish.js
@@ -49,17 +45,15 @@ index 8ce5f9d..bd33ca7 100755
 ```
 
 
-具体代码细节跟我们课程的中心无关，就不细聊了。这里我们要关系的就是 API 链接， delete 动作，链接是 /dish/xxxid .
+具体代码细节跟我们课程的中心无关，就不细聊了。这里我们要关系的就是 API 链接， DELETE /dish/id .
 
-看看达成的效果。Postman 测试一下，首先请求 GET /dishes ，输出中拷贝一个 dish 的 id ，然后发出 DELETE /dish/xxxid 的请求，输出信息中可以看到，删除成功。
+Postman 测试一下，首先请求 GET /dishes ，输出中拷贝一个 dish 的 id ，然后发出 DELETE /dish/xxxid 的请求，输出信息中可以看到，删除成功。
 
 ### 前端调用 API
 
-进入《前端调用 API》这个任务。
+接下来《前端调用 API》。
 
-主要删除工作都在 action 创建器中完成，所以第一步先要保证 action 中可以拿到要删除的 dish 的 id 。
-
-
+主要删除工作都在 action 创建器中完成，所以第一步先要保证 action 中可以拿到要删除的甜点的 id 。
 
 ```diff
 diff --git a/admin/src/actions/dishActions.js b/admin/src/actions/dishActions.js
@@ -129,12 +123,17 @@ index 9e270ba..33bf78c 100644
 +})(DishesContainer)
 ```
 
+一共修改了四个文件。
 
-添加一个 deleteDish action 创建器，里面暂时只打印收到的 id ，容器组件中拿到它，传递给展示组件，展示组件再传递给列定义文件，因为真正的删除按钮是在列定义文件中的，点删除的时候，把这一列的数据，也就是 id 值传递出去即可。
+dishActions.js 文件中，添加一个 deleteDish action 创建器，里面暂时只打印收到的 id 。
 
-下一步来调用 API 。
+容器组件 DishesContainer 中拿到它，传递给展示组件。
 
+展示组件 Dishes 再传递给列定义文件，因为真正的删除按钮是在列定义文件中的，
 
+dishTableColumns 点删除的时候，把这一列的数据，也就是甜点 id 传递给 deleteDish 即可。
+
+这样 deleteDish 中可以获得甜点 id 了，下一步来调用 API 。
 
 ```diff
 diff --git a/admin/src/actions/dishActions.js b/admin/src/actions/dishActions.js
@@ -181,17 +180,19 @@ index de120f8..ea45f96 100755
    )
 ```
 
+这次一共改了三个文件。
 
-首先把请求链接写到常量文件中，注意这里的动态参数 :id ，回到 action 文件中是通过字符串替换来换成实际 id 的。
+ApiConstants 常量文件中添加了请求链接，注意这里的动态参数 :id
+
+dishActions 文件中，通过字符串替换来换成实际 id 。
+
+第三处修改在服务器端代码的 dish.js 中，缩短了一下数据加载时间，方便调试。
 
 看看达成的效果。页面上点删除链接，终端中可以打印出删除成功字样，不过页面上的甜点不会立刻消失，需要手动刷新页面才会消失。
 
 ### 更新 Redux 数据
 
-进入《更新 Redux 数据》这个任务。优化用户体验的最基本的一步，就是删除后页面上的甜点要能自动消失，这个是通过更新 Redux 数据来达成的。
-
-开始写代码。
-
+所以就需要来《更新 Redux 数据》。这样就可以保证删除后甜点要在页面上自动消失。
 
 ```diff
 diff --git a/admin/src/actions/dishActions.js b/admin/src/actions/dishActions.js
@@ -236,19 +237,19 @@ index 760b7b2..d10ebc2 100644
    }
 ```
 
+一共修改了三个文件。
 
+ActionTypes 文件中新添加了一个 action 类型， `REMOVE_DISH` 。
 
-首先 action 创建器中，当服务器端删除数据成功后，发出 `REMOVE_DISH` 这个 action 给 reducer ，负载数据是 id 。Reducer 中拿到被删除的 dish 的 id 把它从数据中剔除掉即可。
+dishActions 中，当服务器端删除数据成功后，发出这个 action 给 reducer ，负载数据是被删除的这个甜点的 id 。
 
-看看达成的效果。页面上再次删除，这次甜点条目立即就消失了。
+reducer 文件 dish.js 中拿到被删除的 dish 的 id 把它从状态树中剔除掉即可。
+
+看看达成的效果。页面上再次删除，这次甜点条目立即就消失了。但是如果能再有个提示信息是不是就更棒了呢？
 
 ### 添加操作成功提示信息
 
-进入《添加操作成功提示信息》这个任务。删除成功后，让用户可以看到一个全局提示。
-
-主要用到的是蚂蚁设计提供的全局提示组件，还有 Promise 的技巧。
-
-
+所以来《添加操作成功提示信息》。会用到 Promise 的技巧。
 
 ```diff
 diff --git a/admin/src/actions/dishActions.js b/admin/src/actions/dishActions.js
@@ -294,18 +295,17 @@ index 6cce575..f585ac9 100644
        />
 ```
 
-首先要让 axios 请求之后能够返回一个 Promise ，所以 axios 请求行前面添加了 return ，然后要携带的信息通过下面的 return 语句来完成。到展示组件中，把 action 创建器封装到 handleClick 函数中，让创建器执行成功后，运行这里的 .then 显示全局提示，handleClick 传递给列定义文件去呼叫执行。
+修改了两个文件。
 
-看看达成的效果。页面中删除一个甜点，可以弹出全局提示显示“删除成功了”。
+dishActions.js 中， axios 的 .then 会返回一个 Promise ，在 axios 前面加上 return 就会把这个 Promise 返回会给 deleteDish 的呼叫者。要携带的信息通过下面的 return 语句来完成。
+
+到展示组件 Dishes.js 中，把 action 创建器封装到 handleClick 函数中，让创建器执行成功后，运行这里的 .then 显示全局提示，handleClick 传递给列定义文件去呼叫执行。
+
+看看达成的效果。页面中删除一个甜点，可以弹出全局提示显示“删除成功了”。如果删除失败了呢？
 
 ### 添加操作失败提示信息
 
-进入《添加操作失败提示信息》这个任务。服务器端如果删除失败，会返回报错信息，这个前端也要体现给用户。
-
-修改代码。
-
-
-
+所以还需要《添加操作失败提示信息》。
 
 ```diff
 diff --git a/admin/src/actions/dishActions.js b/admin/src/actions/dishActions.js
@@ -356,9 +356,12 @@ index ea45f96..5246be3 100755
            if (err) return res.status(500).json({ error: err.message });
 ```
 
+一共修改三个文件。
 
-首先到服务器上故意返回一个 500 状态，并且把错误信息也发送给客户端，客户端 axios 只要收到非 2xx 的状态码就会执行 .catch 中的语句。详细的报错信息拿到后直接打印到终端中，方便开发者调试，只把简单的报错信息“服务器端报错啦”显示给用户。如果这里直接 return 一个对象，那么到 deleteDish 的调用位置，就会在 .then 中接收到报错，这里我们希望用 .catch 接收，所以需要 throw 一个 Error 。回到展示组件，把错误信息通过全局提示组件显示到页面上即可。
+先看服务器上的 dish.js 文件，故意返回一个 500 状态，并且把错误信息也发送给客户端，
 
-看看达成的效果。用户点删除，可以看到服务器报错了的提示信息。调试完毕不要忘了把服务器端代码改回去。
+dishActions.js 中，axios 只要收到非 2xx 的状态码就会执行 .catch 中的语句。详细的报错信息拿到后直接打印到终端中，方便开发者调试，只把简单的报错信息“服务器端报错啦”，返回给调用者。如果这里直接 return 一个对象，那么到 deleteDish 的调用位置，就会在 .then 中接收到报错，这里我们希望用 .catch 接收，所以需要 throw 一个 Error 。
 
-至此，《删除甜点》这一关就通过了。
+回到展示组件 Dishes.js，把错误信息通过全局提示组件显示到页面上即可。
+
+看看达成的效果。用户点删除，可以看到报错提示。调试完毕不要忘了把服务器端代码改回去。

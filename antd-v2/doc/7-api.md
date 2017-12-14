@@ -1,18 +1,15 @@
 # 调用 API 和体现加载状态
 
-《调用 API 和体现加载状态》。现在要跟后端 API 打交道了，后端代码来自《React 社交化电商--功能篇》那门课程。
+这集来《调用 API 和体现加载状态》。现在要跟后端 API 打交道了，后端代码来自《React 社交化电商--功能篇》那门课程。
 
 ### 读取数据
 
-先来《读取数据》，存入 Redux ，并显示在界面上。前面咱们已经添加了种子数据，所以现在访问读取所有甜点的 API ，也就是 localhost:3008/dishes 是能够拿到所有甜点的数组的。
+先来《读取数据》，存入 Redux ，并显示在界面上。前面咱们不是已经添加了种子数据，所以现在访问读取所有甜点的 API ，也就是 localhost:3008/dishes 是能够拿到所有甜点的数组的。
 
 第一步，页面加载的时候来触发读取甜点的 action 创建器，并把数据保存到 redux 中
 
 ```diff
 diff --git a/admin/src/actions/dishActions.js b/admin/src/actions/dishActions.js
-new file mode 100644
-index 0000000..f7e9907
---- /dev/null
 +++ b/admin/src/actions/dishActions.js
 @@ -0,0 +1,10 @@
 +import * as types from '../constants/ActionTypes'
@@ -26,9 +23,6 @@ index 0000000..f7e9907
 +  })
 +}
 diff --git a/admin/src/constants/ActionTypes.js b/admin/src/constants/ActionTypes.js
-index b9fef70..1d82754 100644
---- a/admin/src/constants/ActionTypes.js
-+++ b/admin/src/constants/ActionTypes.js
 @@ -1,2 +1,3 @@
  export const LOGIN_SUCCESS = 'LOGIN_SUCCESS'
  export const UPDATE_SELECTED_INDEX = 'UPDATE_SELECTED_INDEX'
@@ -99,19 +93,25 @@ index 15840c6..8674285 100644
  export default rootReducer
 ```
 
-首先到 App.js 中添加触发 action 的语句，然后创建 actions/dishActions.js 文件专门来写 action 创建器，fecthDishes 创建器中请求了后端读取所有甜点的 API ，拿到的数据，伴随 RECEIVE_DISHES 这个 action ，一起发送给 reducers 。如何定义常量，如何装扮咱们就不说了，直接进入 reducer ，首先 rootReducer 中要导入 dish.js ，然后打开 dish.js ，可以看到数据保存到了 dish.all 这个数组中。
+一共修改了六个文件。
+
+ActionTypes.js 总定义一个新的 Action 类型，RECEIVE_DISHES 。
+
+ApiConstants.js 中添加了读取所有甜点的 API 链接 DISHES_URL 。
+
+然后创建 actions/dishActions.js 文件来写 action 创建器，fecthDishes 创建器中请求了后端读取所有甜点的 API ，拿到的数据，伴随 RECEIVE_DISHES 这个 action ，一起发送给 reducers 。
+
+然后 dish.js 中，可以看到数据保存到了 dish.all 这个数组中。
+
+再进入 rootReducer 中， 导入 dish.js
+
+最后到 App.js 中添加触发 action 的语句。
 
 看看达成的效果。刷新一下页面，终端中可以看到，dish.all 的状态值果然就是服务器上返回的数据。
 
-至此，《读写真实数据》这一关就通过了。
-
 ### 显示真实数据
 
-进入《显示真实数据》这个任务。
-
-从 redux 中拿到数据，替换临时数据即可
-
-
+下面就来《显示真实数据》。
 
 ```diff
 diff --git a/admin/src/components/Dishes.js b/admin/src/components/Dishes.js
@@ -153,16 +153,19 @@ index b6056a3..ffeef92 100644
  export default connect(mapStateToProps)(DishesContainer)
 ```
 
-容器组件中先把数据拿到，存放到 dishes 变量中，然后界面中，把临时数据换成 this.props.dishes 数据。
+修改了两个文件。
+
+容器组件 DishesContainer 中先把数据拿到，存放到 dishes 变量中，
+
+展示组件 Dishes 中，把临时数据换成 this.props.dishes 数据。
 
 看看达成的效果。页面上没有变化，但是已经是真实的数据了。
 
 ### 体现加载状态
 
-进入《体现加载状态》这个任务。添加 dishes.isFetching 状态位，同时使用一下蚂蚁设计的[加载中](https://ant.design/components/spin-cn/)组件。
+页面刷新，加载数据的时候肯定是有延迟的，达成更好的用户体验，就需要《体现加载状态》。思路就是添加 dishes.isFetching 状态位，同时使用一下蚂蚁设计的[加载中](https://ant.design/components/spin-cn/)组件。
 
 先来添加状态位。
-
 
 ```diff
 diff --git a/admin/src/actions/dishActions.js b/admin/src/actions/dishActions.js
@@ -210,11 +213,15 @@ index fd44242..760b7b2 100644
  })
 ```
 
-先到 action 创建器中，在发起 axios 请求之前，先发出一个 `DISHES_REQUEST` action ，它的作用就是专门用来通知 redux ，说我现在开始加载数据啦，你马上把 isFething 状态位设置为 true 吧。那 isFetching 也就是加载中这个状态位何时恢复为 false 呢？那就是数据获取成功之后呗，所以当 `RECEIVE_DISHES` 收到后，isFetching 就会重新设置为 false 。
+修改了三个文件。
 
-下一步就是到组件中使用这个状态位，它为 true 这这个阶段显示加载中图标就行了。
+ActionTypes 文件中又添加了一个新的 `DISHES_REQUEST` 。
 
+dishActions 文件中，在发起 axios 请求之前，先发出一个 `DISHES_REQUEST` action ，它的作用就是专门用来通知 redux ，说我现在开始加载数据啦，你马上把 isFething 状态位设置为 true 吧。
 
+具体修改数据还要依靠 reducer ，到 dish.js 中修改状态树即可。那 isFetching 也就是加载中这个状态位何时恢复为 false 呢？那就是数据获取成功之后呗，所以当 `RECEIVE_DISHES` 收到后，isFetching 就会重新设置为 false 。
+
+下一步就是到组件中使用这个状态位，它为 true 这这段时间，显示加载中图标就行了。
 
 ```diff
 diff --git a/admin/src/components/Dishes.js b/admin/src/components/Dishes.js
@@ -279,7 +286,12 @@ index 34cd924..9fe75fc 100755
    )
 ```
 
+一共修改了三个文件。
 
-容器组件中读取 isFetching ，展示组件中导入 Spin 组件，并对它加了点样式，最后当 isFetching 为 true 的这段时间，让 Spin 显示到页面上，为了让效果更明显，所以到 API 中添加了3秒的延迟。
+首先到服务器端代码 dish.js 中，为了让效果更明显，所以 API 中添加了3秒的延迟。
+
+容器组件 DishesContainer.js 中，读取 isFetching 。
+
+展示组件 Dishes.js 中导入 Spin 组件，并对它加了点样式，最后当 isFetching 为 true 的这段时间，让 Spin 显示到页面上。
 
 看看达成的效果。页面中刷新，可以看到加载中图标先出现，稍后图表会显示出来。

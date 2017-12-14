@@ -6,7 +6,7 @@
 
 先来《运行组件》。
 
-第一步就是要做列定义
+第一步就是要做列定义。
 
 ```diff
 diff --git a/admin/src/components/Dishes.js b/admin/src/components/Dishes.js
@@ -68,7 +68,7 @@ index 0000000..ae3fabd
 
 Dishes.js 中导入 Table.js 和列定义，下面把列定义作为属性传递给 Table 组件。
 
-DishTableColumns 文件中，传入 Table 组件的 columns 属性值是一个数组，定义了一共有几列，每一列都显示什么内容。通过 title 定义了每一列的标题是什么，通过 dataIndex 指定了这一类要显示数据的那个字段。
+DishTableColumns 文件中，传入 Table 组件的 columns 属性值是一个数组，定义了一共有几列，每一列都显示什么内容。通过 title 定义了每一列的标题是什么，通过 dataIndex 指定了这一列要显示数据的哪个字段。
 
 下面来把后端服务器启动。
 
@@ -79,21 +79,15 @@ npm run db
 npm run dev
 ```
 
-happy-api-starter/public/uploads/posters 中添加 hsl.png 和 tlms.png 两张甜点海报。
+让后 happy-api-starter/public/uploads/posters 中添加 hsl.png 和 tlms.png 两张甜点海报。
 
 浏览器中访问 localhost:3008/seed-dishes ，把数据库中插入两个甜点数据，然后访问 localhost:3008/dishes ，可以拿到 dishes 数据。
 
 拷贝并添加到代码中做临时数据。
 
-
-
-
 ```diff
 diff --git a/admin/src/components/Dishes.js b/admin/src/components/Dishes.js
-index 624a76e..87247d3 100644
---- a/admin/src/components/Dishes.js
-+++ b/admin/src/components/Dishes.js
-@@ -5,8 +5,27 @@ import styled from 'styled-components'
+
  class Dishes extends Component {
    render () {
 +    const dishes = [
@@ -135,10 +129,7 @@ index 624a76e..87247d3 100644
 
 ```diff
 diff --git a/admin/src/constants/DishTableColumns.js b/admin/src/constants/DishTableColumns.js
-index ae3fabd..c4fa77e 100644
---- a/admin/src/constants/DishTableColumns.js
-+++ b/admin/src/constants/DishTableColumns.js
-@@ -13,7 +13,10 @@ const dishTableColumns = () => [
+
    },
    {
      title: '价格',
@@ -152,7 +143,7 @@ index ae3fabd..c4fa77e 100644
      title: '操作',
 ```
 
-render 方法可以拿到这列数据为参数，在函数内部对参数做任意的修饰，然后最终显示返回的结果。
+render 方法可以拿到这列的数据为参数，在函数内部对参数做任意的修饰，然后最终显示返回的结果。
 
 也可以渲染 React 组件。
 
@@ -248,6 +239,6 @@ index f399418..b6335d5 100644
      return (
 ```
 
-传入一个独一无二的东西就像，相当于普通 react 组件数组使用的时候用的 key ，这一项不加上，终端中就会有警告信息。
+传入一个独一无二的东西就可以，相当于普通 react 组件数组使用的时候用的 key ，这一项不加上，终端中就会有警告信息。
 
 看看达成的效果。完美。
