@@ -1,7 +1,7 @@
 {
   "vlink": "https://haoqicat-1253322599.costj.myqcloud.com/gatsby",
   "name": "用 Gatsby 开发 haoduoshipin.com",
-  "price": "20",
+  "price": "10",
   "intro": "使用 Gatsby 来搭建一个世界上最快的，有 SEO 的，可以动态交互的静态网站",
   "writing_to_who": "对 Nodejs 和 React 有基本使用能力的朋友",
   "learning_goal": "如何搭建一个类博客的内容发布站",
@@ -11,15 +11,11 @@
   ],
   "content": [
     {
-      "header": "第一章 基础",
+      "header": "动手步骤",
       "section": [
         {
-          "title": "为何要选择 Gatsby ？",
-          "link": "why"
-        },
-        {
           "title": "跑一个 Hello world",
-          "link": "hello"
+          "link": "1-hello"
         },
         {
           "title": "添加样式",
@@ -29,24 +25,6 @@
           "title": "",
           "link": ""
         },
-        {
-          "title": "",
-          "link": ""
-        }
-      ]
-    },
-    {
-      "header": "第二章 ",
-      "section": [
-        {
-          "title": "",
-          "link": ""
-        }
-      ]
-    },
-    {
-      "header": "第三章 ",
-      "section": [
         {
           "title": "",
           "link": ""

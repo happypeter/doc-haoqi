@@ -12,53 +12,42 @@
   ],
   "content": [
     {
-      "header": "第一章：制作非电商和社交但是很实用的各项功能",
       "section": [
         {
-          "title": "制作走马灯样式的猜你喜欢页面",
-          "link": "1-dishes"
+          "title": "创建登录页",
+          "link": "1-login"
         },
         {
-          "title": "使用服务器端的数据",
-          "link": "2-dish-api"
+          "title": "提交表单",
+          "link": "2-router"
         },
         {
-          "title": "制作甜点详情页",
-          "link": "3-dish"
+          "title": "搭建页面布局",
+          "link": "3-layout"
         },
         {
-          "title": "添加评论功能",
-          "link": "4-comments"
-        }
-      ]
-    },
-    {
-      "header": "第二章 社交化功能",
-      "section": [
-        {
-          "title": "上传头像",
-          "link": "5-avatar"
+          "title": "实现登录态控制",
+          "link": "4-logout"
         },
         {
-          "title": "添加好友",
-          "link": "6-follow"
+          "title": "添加导航功能",
+          "link": "5-menu"
         },
         {
-          "title": "查看好友更新",
-          "link": "7-dashboard"
-        }
-      ]
-    },
-    {
-      "header": "第三章 电商类功能",
-      "section": [
-         {
-          "title": "添加商品到购物车",
-          "link": "8-add"
+          "title": "使用表格组件",
+          "link": "6-table"
         },
         {
-          "title": "实现购物车各项功能",
-          "link": "9-cart"
+          "title": "调用 API 和体现加载状态",
+          "link": "7-api"
+        },
+        {
+          "title": "添加删除甜点功能",
+          "link": "8-delete"
+        },
+        {
+          "title": "添加甜点",
+          "link": "9-form"
         }
       ]
     }

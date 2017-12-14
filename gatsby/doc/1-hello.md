@@ -1,10 +1,10 @@
 # 跑一个 Hello World
 
-借助 Gatsby 提供的命令行工具和 Hello World 脚手架，快速搭建一个基本的 Gatsby 网站开发环境，跑一个 Hello World。
+先来《跑一个 Hello World》，借助 Gatsby 提供的命令行工具和 Hello World 脚手架，快速搭建一个基本的 Gatsby 项目骨架。
 
-### 安装 Gatsby 的命令行工具
+### 生成脚手架代码
 
-为了创建网站，我们需要一个命令行工具，先来安装一下。
+第一步先来《生成脚手架代码》。把 gatsby 的命令行工具先装上。
 
 ```
 npm install -g gatsby-cli
@@ -16,7 +16,7 @@ npm install -g gatsby-cli
 gatsby new mySite
 ```
 
-这样的命令来创建网站了。
+这样的命令来生成脚手架代码了。
 
 ### 下载 Hello World 脚手架
 
@@ -37,12 +37,6 @@ gatsby new gatsby-demo https://github.com/gatsbyjs/gatsby-starter-hello-world
 项目创建好之后，执行命令就可以把网站运行起来了。
 
 执行：
-
-```
-gatsby develop
-```
-
-或者执行命令：
 
 ```
 npm run develop
