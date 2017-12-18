@@ -11,10 +11,9 @@
   ],
   "content": [
     {
-      "header": "动手步骤",
       "section": [
         {
-          "title": "跑一个 Hello world",
+          "title": "用 gatsby 写静态网页",
           "link": "1-hello"
         },
         {
