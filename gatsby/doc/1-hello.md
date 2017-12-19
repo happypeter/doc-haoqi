@@ -2,9 +2,12 @@
 
 这集来把《用 gatsby 写无数据源的网页》的技巧都总结出来。
 
+另，课程源码在：https://github.com/happypeter/demo-haoqi/tree/master/gatsby-demo
+
 ### 生成脚手架代码
 
 第一步先来《生成脚手架代码》。全局安装 gatsby-cli 这一个包。
+
 
 ```
 npm install -g gatsby-cli
@@ -12,9 +15,9 @@ npm install -g gatsby-cli
 
 这样就有一个名为 gatsby 的系统命令被装好了。
 
-[脚手架](https://www.gatsbyjs.org/docs/gatsby-starters/)有多种，我选择一个功能最简单的 [Hello World](https://github.com/gatsbyjs/gatsby-starter-hello-world) 脚手架。
 
-命令行中操作一下。
+[脚手架](https://www.gatsbyjs.org/docs/gatsby-starters/)有多种，我选择一个功能最简单的脚手架。
+
 
 ```
 gatsby new gatsby-demo https://github.com/gatsbyjs/gatsby-starter-hello-world
@@ -37,6 +40,7 @@ npm run develop
 ```
 
 运行 npm run develop 启动项目的开发模式。到浏览器 localhost:8000 端口可以看到 src/pages/index.js 中的内容了。
+
 
 change---
 
