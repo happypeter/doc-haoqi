@@ -6,7 +6,7 @@
 
 要实现自动创建页面，需要在项目编译的时候插入一下操作。需要《使用 Gatsby 的 Node API》来实现。
 
-node-api
+3d19be8--node api
 
 项目顶级位置创建 gatsby-node.js 。里面调用 Gatsby 的一个名为 createPages 的 API ，它的执行时间点是在数据读取完毕之后，所以后续可以放心的在里面使用 graphql 数据查询。这里添加了 console.log 语句，来证实这个 API 运行正常与否。
 
@@ -23,7 +23,7 @@ npm run develop
 
 这就需要来《使用创建页面接口》。
 
-createpage---
+a23e69d--create page
 
 一共修改了两个文件。
 
@@ -45,7 +45,7 @@ npm run develop
 
 再来看看如何《创建多个页面》，并且给每个页面传递不同的数据。
 
-context---
+f9efcb5--context
 
 修改了两个文件。
 

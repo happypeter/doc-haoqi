@@ -15,9 +15,7 @@ npm i gatsby-transformer-json
 
 它的作用就是解析 json 。现在写代码来使用插件解析 json 数据。
 
-
-allIndexJson----
-
+f45aa34--allIndexJson
 
 data/ 文件夹下添加了 index.json 文件夹来存放目录数据。里面存放了各个博客的 id 和 title 。
 
@@ -46,7 +44,7 @@ data/ 文件夹下添加了 index.json 文件夹来存放目录数据。里面�
 
 数据到手，就可以来《实现博客目录》了。
 
-show-index---
+0f89a0c--show index
 
 只需要修改 pages/index.js 即可，导入 Link 和 styled-components ，拿到 data 数据，并且结构赋值把 data.allIndexJson.edges 赋值给 posts 常量。下面 map 一下，拿到每一篇 post ，post 的 id 做 key ，同时利用 post 的 id ，通过字符串拼接获得各个链接指向，每个链接显示文章标题。用 styled-components 对 Link 添加了一下样式，所以就有了这里的 styledLink。
 
@@ -56,7 +54,7 @@ show-index---
 
 现在来《实现下一篇功能》。
 
-prev-next---
+2d358e4--prev next
 
 主要工作都在 gatsby-node.js 中完成，首先拿到所有文章数组，map 一下，从当前博客的页面链接中获得博客 id 存放到 pid 常量中，生成 next ，也就下一篇的链接，主要看的这是不是最后一篇博客，如果是就赋值为 null ，否则就是下一篇博客的链接。对于 prev ，如果当前博客是第一篇了，就赋值为 null ，否则就赋值为上一篇博客的链接。
 

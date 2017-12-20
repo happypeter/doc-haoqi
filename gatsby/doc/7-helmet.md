@@ -6,7 +6,8 @@
 
 先来《获取 title 数据》。
 
-title-data---
+175c941--title data
+
 
 修改两个文件。
 
@@ -27,7 +28,7 @@ npm install --save gatsby-plugin-react-helmet react-helmet
 gatsby-plugin-react-helmet 这个插件可以让我们在 gatsby 代码中使用 react-helmet 了。具体代码怎么写呢？
 
 
-helmet---
+6fca97b--helmet
 
 gatsby-config.js 中把配置添加进来。
 

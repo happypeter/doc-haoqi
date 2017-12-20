@@ -10,7 +10,7 @@ cp .cache/default-html.js src/html.js
 
 以后 gatsby 就会实用 src/html.js 中的内容了，下面来添加 favicon 进来。
 
-favicon--
+9db1cf9--favicon
 
 先把图片放到 src/assets/favicon.png 位置，然后到 html.js 中导入图片并在 link 标签中使用。
 

@@ -6,7 +6,7 @@
 
 所以先看看如何《拿到真实数据》。
 
-real-data---
+c3bd03a--real data
 
 到 data/posts 文件夹中，创建 2.md， 3.md ，4.md ，里面都只有一行文本而已。
 
@@ -24,7 +24,7 @@ npm run develop
 
 下一步就要根据这四个文件节点，创建四个页面路径。
 
-createFilePath---
+27a1a89--createFilePath
 
 改了两个文件。
 
@@ -44,7 +44,7 @@ npm run develop
 
 首先需要把《路径添加到 MarkdownRemark node 中》。
 
-add-slug-to-node---
+4308b2f--add slug to node
 
 结构赋值从 boundActionCreators 里拿到 createNodeField 接口。下面每次生成的路径数据存放到 slug 常量中，然后传递给 createNodeField 接口的 value 一项即可，上面的 name: `slug` 指定了这一项添加到在文件节点中之后的字段名。
 
@@ -99,7 +99,7 @@ add-slug-to-node---
 
 于是下一步就可以《到 createPages 接口中使用路径》。
 
-real-data-for-path----
+5de4bcc--real data for path
 
 这次修改实现了使用真实的数据来生成页面路径了。
 
@@ -113,7 +113,7 @@ real-data-for-path----
 
 最后要解决的问题就是页面中如何来《显示真实 markdown 数据》。
 
-markdown-shown---
+f19204d--markdown shown
 
 这次修改的内容都在模板文件 blog-post.js 中，通过 context 机制传递过来的 slug 数据，可以在 graphql 查询中直接使用，markdownRemark 接口以文件路径为查询条件，可以拿到属于当前页面的 markdown 对应的 html ，再用 react 的 dangerouslySetInnerHTML 把这些 html 内容显示出来即可。
 

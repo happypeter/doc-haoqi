@@ -10,7 +10,7 @@ npm install --save  gatsby-remark-prismjs
 
 安装了 gatsby-remark-prismjs ，这个插件要和 remark 配合到一起用，来看看怎么写配置，怎么来使用。
 
-prism---
+96cfb1e--prism
 
 主要修改了三个文件。
 

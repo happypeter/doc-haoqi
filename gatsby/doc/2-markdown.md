@@ -12,8 +12,7 @@ npm install --save gatsby-source-filesystem
 
 source-filesystem 这个插件是从本地文件系统中读文件信息，来创建 File 节点的。那它如何使用呢？
 
-source-filesystem---
-
+840d341--source-filesystem
 
 一共有三个文件被修改。
 
@@ -37,7 +36,7 @@ npm i gatsby-transformer-remark
 
 remark 是一个转换 markdown 为 html 的工具，有了 tranformer-remark 这个插件，Gatsby 就可以使用 remark 这工具了。那如何使用呢？
 
-transformer-remark---
+d45b64c--transformer-remark
 
 gatsby-config.js 中添加好配置，重启 npm run devlop ，这样插件就加载好了。
 
@@ -57,7 +56,7 @@ gatsby-config.js 中添加好配置，重启 npm run devlop ，这样插件就�
 
 需要先来添加页面文件。
 
-show-markdown---
+499bdc7--show markdown
 
 项目中新建一个 src/pages/1.js 来显示 1.md 中的内容。Gatsby 框架支持下，每个页面文件中都可以通过标签函数 graphql 来读取数据，新建一个查询叫 BlogPostQuery ，把查询语句粘贴到查询中。这样，当前组件就有 data 属性了，根据刚才 graphiql 的输出， data 对象包含的 markdownRemark 属性对应一篇具体的 post ，post.html 就可以得到 html 内容了，然后通过 dangerouslySetInnerHTML 传递给一个自闭和的 div 显示即可。重启 run develop 。
 
