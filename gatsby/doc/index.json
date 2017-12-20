@@ -30,11 +30,11 @@
         },
         {
           "title": "生成博客目录",
-          "link": "5-index-page.md"
+          "link": "5-index-page"
         },
         {
           "title": "实现代码高亮",
-          "link": "6-highlight.md"
+          "link": "6-highlight"
         },
         {
           "title": "用 Helmet 实现动态 title",
