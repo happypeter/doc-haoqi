@@ -6,7 +6,48 @@
 
 先来《获取 title 数据》。
 
-175c941--title data
+```
+src/templates/blog-post.js
+@@ -4,9 +4,13 @@ import Link from 'gatsby-link'
+ 
+ export default ({ data, pathContext }) => {
+   const post = data.markdownRemark
++  const { title } = data.indexJson
+   const { prev, next } = pathContext
+   return (
+     <Wrap>
++      <Title>
++        {title}
++      </Title>
+       <div className='markdown-content'
+         dangerouslySetInnerHTML={{ __html: post.html }}
+       />
+@@ -29,10 +33,13 @@ export default ({ data, pathContext }) => {
+ }
+ 
+ export const query = graphql`
+-  query BlogPostQuery($slug: String!) {
++  query BlogPostQuery($slug: String!, $pid: String!) {
+     markdownRemark(fields: { slug: { eq: $slug }}) {
+       html
+     }
++    indexJson(id: {eq: $pid}) {
++      title
++    }
+   }
+ `
+ 
+@@ -59,3 +66,8 @@ const Wrap = styled.div`
+     flex-grow: 1;
+   }
+ `
++const Title = styled.div`
++  font-size: 20px;
++  text-align: center;
++  font-weight: 600px;
++`
+```
+
 
 
 修改两个文件。
@@ -28,7 +69,27 @@ npm install --save gatsby-plugin-react-helmet react-helmet
 gatsby-plugin-react-helmet 这个插件可以让我们在 gatsby 代码中使用 react-helmet 了。具体代码怎么写呢？
 
 
-6fca97b--helmet
+```
+src/templates/blog-post.js
+@@ -1,6 +1,8 @@
+ import React from 'react'
+ import styled from 'styled-components'
+ import Link from 'gatsby-link'
++import Helmet from 'react-helmet'
++
+ 
+ export default ({ data, pathContext }) => {
+   const post = data.markdownRemark
+@@ -8,6 +10,7 @@ export default ({ data, pathContext }) => {
+   const { prev, next } = pathContext
+   return (
+     <Wrap>
++      <Helmet title={title} />
+       <Title>
+         {title}
+       </Title>
+```
+
 
 gatsby-config.js 中把配置添加进来。
 

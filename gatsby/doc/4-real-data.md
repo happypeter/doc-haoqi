@@ -6,7 +6,29 @@
 
 所以先看看如何《拿到真实数据》。
 
-c3bd03a--real data
+```
+data/posts/2.md
+@@ -0,0 +1 @@
++第二个故事
+data/posts/3.md
+@@ -0,0 +1 @@
++第三个故事
+data/posts/4.md
+@@ -0,0 +1 @@
++第四个故事
+gatsby-node.js
+@@ -1,5 +1,9 @@
+ const path = require(`path`)
+ 
++exports.onCreateNode = ({ node }) => {
++  console.log('node---type:', node.internal.type)
++}
++
+ exports.createPages = ({ boundActionCreators }) => {
+   const { createPage } = boundActionCreators
+   const slugs = ['page1', 'page2']
+```
+
 
 到 data/posts 文件夹中，创建 2.md， 3.md ，4.md ，里面都只有一行文本而已。
 
@@ -24,7 +46,43 @@ npm run develop
 
 下一步就要根据这四个文件节点，创建四个页面路径。
 
-27a1a89--createFilePath
+```
+gatsby-node.js
+@@ -1,7 +1,10 @@
+ const path = require(`path`)
++const { createFilePath } = require(`gatsby-source-filesystem`)
+ 
+-exports.onCreateNode = ({ node }) => {
+-  console.log('node---type:', node.internal.type)
++exports.onCreateNode = ({ node, getNode }) => {
++  if (node.internal.type === `MarkdownRemark`) {
++    console.log(createFilePath({ node, getNode }))
++  }
+ }
+ 
+ exports.createPages = ({ boundActionCreators }) => {
+src/pages/1.js
+@@ -1,18 +0,0 @@
+-import React from 'react'
+-
+-export default ({ data }) => {
+-  const post = data.markdownRemark
+-  return (
+-    <div
+-      dangerouslySetInnerHTML={{__html: post.html}}
+-    />
+-  )
+-}
+-
+-export const query = graphql`
+-  query BlogPostQuery {
+-    markdownRemark {
+-      html
+-    }
+-  }
+-`
+```
+
 
 改了两个文件。
 
@@ -44,7 +102,28 @@ npm run develop
 
 首先需要把《路径添加到 MarkdownRemark node 中》。
 
-4308b2f--add slug to node
+```
+gatsby-node.js
+@@ -1,9 +1,15 @@
+ const path = require(`path`)
+ const { createFilePath } = require(`gatsby-source-filesystem`)
+ 
+-exports.onCreateNode = ({ node, getNode }) => {
++exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
++  const { createNodeField } = boundActionCreators
+   if (node.internal.type === `MarkdownRemark`) {
+-    console.log(createFilePath({ node, getNode }))
++    const slug = createFilePath({ node, getNode })
++    createNodeField({
++      node,
++      name: `slug`,
++      value: slug
++    })
+   }
+ }
+ 
+```
+
 
 结构赋值从 boundActionCreators 里拿到 createNodeField 接口。下面每次生成的路径数据存放到 slug 常量中，然后传递给 createNodeField 接口的 value 一项即可，上面的 name: `slug` 指定了这一项添加到在文件节点中之后的字段名。
 
@@ -99,7 +178,54 @@ npm run develop
 
 于是下一步就可以《到 createPages 接口中使用路径》。
 
-5de4bcc--real data for path
+```
+gatsby-node.js
+@@ -13,18 +13,32 @@ exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
+   }
+ }
+ 
+-exports.createPages = ({ boundActionCreators }) => {
++exports.createPages = ({ graphql, boundActionCreators }) => {
+   const { createPage } = boundActionCreators
+-  const slugs = ['page1', 'page2']
+-  slugs.forEach(
+-    slug => {
+-      createPage({
+-        path: slug,
+-        component: path.resolve(`./src/templates/blog-post.js`),
+-        context: {
+-          slug
++  return new Promise((resolve, reject) => {
++    graphql(`
++      {
++        allMarkdownRemark {
++          edges {
++            node {
++              fields {
++                slug
++              }
++            }
++          }
+         }
++      }
++    `).then(result => {
++      result.data.allMarkdownRemark.edges.map(({ node }) => {
++        createPage({
++          path: node.fields.slug,
++          component: path.resolve(`./src/templates/blog-post.js`),
++          context: {
++            slug: node.fields.slug
++          }
++        })
+       })
+-    }
+-  )
++      resolve()
++    })
++  })
+ }
+```
+
 
 这次修改实现了使用真实的数据来生成页面路径了。
 
@@ -113,7 +239,34 @@ npm run develop
 
 最后要解决的问题就是页面中如何来《显示真实 markdown 数据》。
 
-f19204d--markdown shown
+```
+src/templates/blog-post.js
+@@ -1,10 +1,18 @@
+ import React from 'react'
+ 
+-export default ({ pathContext }) => {
+-  const { slug } = pathContext
++export default ({ data }) => {
++  const post = data.markdownRemark
+   return (
+-    <div>
+-      模板文件 {slug}
+-    </div>
++    <div
++      dangerouslySetInnerHTML={{ __html: post.html }}
++    />
+   )
+ }
++
++export const query = graphql`
++  query BlogPostQuery($slug: String!) {
++    markdownRemark(fields: { slug: { eq: $slug }}) {
++      html
++    }
++  }
++`
+```
+
 
 这次修改的内容都在模板文件 blog-post.js 中，通过 context 机制传递过来的 slug 数据，可以在 graphql 查询中直接使用，markdownRemark 接口以文件路径为查询条件，可以拿到属于当前页面的 markdown 对应的 html ，再用 react 的 dangerouslySetInnerHTML 把这些 html 内容显示出来即可。
 

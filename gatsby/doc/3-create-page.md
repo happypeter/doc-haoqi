@@ -6,7 +6,14 @@
 
 要实现自动创建页面，需要在项目编译的时候插入一下操作。需要《使用 Gatsby 的 Node API》来实现。
 
-3d19be8--node api
+```
+gatsby-node.js
+@@ -0,0 +1,3 @@
++exports.createPages = () => {
++  console.log('createPages...')
++}
+```
+
 
 项目顶级位置创建 gatsby-node.js 。里面调用 Gatsby 的一个名为 createPages 的 API ，它的执行时间点是在数据读取完毕之后，所以后续可以放心的在里面使用 graphql 数据查询。这里添加了 console.log 语句，来证实这个 API 运行正常与否。
 
@@ -23,7 +30,33 @@ npm run develop
 
 这就需要来《使用创建页面接口》。
 
-a23e69d--create page
+```
+gatsby-node.js
+@@ -1,3 +1,10 @@
+-exports.createPages = () => {
++const path = require(`path`)
++
++exports.createPages = ({ boundActionCreators }) => {
++  const { createPage } = boundActionCreators
++  createPage({
++    path: '/2',
++    component: path.resolve(`./src/templates/blog-post.js`)
++  })
+   console.log('createPages...')
+ }
+src/templates/blog-post.js
+@@ -0,0 +1,9 @@
++import React from 'react'
++
++export default () => {
++  return (
++    <div>
++      模板文件 blog-post
++    </div>
++  )
++}
+```
+
 
 一共修改了两个文件。
 
@@ -45,7 +78,46 @@ npm run develop
 
 再来看看如何《创建多个页面》，并且给每个页面传递不同的数据。
 
-f9efcb5--context
+```
+gatsby-node.js
+@@ -2,9 +2,16 @@ const path = require(`path`)
+ 
+ exports.createPages = ({ boundActionCreators }) => {
+   const { createPage } = boundActionCreators
+-  createPage({
+-    path: '/2',
+-    component: path.resolve(`./src/templates/blog-post.js`)
+-  })
+-  console.log('createPages...')
++  const slugs = ['page1', 'page2']
++  slugs.forEach(
++    slug => {
++      createPage({
++        path: slug,
++        component: path.resolve(`./src/templates/blog-post.js`),
++        context: {
++          slug
++        }
++      })
++    }
++  )
+ }
+src/templates/blog-post.js
+@@ -1,9 +1,10 @@
+ import React from 'react'
+ 
+-export default () => {
++export default ({ pathContext }) => {
++  const { slug } = pathContext
+   return (
+     <div>
+-      模板文件 blog-post
++      模板文件 {slug}
+     </div>
+   )
+ }
+```
+
 
 修改了两个文件。
 

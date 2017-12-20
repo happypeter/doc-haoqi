@@ -42,7 +42,20 @@ npm run develop
 运行 npm run develop 启动项目的开发模式。到浏览器 localhost:8000 端口可以看到 src/pages/index.js 中的内容了。
 
 
-c7eabfc--layout
+```
+src/pages/about.js
+@@ -0,0 +1,3 @@
++import React from "react"
++
++export default () => <div>About!</div>
+src/pages/index.js
+@@ -1,3 +1,3 @@
+ import React from "react"
+ 
+-export default () => <div>Hello world!</div>
++export default () => <div>Hello peter!</div>
+```
+
 
 来《修改页面》看看效果。把 index.js 中的 world 改成 peter ，可以看到页面中是可以自动更新的。然后再添加一个 pages/about.js 进来，也一样是一个 react 组件，浏览器中访问 /about 就可以直接看到了。
 
@@ -50,7 +63,21 @@ c7eabfc--layout
 
 现在来《添加布局文件》。
 
-e41e389--layout
+```
+src/layouts/index.js
+@@ -0,0 +1,10 @@
++import React from "react"
++
++export default ({ children }) => {
++  return (
++    <div>
++      LAYOUT
++      {children()}
++    </div>
++  )
++}
+```
+
 
 Gatsby 会到 src/layouts/index.js 找到布局文件，页面显示时各个页面主体部分会显示到 children 的位置。 跟很多其他地方的 props 不一样，这里的 children 是函数需要执行一下。
 
@@ -60,7 +87,23 @@ Gatsby 会到 src/layouts/index.js 找到布局文件，页面显示时各个页
 
 实现链接，需要《使用 gatsby-link》。
 
-766b57e--gatsby-link
+```
+src/layouts/index.js
+@@ -1,9 +1,11 @@
+ import React from "react"
++import Link from 'gatsby-link'
+ 
+ export default ({ children }) => {
+   return (
+     <div>
+-      LAYOUT
++      <Link to='/'>首页</Link> &nbsp;
++      <Link to='/about'>关于</Link>
+       {children()}
+     </div>
+   )
+```
+
 
 从 gatsby-link 中导入 Link 组件，它其实就是 React-router 的 Link 的一个封装。可以让用户无刷新的从当前页面切换到链接指向的页面。布局文件中添加到首页和 about 链接。
 
@@ -70,7 +113,30 @@ Gatsby 会到 src/layouts/index.js 找到布局文件，页面显示时各个页
 
 样式怎么写呢？
 
-0413550--globalcss
+```
+src/assets/global.css
+@@ -0,0 +1,11 @@
++body {
++  margin: 0;
++}
++
++a {
++  text-decoration: none;
++}
++
++* {
++  box-sizing: border-box;
++}
+src/layouts/index.js
+@@ -1,5 +1,6 @@
+ import React from "react"
+ import Link from 'gatsby-link'
++import '../assets/global.css'
+ 
+ export default ({ children }) => {
+   return (
+```
+
 
 先《把全局样式放到 assets/global.css 中》。里面添加了 body 外边距重置，链接去除下划线，以及 box-sizing 设置，保证一个组件添加 padding 和 border 的时候所占据的总面积不会变大。最后到 src/layouts/index.js 中导入全局 css 文件。
 
@@ -86,11 +152,50 @@ npm install --save gatsby-plugin-styled-components styled-components
 
 先装包。安装了 styled-components 本身，以及它对应的 gatsby 插件，插件的作用是增加 gatsby 功能，或者是对已有功能进行增强。
 
-a8bd79f--styled-plugin
+```
+gatsby-config.js
+@@ -0,0 +1,5 @@
++module.exports = {
++  plugins: [
++    'gatsby-plugin-styled-components'
++  ]
++}
+```
+
 
 使用插件一共分两步，第一步安装，第二步，需要添加到 gatsby-config.js 中生效。项目顶级位置，创建 gatsby-config.js Gatsby 每次启动会加载这个文件，其中来添加 plugin 以及其他一些配置。现在把 `gatsby-plugin-styled-components` 添加到 plugins 数组中。重新运行 `npm run develop` 插件就生效了。下面来用它写写样式。
 
-5442e6d--styled
+```
+src/layouts/index.js
+@@ -1,13 +1,24 @@
+ import React from "react"
+ import Link from 'gatsby-link'
+ import '../assets/global.css'
++import styled from 'styled-components'
+ 
+ export default ({ children }) => {
+   return (
+     <div>
+-      <Link to='/'>首页</Link> &nbsp;
+-      <Link to='/about'>关于</Link>
++      <Header>
++        <Link to='/'>首页</Link>
++      </Header>
+       {children()}
+     </div>
+   )
+ }
++
++const Header = styled.div`
++  line-height: 40px;
++  padding: 10px;
++  background: #00bcd4;
++  a {
++    color: white;
++  }
++`
+```
+
 
 布局文件 layouts/index.js 中导入 styled-components, 添加一个 Header 做导航栏，样式写到下面，styled-components 中可以跟 sass 一样嵌套来写样式。
 

@@ -10,7 +10,55 @@ npm install --save  gatsby-remark-prismjs
 
 安装了 gatsby-remark-prismjs ，这个插件要和 remark 配合到一起用，来看看怎么写配置，怎么来使用。
 
-96cfb1e--prism
+```
+data/posts/1.md
+@@ -1,3 +1,20 @@
+ ### 新的部分
+ 
+ 给你看看我的**新鲜**代码。
++
++```js
++const path = require(`path`)
++const { createFilePath } = require(`gatsby-source-filesystem`)
++
++exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
++  const { createNodeField } = boundActionCreators
++  if (node.internal.type === `MarkdownRemark`) {
++    const slug = createFilePath({ node, getNode, basePath: `pages` })
++    createNodeField({
++      node,
++      name: `slug`,
++      value: slug,
++    })
++  }
++}
++```
+gatsby-config.js
+@@ -7,7 +7,14 @@ module.exports = {
+         path: `${__dirname}/data/`
+       }
+     },
+-    'gatsby-transformer-remark',
++    {
++      resolve: `gatsby-transformer-remark`,
++      options: {
++        plugins: [
++          `gatsby-remark-prismjs`
++        ]
++      }
++    },
+     'gatsby-transformer-json'
+   ]
+ }
+src/assets/global.css
+@@ -1,3 +1,5 @@
++@import 'prismjs/themes/prism-solarizedlight.css';
++
+ body {
+   margin: 0;
+ }
+```
+
 
 主要修改了三个文件。
 
