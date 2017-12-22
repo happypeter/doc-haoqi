@@ -1,6 +1,12 @@
 {
   "published": [
     {
+      "id": "40",
+      "cover": "http://haoqicat-1253322599.costj.myqcloud.com/posters/gatsby.png",
+      "title": "用 Gatsby 开发 SPA 架构的博客",
+      "link": "/gatsby"
+    },
+    {
       "id": "1",
       "cover": "http://o86bpj665.bkt.clouddn.com/posters/gulp-flex-res.png",
       "title": "Gulp-Flexbox 响应式网站课程",
