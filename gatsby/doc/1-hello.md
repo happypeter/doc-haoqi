@@ -2,7 +2,7 @@
 
 这集来把《用 gatsby 写无数据源的网页》的技巧都总结出来。
 
-另，课程源码在：https://github.com/happypeter/demo-haoqi/tree/master/gatsby-demo
+课程源码在：https://github.com/haoqicat/gatsby-demo
 
 ### 生成脚手架代码
 
@@ -51,7 +51,7 @@ src/pages/about.js
 src/pages/index.js
 @@ -1,3 +1,3 @@
  import React from "react"
- 
+
 -export default () => <div>Hello world!</div>
 +export default () => <div>Hello peter!</div>
 ```
@@ -92,7 +92,7 @@ src/layouts/index.js
 @@ -1,9 +1,11 @@
  import React from "react"
 +import Link from 'gatsby-link'
- 
+
  export default ({ children }) => {
    return (
      <div>
@@ -132,7 +132,7 @@ src/layouts/index.js
  import React from "react"
  import Link from 'gatsby-link'
 +import '../assets/global.css'
- 
+
  export default ({ children }) => {
    return (
 ```
@@ -172,7 +172,7 @@ src/layouts/index.js
  import Link from 'gatsby-link'
  import '../assets/global.css'
 +import styled from 'styled-components'
- 
+
  export default ({ children }) => {
    return (
      <div>
