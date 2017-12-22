@@ -1,0 +1,54 @@
+{
+  "vlink": "https://haoqicat-1253322599.costj.myqcloud.com/gatsby",
+  "name": "《定制 videojs 播放器》",
+  "price": "10",
+  "intro": "使用 Gatsby 来搭建一个世界上最快的，有 SEO 的，可以动态交互的静态网站",
+  "writing_to_who": "对 Nodejs 和 React 有基本使用能力的朋友",
+  "learning_goal": "使用 Gatsby 的 Node API ，各种转换器插件，graphql 接口",
+  "service": [
+    "拿到所有视频和文字稿",
+    "可以获取所有示例代码"
+  ],
+  "content": [
+    {
+      "section": [
+        {
+          "title": "用 gatsby 写无数据源的静态网页",
+          "link": "1-hello"
+        },
+        {
+          "title": "用 space 来控制暂停和播放",
+          "link": "2-pause"
+        },
+        {
+          "title": "使用 Node API 创建页面",
+          "link": "3-create-page"
+        },
+        {
+          "title": "使用真实数据",
+          "link": "4-real-data"
+        },
+        {
+          "title": "生成博客目录",
+          "link": "5-index-page"
+        },
+        {
+          "title": "实现代码高亮",
+          "link": "6-highlight"
+        },
+        {
+          "title": "用 Helmet 实现动态 title",
+          "link": "7-helmet"
+        },
+        {
+          "title": "通过修改 html.js 添加 favicon",
+          "link": "8-htmljs"
+        },
+        {
+          "title": "部署到 Github Pages",
+          "link": "9-deploy"
+        }
+      ]
+    }
+  ]
+}
