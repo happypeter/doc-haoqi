@@ -17,3 +17,8 @@
 
 - https://twitter.com/k_os/status/941791718323752960
   - 盖茨比做的案例项目，精美
+
+### web events
+
+- https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Events
+  - 这些都是太重要的知识了。

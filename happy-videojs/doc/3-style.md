@@ -150,3 +150,6 @@
     * `<video ref={node => this.videoNode = node} className='video-js vjs-hqcat' />`
   * 增加自定制样式文件
     *  `videojs-hqcat.css`
+
+
+TODO: 页面加载的第一时间，视频 load 之前，保证 player 足够美观。
