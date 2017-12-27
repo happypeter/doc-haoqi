@@ -22,3 +22,8 @@
 
 - https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Events
   - 这些都是太重要的知识了。
+
+     window.onkeydown = e => {
+      console.log('keydown', e.key)
+      console.log('keydown', e)
+    }

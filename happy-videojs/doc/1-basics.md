@@ -1,177 +1,158 @@
+# 把 Videojs 添加到 React 项目
 
-### 1-着手开发
+这集来把《 Videojs 添加到 React 项目》里。
 
+### 跑一个 gatsby 的 Hello World
 
-```
-gatsby new happy-videojs
-```
-
-
-
-安装 video.js
+这里咱们用 [gatsby](https://github.com/gatsbyjs) 做 React 运行环境，不过除了启动命令，其实用不到太多 gatsby 的任何知识。先来跑一个 gatsby 的 Hello World 。
 
 ```
-npm install --save-dev video.js
+mkdir happy-videojs
+cd happy-videojs
+npm init -y
+npm i gatsby
 ```
 
-#### 项目中引入 video.js
+咱们这个项目就叫 happy-videojs 了，进入项目文件夹，生成一个 package.json 文件，安装 gatsby  ，这样包版本信息会保存到 package.json 中。
 
-对于如何在 React 项目中使用 video.js ，官方文档就这一篇：[ video.js  and  ReactJS integration](http://docs.videojs.com/tutorial-React.html)
+来添加一个首页。
 
-我们参考文档中的基本方法，主要思路就是利用 React 组件的生命周期函数：
-* 在 `componentDidMount` 阶段实例化一个 video.js 播放器
-* 在 `componentWillUnmount` 阶段将其销毁
+index.js
 
-在我们的项目中，新建文件夹 `src/lib/VideoPlayer`，在其中新建组件 `VideoPlayer.js`:
+```js
+import React from 'react'
 
-特别注意，需要加入对 css 文件的引用
-
-**VideoPlayer.js**
+export default () => {
+  return (
+    <div>
+      Hello
+    </div>
+  )
+}
 ```
-import React from 'React'
+
+这个是 gatsby 的格式要求了，要放到 src/pages/index.js 中，写一个纯粹的 React 组件即可。
+
+```
+gatsby develop
+```
+
+到浏览器中，访问 localhost:8080, 看到 Hello ，表示一切都跑起来了。
+
+### 安装 video.js
+
+下一步来安装 videjs 的 npm 包
+
+```
+npm i video.js
+```
+
+注意包名 video 点 js ，不要安装成没点的那个包。
+
+下面参考 React 项目中集成 videojs 的[官方文档](http://docs.videojs.com/tutorial-React.html) ，把 video.js 运行起来。
+
+先添加需要的 html 标签。
+
+index.js
+
+```js
+import React from 'react'
+import Player from '../components/VjsPlayer'
+
+export default () => {
+  return (
+    <div>
+      <Player />
+    </div>
+  )
+}
+```
+
+VjsPlayer.js
+
+```js
+  render () {
+    return (
+      <div data-vjs-player>
+        <video ref={node => (this.videoNode = node)} className='video-js' />
+      </div>
+    )
+  }
+```
+
+到 pages/index.js 中，从 components/VjsPlayer 组件中导入 Player ，下面把 Hello 去掉，显示 Player 。
+
+创建 src/components/VjsPlayer.js 文件，导入 React 和 Component ，导出一个类组件叫做 VjsPlayer ，里面的 render 函数中返回的是两个元素，一个 div 带一个属性叫做 `data-vjs-player`，里面包裹一个 video 标签，class 名叫做 video-js 。这些都是 videojs 能够成功运行的前提，所以不能拼错。
+
+下面来实例化一个播放器。
+
+VjsPlayer.js
+
+```js
+import React, { Component } from 'react'
 import videojs from 'video.js'
 import 'video.js/dist/video-js.css'
 
-export default class VideoPlayer extends React.Component {
-  componentDidMount () {
-    // instantiate video.js
-    this.player = videojs(this.videoNode, this.props, function onPlayerReady () {
-      console.log('onPlayerReady', this)
-    })
+export default class VjsPlayer extends Component {
+  componentDidMount() {
+    this.player = videojs(this.videoNode)
   }
 
-  // destroy player on unmount
-  componentWillUnmount () {
-    if (this.player) {
+  componentWillUnmount() {
+    if(this.player) {
       this.player.dispose()
     }
   }
 
-  // wrap the player in a div with a `data-vjs-player` attribute
-  // so videojs won't create additional wrapper in the DOM
-  // see https://github.com/videojs/ video.js /pull/3856
   render () {
     return (
       <div data-vjs-player>
-        <video ref={node => this.videoNode = node} className='video-js' />
+        <video ref={node => (this.videoNode = node)} className='video-js' />
       </div>
     )
   }
 }
-
 ```
 
-然后新建课程组件，它将引用 VideoPlayer 组件：
 
+导入 videojs ，以及它的 css 文件。为了拿到 video 标签的 dom 节点，添加一个 ref ，赋值到 this.videoNode 。组件内添加 componentDidMount ，调用 videojs 接口，里面传入 this.videoNode ，这样就可以得到一个 player 实例了，保存到 this.player 中，方便在 class 内全局都可以访问到。组件即将从页面上卸载的时候，执行 this.player.dispose ，做一下垃圾清理。
 
-很容易发现，页面加载完成后，播放器会自动播放视频。能否禁止这个默认行为呢？
+到浏览器中，可以看到一个空屏幕。
 
-下一节我们就看如何对播放器的功能进行控制和扩展。
+下面，可以通过传递选项来对播放器做添加视频源等配置。
 
-[commit](https://github.com/BeijiYang/VideoJsCustomization/tree/897f3ca7ccce59cb9490011e19bad0a7112088c8)
+VjsPlayer.js
 
+```js
+import React, { Component } from 'react'
+import videojs from 'video.js'
+import 'video.js/dist/video-js.css'
+import { options } from '../constants/VjsConfig'
 
-### 4-用 options 控制功能
+export default class VjsPlayer extends Component {
+  componentDidMount() {
+    this.player = videojs(this.videoNode, options)
+  }
 
-本节，我们用 options 实现对基本功能的控制。
-
- video.js 中，可以通过 [options](http://docs.videojs.com/tutorial-options.html) 对播放器实例进行控制，如循环播放、静音、以及宽高样式等方面。
-
-上面案例代码中的 `CourseVideoJsOptions` 就是一个例子。定义一个 options 对象，将其作为参数传入 VideoPlayer 组件中：
-
-**src/components/Course.js**
-```
-... ...
-<VideoPlayer {...this.props.videoJsOptions} />
-... ...
+  componentWillUnmount() {
 ```
 
-案例代码中的 options 对象如下：
+VjsConfig.js
 
-```
-const CourseVideoJsOptions = {
-  autoplay: true,
+```js
+export const options = {
   controls: true,
-  sources: [{
-    src: 'http://vjs.zencdn.net/v/oceans.mp4',
-    type: 'video/mp4'
-  }]
-}
-```
-
-其中有三个 key，对照 [options](http://docs.videojs.com/tutorial-options.html) 文档，不难知道
-* autoplay 是否自动播放
-* controls 是否显示控制条
-* sources 规定视频源
-
-通过 options，我们可以对功能进行控制与添加：
-* playbackRates：倍速播放
-* poster： 视频播放前显示的图片
-* volumePanel：音量条
-* fluid： 播放器自动充满容器
-
-```
-const CourseVideoJsOptions = {
-  autoplay: false,
-  controls: true,
-  sources: [{
-    src: 'http://vjs.zencdn.net/v/oceans.mp4',
-    type: 'video/mp4'
-  }, {
-    src: 'http://vjs.zencdn.net/v/oceans.webm',
-    type: 'video/webm'
-  }],
-  poster: 'http://videojs.com/img/logo.png',
-  fluid: 'true', // put the player in the VideoPlayerWrap box
-  'playbackRates': [0.75, 1, 1.5, 2],
-  controlBar: {
-    volumePanel: {
-      inline: false // 将音量控制条垂直
+  sources: [
+    {
+      src: 'http://vjs.zencdn.net/v/oceans.mp4',
+      type: 'video/mp4'
     }
-  }
+  ]
 }
 ```
 
-注意：这里 `sources` 对应的值是一个视频源对象数组。数组中每个 `src` 都是同一个视频，但格式各异。
+还是回到 VjsPlayer.js 中，把 options 写到专门的一个常量文件中。然后再把 options 作为第二个参数，传递给 videojs 接口。
 
-这样可以解决不同浏览器之间的兼容性问题：Video.js 会检测当前浏览器所支持的视频格式，然后在数组中选择合适的视频源进行播放。
+再来创建 constants/VjsConfig.js 文件。导出 options 对象，例如 controls 设置为 true 让播放器显示各种控制按钮，下面通过 sources 一项，传递视频源。多年前我会传递三种格式，除了 mp4 之外，还会为 firefox 这些开源浏览器传递 ogg 和 webm 格式，到今天感觉没必要了 mp4 就可以支持所有平台了，几乎所有。
 
-**src/components/Course.js**
-```
-
-import React, { Component } from 'React'
-import VideoPlayer from '../lib/VideoPlayer/VideoPlayer'
-import styled from 'styled-components'
-
-const VideoPlayerWrap = styled.div`
-  margin: 10px;
-  padding: 10px;
-  border: 2px solid green;
-`
-
-class Course extends Component {
-
-  render () {
-    return (
-      <div className='course-container'>
-        <h2>CourseDemo</h2>
-        <VideoPlayerWrap>
-          <VideoPlayer {...this.props.videoJsOptions} />
-        </VideoPlayerWrap>
-      </div>
-    )
-  }
-}
-
-export default Course
-```
-
-注：这里使用了 [styled-component](https://www.styled-components.com/)。
-
-在播放器外套了一层 VideoPlayerWrap（其实就是 div ），这么做的好处在于：
-* 由于 VideoPlayer options 中打开了 `fluid`，播放器可以自适应 VideoPlayerWrap 容器。如此，options 就可以专注于对功能进行控制。
-* VideoPlayerWrap 的样式代码，同时也规定了播放器的样式。将样式代码集中写到展示性组件中，也符合 Dan Abramov 的思想
-
-本节，我们用 video.js 的 options 机制，实现了播放器的倍速播放、添加 poster、样式控制等功能。
-
-以上都是对现有功能进行控制。下一节，我们来看看如何按照我们的想法，对播放器的功能进行扩展。
+浏览器中看一下，播放器能正常工作了，欧耶。
