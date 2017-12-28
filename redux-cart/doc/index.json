@@ -1,7 +1,7 @@
 {
   "vlink": "http://haoqicat-1253322599.costj.myqcloud.com/redux-cart",
   "cover_video": "",
-  "name": "一起做一遍 redux 官方的购物车案例",
+  "name": "用 redux 实现购物车",
   "price": "0",
   "intro": "使用 React+Redux+AntDesign 开发的电商系统，融入了 follow 朋友，查看朋友更新等社交化因素，深入使用了 Redux",
   "writing_to_who": "已经入门 React 的学习者，了解 Redux/React-router 基本使用，想要查看一门详细的实战课程的朋友",
@@ -13,23 +13,26 @@
   ],
   "content": [
     {
-      "header": "第一章：制作非电商和社交但是很实用的各项功能",
       "section": [
         {
-          "title": "制作走马灯样式的猜你喜欢页面",
-          "link": "1-dishes"
+          "title": "搭建 create-react-app 环境",
+          "link": "1-cra"
         },
         {
-          "title": "使用服务器端的数据",
-          "link": "2-dish-api"
+          "title": "使用内部 state 实现商品列表",
+          "link": "2-state"
         },
         {
-          "title": "制作甜点详情页",
-          "link": "3-dish"
+          "title": "数据搬家到 redux store 中",
+          "link": "3-store"
         },
         {
-          "title": "添加评论功能",
-          "link": "4-comments"
+          "title": "store 中存储多类数据",
+          "link": "4-combine"
+        },
+        {
+          "title": "修改状态树",
+          "link": "5-action"
         }
       ]
     },
