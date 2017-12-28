@@ -1,6 +1,12 @@
 {
   "published": [
     {
+      "id": "41",
+      "cover": "http://haoqicat-1253322599.costj.myqcloud.com/posters/happy-videojs.png",
+      "title": "定制 Videojs 播放器",
+      "link": "/happy-videojs"
+    },
+    {
       "id": "40",
       "cover": "http://haoqicat-1253322599.costj.myqcloud.com/posters/gatsby.png",
       "title": "用 Gatsby 开发 SPA 架构的博客",
