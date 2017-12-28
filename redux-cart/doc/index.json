@@ -35,36 +35,6 @@
           "link": "5-action"
         }
       ]
-    },
-    {
-      "header": "第二章 社交化功能",
-      "section": [
-        {
-          "title": "上传头像",
-          "link": "5-avatar"
-        },
-        {
-          "title": "添加好友",
-          "link": "6-follow"
-        },
-        {
-          "title": "查看好友更新",
-          "link": "7-dashboard"
-        }
-      ]
-    },
-    {
-      "header": "第三章 电商类功能",
-      "section": [
-         {
-          "title": "添加商品到购物车",
-          "link": "8-add"
-        },
-        {
-          "title": "实现购物车各项功能",
-          "link": "9-cart"
-        }
-      ]
     }
   ]
 }
