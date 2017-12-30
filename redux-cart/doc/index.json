@@ -33,6 +33,18 @@
         {
           "title": "修改状态树",
           "link": "5-action"
+        },
+        {
+          "title": "通过 connect 动态订阅状态树",
+          "link": "6-connect"
+        },
+        {
+          "title": "用 selector 函数获取派生数据",
+          "link": "7-selector"
+        },
+        {
+          "title": "同一商品买多件",
+          "link": "8-quantity"
         }
       ]
     }
