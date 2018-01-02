@@ -45,6 +45,10 @@
         {
           "title": "同一商品买多件",
           "link": "8-quantity"
+        },
+        {
+          "title": "运算总价",
+          "link": "9-total"
         }
       ]
     }
