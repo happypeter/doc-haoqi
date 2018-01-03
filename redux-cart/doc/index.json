@@ -3,9 +3,9 @@
   "cover_video": "",
   "name": "用 redux 实现购物车",
   "price": "0",
-  "intro": "使用 React+Redux+AntDesign 开发的电商系统，融入了 follow 朋友，查看朋友更新等社交化因素，深入使用了 Redux",
-  "writing_to_who": "已经入门 React 的学习者，了解 Redux/React-router 基本使用，想要查看一门详细的实战课程的朋友",
-  "learning_goal": "登录注册，添加移除朋友，查看朋友更新，社交化项目的数据库技巧",
+  "intro": "使用 Redux 思路实现购物车",
+  "writing_to_who": "已经入门 React 的学习者",
+  "learning_goal": "store/actions/selectors 等等 redux 的组件如何配合，如何结合项目需求进行调整",
   "service": [
     "所有课程视频和文字稿",
     "所有相关代码",
