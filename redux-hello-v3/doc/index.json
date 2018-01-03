@@ -1,0 +1,60 @@
+{
+  "vlink": "http://haoqicat-1253322599.costj.myqcloud.com/redux-hello-v3",
+  "cover_video": "",
+  "name": "Hello Redux（第三版）",
+  "price": "40",
+  "intro": "世界上最简单的 Redux 入门课程",
+  "writing_to_who": "已经入门 React 的学习者",
+  "learning_goal": "Redux 三大概念以及 redux-thunk 实用案例",
+  "service": [
+    "所有课程视频和文字稿",
+    "所有相关代码",
+    "课程有效期为一年"
+  ],
+  "content": [
+    {
+      "section": [
+        {
+          "title": "使用 create-react-app 创建开发环境",
+          "link": "1-env"
+        },
+        {
+          "title": "通过内部 State 实现评论功能",
+          "link": "2-state"
+        },
+        {
+          "title": "数据搬家到 redux store 中",
+          "link": "3-store"
+        },
+        {
+          "title": "store 中存储多类数据",
+          "link": "4-combine"
+        },
+        {
+          "title": "修改状态树",
+          "link": "5-action"
+        },
+        {
+          "title": "通过 connect 动态订阅状态树",
+          "link": "6-connect"
+        },
+        {
+          "title": "用 selector 函数获取派生数据",
+          "link": "7-selector"
+        },
+        {
+          "title": "同一商品买多件",
+          "link": "8-quantity"
+        },
+        {
+          "title": "运算总价",
+          "link": "9-total"
+        },
+        {
+          "title": "使用 styled-components 做样式",
+          "link": "10-style"
+        }
+      ]
+    }
+  ]
+}
