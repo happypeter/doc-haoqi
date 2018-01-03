@@ -40,13 +40,15 @@ import '../assets/global.css'
 
 ### 写组件内样式
 
-先来安装 styled-components 
+来安装 styled-components 
 
 ```
 npm i styled-components
 ```
 
-写样式的思路，就是到展示组件中，添加“带样式的组件”，然后在当前组件内使用即可。所有的样式都只作用于当前组件，css 是绝对不复用。复用是以组件为单位的。
+写局部样式的思路，就是到展示组件中，添加“带样式的组件”，然后在当前组件内使用即可。所有的样式都只作用于当前组件。css 绝对不复用，复用是以组件为单位的。
+
+Products.js
 
 ```js
 import styled from 'styled-components'
@@ -63,7 +65,7 @@ const Wrap =  styled.div`
 `
 ```
 
-首先导入 styled 。然后都文件末尾定义 Wrap 变量，这里首字母大写就是因为 Wrap 会作为一个所谓的“带样式的组件”来使用。`styled.div` 表示 Wrap 是基于 html 原生的 div 的，也就是默认会继承 div 的所有样式，例如 width: 100% 。然后倒引号之中再来添加样式，这里只是添加了背景色。
+首先导入 styled 。然后到文件末尾定义 Wrap 变量，这里首字母大写就是因为 Wrap 会作为一个所谓的“带样式的组件”来使用。`styled.div` 表示 Wrap 是基于 html 原生的 div 的，也就是默认会继承 div 的所有样式，例如 width: 100% 。然后倒引号之中再来添加样式，这里只是添加了背景色。
 
 然后 Wrap 就可以作为一个组件来用了，用它替换 JSX 中的最顶级的 div 。
 
@@ -71,4 +73,4 @@ const Wrap =  styled.div`
 
 ### 添加更多样式
 
-使用 styled-components 还有很多小技巧，是直接可以通过看源码就能弄明白，可以直接参考咱们的[源码](https://github.com/haoqicat/redux-cart/)
+使用 styled-components 还有很多小技巧，是直接可以通过看源码就能弄明白，可以直接参考咱们的[源码](https://github.com/haoqicat/redux-cart/)。
