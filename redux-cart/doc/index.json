@@ -5,7 +5,7 @@
   "price": "0",
   "intro": "使用 Redux 思路实现购物车",
   "writing_to_who": "已经入门 React 的学习者",
-  "learning_goal": "store/actions/selectors 等等 redux 的组件如何配合，如何结合项目需求进行调整",
+  "learning_goal": "store/actions/selectors 等 redux 的组件如何配合",
   "service": [
     "所有课程视频和文字稿",
     "所有相关代码",
