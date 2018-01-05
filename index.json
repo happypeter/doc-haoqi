@@ -1,6 +1,12 @@
 {
   "published": [
     {
+      "id": "42",
+      "cover": "http://haoqicat-1253322599.costj.myqcloud.com/posters/redux-cart.png",
+      "title": "用 redux 实现购物车",
+      "link": "/redux-cart"
+    },
+    {
       "id": "41",
       "cover": "http://haoqicat-1253322599.costj.myqcloud.com/posters/happy-videojs.png",
       "title": "定制 Videojs 播放器",
