@@ -67,7 +67,7 @@ class Main extends Component {
 }
 
 export default Main
-···
+```
 
 Main.js 定义在 src/components/ 中，里面拷贝 App.js 的基本内容改改即可，暂时先显示一个 Hello 。
 
