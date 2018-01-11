@@ -23,36 +23,44 @@
           "link": "2-state"
         },
         {
-          "title": "数据搬家到 redux store 中",
+          "title": "把 State 存放到 Store",
           "link": "3-store"
         },
         {
-          "title": "store 中存储多类数据",
-          "link": "4-combine"
+          "title": "修改 store 中的数据",
+          "link": "4-action"
         },
         {
-          "title": "修改状态树",
-          "link": "5-action"
+          "title": "动态订阅状态树",
+          "link": "5-connect"
         },
         {
-          "title": "通过 connect 动态订阅状态树",
-          "link": "6-connect"
+          "title": "添加多类数据",
+          "link": "6-combine"
         },
         {
-          "title": "用 selector 函数获取派生数据",
-          "link": "7-selector"
+          "title": "添加首页博客目录",
+          "link": "7-post-pages"
         },
         {
-          "title": "同一商品买多件",
-          "link": "8-quantity"
+          "title": "文章显示各自评论",
+          "link": "8-relation"
         },
         {
-          "title": "运算总价",
-          "link": "9-total"
+          "title": "使用 action 创建函数",
+          "link": "9-action"
         },
         {
-          "title": "使用 styled-components 做样式",
-          "link": "10-style"
+          "title": "请求 API ",
+          "link": "10-axios"
+        },
+        {
+          "title": "使用 redux-thunk 执行异步操作",
+          "link": "11-thunk"
+        },
+        {
+          "title": "评论功能调整 ",
+          "link": "12-comments"
         }
       ]
     }

@@ -1,18 +1,20 @@
-# 数据搬家到 redux store 中
+# 把 State 存放到 Store
 
-redux 的所有优势都基于组件内的 state 会被存储到中央 store 中, store 中会保存全项目的所有 state ，这些数据会组成一个大的对象，叫做状态树。
+Redux 是数据管理工具。使用 Redux 的最重要的一句话：
 
-### 运行一个基本的 store
+> 一切数据都要保存的 Store 之中，组件自己不保留 state 数据
 
-装包
+### 创建 Store
+
+先来安装 redux 。
 
 ```
-npm i redux
+npm i --save redux
 ```
 
-然后把 store 运行起来。
+redux 并不是 react 的一部分。
 
-store/index.js
+下面要加载 redux 。
 
 ```js
 import { createStore } from 'redux'
@@ -23,12 +25,25 @@ const store = createStore(rootReducer)
 export default store
 ```
 
-创建 store/index.js 。导入 createStore 接口，导入 rootReducer ，createStore 接口唯一一个必填参数就是 reducer ，这样可以生成 store ，然后导出一下。
+创建 src/store/index.js 文件。首先导入 createStore 接口，顾名思义，这个就是用来创建 store 的。然后导入 rootReducer ，reducer 是一个用来修改 store 的函数，也是 redux 的核心组成部分之一。定义 store 常量来存放 store ，createStore 接口中传入 rootReducer 。最后把 store 默认导出。
+
+### 数据写到 reducer 中
+
+store 有了，但是数据放到哪里呢？
+
+reducers/index.js
 
 ```js
-const initialState = {
-  myData: 'hello'
-}
+const initialState = [
+  {
+    id: 'wewe2122',
+    text: 'hello'
+  },
+  {
+    id: 'wqewqeq23',
+    text: 'hi'
+  }
+]
 
 const rootReducer = (state = initialState, action) => {
   return state
@@ -37,59 +52,29 @@ const rootReducer = (state = initialState, action) => {
 export default rootReducer
 ```
 
-创建 reducers/index.js 。先来定义一个常量叫做 initialState ，中文意思是初始状态，里面放一个 myData 属性作为占位符。下面定义 rootReducer ，一个 reducer 是一个函数，专门用来修改状态树的。要有两个参数，一个是 state ，这里我们用 ES6 的参数默认值的形式，把 initialState 传递给它，第二个参数叫 action ，后面的小节中会用到。reducer 中可能会有很复杂的运算，但是这里我们只是返回了 state ，也意味这没有对状态树做任何修改，直接返回了状态树。最后导出 rootReducer 。
+创建 reducers/index.js 文件，定义 initialState ，中文意思是初始状态值，来存放评论数组。
 
-```js
-import React, { Component } from 'react'
-import store from '../store'
+下面 reducer 其实就是一个函数，作用就是修改应用状态，一个应用所有的数据，我们把它叫做状态树，那 reducer 就是用来修改状态树的。修改的方式是把之前的状态树，作为第一个参数 state ，最后输出的新状态树就是 return 值，暂时我们直接 return state ，也就是对状态树不做任何修改。Action 是用户行为数据，用来做修改依据，暂时先忽略它，后面会用到。
 
-class Products extends Component {
-  render() {
-    console.log(store.getState())
-    const { products } = this.state
-```
+这样，评论数组作为 reducer 的状态值传入，同时 store 又加载了 reducer ，这样数据移动到 store 的工作也就完成了。
 
-到展示组件 Product.js 中，使用 getState 接口，就可以读出 store 中存储的数据。在终端中打印一下。
+### 读取 store 中的数据
 
-浏览器中，打开开发者工具，可以打印出 store 中存储的 initalState 数据了，表示 store 运行良好。
-
-### 购物车数据移动到 store 中
-
-redux 的原则是组件不维护自己的 state ，所以来把 Products 组件内的 state 移动到 store 中
-
-store/index.js
-
-```js
-const initialState = {
-  products: [
-    {
-      id: '324',
-      name: '苹果电脑'
-    },
-    {
-      id: '452',
-      name: '橘子'
-    }
-  ]
-}
-
-const rootReducer = (state = initialState, action) => {
-```
-
-store/index.js 中把购物车的数据替换了原有的 myData 。
-
+那组件中如何读取 state 呢？
 
 ```js
 import store from '../store'
 
-class Products extends Component {
-  render() {
-    const { products } = store.getState()
-    const productList = products.map(t => <div key={t.id}>{t.name}</div>)
-    return (
-      <div>
+  submitCmt = e => {
+    e.preventDefault()
+    this.setState({
+      text: ''
+    })
+  }
+
+   const comments = store.getState()
 ```
 
-到 Products.js 中，删除组件内的 state ，下面显示 store 中读取到的 products 数据。
+到 CommentBox.js 中，先导入 store 。submitCmt 函数中关于添加评论的代码现在都不能工作了，直接删除。然后使用 getState 接口就可以拿到 store 中保存的所有评论了。
 
-浏览器中，如果商品列表照常显示，表示从 store 中读取数据的操作成功了。
+浏览器中，可以看到评论依然能够正确显示。
