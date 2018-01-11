@@ -3,7 +3,7 @@
   "cover_video": "index",
   "name": "Hello Redux（第二版）",
   "price": "40",
-  "intro": "世界上最简单的 Redux 入门课程",
+  "intro": "课程过期，已经有第三版了，在 haoqicat.com/redux-hello-v3",
   "writing_to_who": "对 React 已经有了基本使用能力的同学",
   "learning_goal": "Redux 三大概念，redux-thunk 和组件间通信的一些最简单的案例",
   "service": [

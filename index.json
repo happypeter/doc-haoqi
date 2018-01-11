@@ -1,6 +1,12 @@
 {
   "published": [
     {
+      "id": "43",
+      "cover": "http://haoqicat-1253322599.costj.myqcloud.com/posters/redux-hello-v3.png",
+      "title": "Hello Redux 第三版",
+      "link": "/redux-hello-v3"
+    },
+    {
       "id": "42",
       "cover": "http://haoqicat-1253322599.costj.myqcloud.com/posters/redux-cart.png",
       "title": "用 redux 实现购物车",
