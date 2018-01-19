@@ -12,102 +12,42 @@
   ],
   "content": [
     {
-      "header": "第一章 课程简介",
       "section": [
         {
-          "title": "概述",
-          "link": "1-course-overview"
-        }
-      ]
-    },
-    {
-      "header": "第二章 编写 React 组件",
-      "section": [
-        {
-          "title": "展示课程封面",
-          "link": "2-cover"
+          "title": "使用 react-starter",
+          "link": "1-router"
         },
         {
-          "title": "添加路由",
-          "link": "3-react-router"
+          "title": "向 redux 中填充数据",
+          "link": "2-store"
         },
         {
-          "title": "美丽的心",
-          "link": "4-show-heart"
-        }
-      ]
-    },
-    {
-      "header": "第三章 Redux 来了",
-      "section": [
-        {
-          "title": "Redux 核心概念之 Store",
-          "link": "5-redux-store"
+          "title": "添加点赞评论区",
+          "link": "3-buttons"
         },
         {
-          "title": "Redux 核心概念之 Actions",
-          "link": "6-action"
+          "title": "添加点赞功能",
+          "link": "4-like"
         },
         {
-          "title": "Redux 核心概念之 Reducers",
-          "link": "7-reducers"
-        }
-      ]
-    },
-    {
-      "header": "第四章 React 与 Redux 相识相知",
-      "section": [
-        {
-          "title": "React 和 Redux 搭建友谊的小船",
-          "link": "8-react-redux"
+          "title": "编程式页面跳转",
+          "link": "5-history"
         },
         {
-          "title": "React Devtools 中演示 Redux 数据流",
-          "link": "9-data-flow"
+          "title": "显示评论",
+          "link": "6-comments"
         },
         {
-          "title": "读取 Store 中的 Courses State",
-          "link": "10-show-state"
+          "title": "使用 material-ui",
+          "link": "7-mui"
         },
         {
-          "title": "更新 Store 中的 Courses State",
-          "link": "11-update-state"
-        }
-      ]
-    },
-    {
-      "header": "第五章 实现课程评论功能",
-      "section": [
-
-        {
-          "title": "显示课程评论",
-          "link": "12-show-comments"
+          "title": "点赞动效",
+          "link": "8-heart"
         },
         {
           "title": "添加和删除评论",
-          "link": "13-manage-comments"
-        }
-      ]
-    },
-    {
-      "header": "第六章 实用的开发者工具",
-      "section": [
-        {
-          "title": "热加载 Redux Reducers",
-          "link": "14-hot-loader"
-        },
-        {
-          "title": "Redux Devtools 的妙用",
-          "link": "15-redux-devtools"
-        }
-      ]
-    },
-    {
-      "header": "第七章 结语",
-      "section": [
-        {
-          "title": "更多学习建议",
-          "link": "16-end"
+          "link": "9-comment"
         }
       ]
     }
