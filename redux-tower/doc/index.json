@@ -2,7 +2,7 @@
   "vlink": "https://haoqicat-1253322599.costj.myqcloud.com/redux-tower",
   "name": "塔顶上的 Redux",
   "price": "38",
-  "intro": "实际项目中使用 Redux",
+  "intro": "课程有了新版，在 haoqicat.com/redux-tower-v3",
   "writing_to_who": "适合对 React 已经有了基本使用能力的朋友",
   "learning_goal": "掌握 Redux 的核心思想以及实际项目用的使用技巧" ,
   "service": [
