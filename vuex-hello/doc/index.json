@@ -3,7 +3,7 @@
   "cover_video": "index",
   "name": "Hello Vuex",
   "price": "30",
-  "intro": "给 React 开发者看的 Vuex 入门课程",
+  "intro": "课程有了新版了，在 haoqicat.com/vuex-hello-v2",
   "writing_to_who": "已经学习过 React 的同学",
   "learning_goal": "Vuex 的核心的五大概念的具体应用演示",
   "service": [
