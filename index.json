@@ -1,6 +1,12 @@
 {
   "published": [
     {
+      "id": "45",
+      "cover": "http://haoqicat-1253322599.costj.myqcloud.com/posters/vuex-hello-v2.png",
+      "title": "Hello Vuex 第二版",
+      "link": "/vuex-hello-v2"
+    },
+    {
       "id": "44",
       "cover": "http://haoqicat-1253322599.costj.myqcloud.com/posters/redux-tower-v2.png",
       "title": "塔顶上的 redux 第二版",
