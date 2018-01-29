@@ -1,0 +1,59 @@
+{
+  "vlink": "https://haoqicat-1253322599.costj.myqcloud.com/vscode",
+  "name": "vscode 爱上 JS",
+  "price": "0",
+  "intro": "给 JS 开发者看的 VSCode 编辑器实用技巧课",
+  "writing_to_who": "不太适合新手，有经验的开发者会比较喜欢",
+  "learning_goal": "学习 VSCode 最最精华的使用思路",
+  "service": ["本课程视频，以及文字稿", "实例代码", "本课程后续更新的内容"],
+  "content": [
+    {
+      "section": [
+        {
+          "title": "安装",
+          "link": "1-install"
+        },
+        {
+          "title": "定制主题",
+          "link": "2-theme"
+        },
+        {
+          "title": "命令行终端工作流",
+          "link": "3-term"
+        },
+        {
+          "title": "Git 工作流",
+          "link": "4-git"
+        },
+        {
+          "title": "操作文件",
+          "link": "5-file"
+        },
+        {
+          "title": "文件编辑快捷键",
+          "link": "6-shortcut"
+        },
+        {
+          "title": "Search 工作流",
+          "link": "7-search"
+        },
+        {
+          "title": "配置自动补齐",
+          "link": "8-complete"
+        },
+        {
+          "title": "语法和格式检查",
+          "link": "9-lint"
+        },
+        {
+          "title": "支持 React 项目",
+          "link": "10-react"
+        },
+        {
+          "title": "备份配置文件",
+          "link": "11-settings"
+        }
+      ]
+    }
+  ]
+}
