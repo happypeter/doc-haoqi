@@ -1,6 +1,12 @@
 {
   "published": [
     {
+      "id": "46",
+      "cover": "http://haoqicat-1253322599.costj.myqcloud.com/posters/vscode.png",
+      "title": "VSCode 爱上 JS",
+      "link": "/vscode"
+    },
+    {
       "id": "45",
       "cover": "http://haoqicat-1253322599.costj.myqcloud.com/posters/vuex-hello-v2.png",
       "title": "Hello Vuex 第二版",
