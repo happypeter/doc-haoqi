@@ -1,0 +1,44 @@
+{
+  "vlink": "http://haoqicat-1253322599.costj.myqcloud.com/redux-todo",
+  "cover_video": "",
+  "name": "redux 实现 Todo App",
+  "price": "10",
+  "intro": "使用 Redux 思路实现 Todo App",
+  "writing_to_who": "已经入门 React 的学习者",
+  "learning_goal": "redux/svg/thunk/styled-components 的一门较为简单的实战课",
+  "service": ["所有课程视频和文字稿", "所有相关代码", "后续改版内容"],
+  "content": [
+    {
+      "section": [
+        {
+          "title": "大块布局",
+          "link": "1-layout"
+        },
+        {
+          "title": "显示 todo 列表",
+          "link": "2-list"
+        },
+        {
+          "title": "添加表单",
+          "link": "3-form"
+        },
+        {
+          "title": "添加操作按钮",
+          "link": "4-actions"
+        },
+        {
+          "title": "提交 todo",
+          "link": "5-submit-todo"
+        },
+        {
+          "title": "完成 todo",
+          "link": "6-complete"
+        },
+        {
+          "title": "筛选任务",
+          "link": "7-filter"
+        }
+      ]
+    }
+  ]
+}
