@@ -1,6 +1,12 @@
 {
   "published": [
     {
+      "id": "47",
+      "cover": "http://haoqicat-1253322599.costj.myqcloud.com/posters/redux-todo.png",
+      "title": "redux 实现 Todo App",
+      "link": "/redux-todo"
+    },
+    {
       "id": "46",
       "cover": "http://haoqicat-1253322599.costj.myqcloud.com/posters/vscode.png",
       "title": "VSCode 爱上 JS",
