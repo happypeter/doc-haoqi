@@ -1,0 +1,43 @@
+{
+  "vlink": "https://haoqicat-1253322599.costj.myqcloud.com/haoqi-lib",
+  "name": "好奇图书馆",
+  "price": "10",
+  "intro": "好奇图书馆的简化版架构",
+  "writing_to_who": "对 Nodejs 和 React 有基本使用能力的朋友",
+  "learning_goal": "使用 Gatsby 的 Node API ，各种转换器插件，graphql 接口",
+  "service": ["拿到所有视频和文字稿", "可以获取所有示例代码"],
+  "content": [
+    {
+      "section": [
+        {
+          "title": "用 gatsby 写无数据源的静态网页",
+          "link": "1-hello"
+        },
+        {
+          "title": "转译 markdown 文件",
+          "link": "2-markdown"
+        },
+        {
+          "title": "使用 Node API 创建页面",
+          "link": "3-create-page"
+        },
+        {
+          "title": "使用真实数据",
+          "link": "4-real-data"
+        },
+        {
+          "title": "生成目录",
+          "link": "5-toc"
+        },
+        {
+          "title": "添加多本书",
+          "link": "6-books"
+        },
+        {
+          "title": "从独立仓库下载数据",
+          "link": "7-scripts"
+        }
+      ]
+    }
+  ]
+}
