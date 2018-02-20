@@ -1,0 +1,40 @@
+{
+  "vlink": "https://haoqicat-1253322599.costj.myqcloud.com/gitbook",
+  "cover_video": "",
+  "name": "用 gitbook 做笔记",
+  "price": "10",
+  "intro": "学习上手 gitbook ，方便写书和做笔记",
+  "writing_to_who": "不熟悉 git 版本控制的同学慎入",
+  "learning_goal": "书写 markdown 书稿，组织目录，实现搜索翻页",
+  "service": ["所有课程视频和文字稿", "所有相关代码"],
+  "content": [
+    {
+      "section": [
+        {
+          "title": "上手 Markdown",
+          "link": "1-markdown"
+        },
+        {
+          "title": "创建 gitbook 项目",
+          "link": "2-init"
+        },
+        {
+          "title": "添加笔记",
+          "link": "3-add"
+        },
+        {
+          "title": "保存到 github 仓库",
+          "link": "4-push"
+        },
+        {
+          "title": "编译",
+          "link": "5-build"
+        },
+        {
+          "title": "部署到 github pages",
+          "link": "6-deploy"
+        }
+      ]
+    }
+  ]
+}
