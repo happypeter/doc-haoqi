@@ -1,65 +1,62 @@
 {
   "published": [
     {
+      "id": "49",
+      "cover": "http://haoqicat-1253322599.costj.myqcloud.com/posters/gitbook.png",
+      "title": "用 gitbook 做笔记",
+      "link": "/gitbook"
+    },
+    {
       "id": "48",
-      "cover":
-        "http://haoqicat-1253322599.costj.myqcloud.com/posters/haoqi-lib.png",
+      "cover": "http://haoqicat-1253322599.costj.myqcloud.com/posters/haoqi-lib.png",
       "title": "好奇图书馆",
       "link": "/haoqi-lib"
     },
     {
       "id": "47",
-      "cover":
-        "http://haoqicat-1253322599.costj.myqcloud.com/posters/redux-todo.png",
+      "cover": "http://haoqicat-1253322599.costj.myqcloud.com/posters/redux-todo.png",
       "title": "redux 实现 Todo App",
       "link": "/redux-todo"
     },
     {
       "id": "46",
-      "cover":
-        "http://haoqicat-1253322599.costj.myqcloud.com/posters/vscode.png",
+      "cover": "http://haoqicat-1253322599.costj.myqcloud.com/posters/vscode.png",
       "title": "VSCode 爱上 JS",
       "link": "/vscode"
     },
     {
       "id": "45",
-      "cover":
-        "http://haoqicat-1253322599.costj.myqcloud.com/posters/vuex-hello-v2.png",
+      "cover": "http://haoqicat-1253322599.costj.myqcloud.com/posters/vuex-hello-v2.png",
       "title": "Hello Vuex 第二版",
       "link": "/vuex-hello-v2"
     },
     {
       "id": "44",
-      "cover":
-        "http://haoqicat-1253322599.costj.myqcloud.com/posters/redux-tower-v2.png",
+      "cover": "http://haoqicat-1253322599.costj.myqcloud.com/posters/redux-tower-v2.png",
       "title": "塔顶上的 redux 第二版",
       "link": "/redux-tower-v2"
     },
     {
       "id": "43",
-      "cover":
-        "http://haoqicat-1253322599.costj.myqcloud.com/posters/redux-hello-v3.png",
+      "cover": "http://haoqicat-1253322599.costj.myqcloud.com/posters/redux-hello-v3.png",
       "title": "Hello Redux 第三版",
       "link": "/redux-hello-v3"
     },
     {
       "id": "42",
-      "cover":
-        "http://haoqicat-1253322599.costj.myqcloud.com/posters/redux-cart.png",
+      "cover": "http://haoqicat-1253322599.costj.myqcloud.com/posters/redux-cart.png",
       "title": "用 redux 实现购物车",
       "link": "/redux-cart"
     },
     {
       "id": "41",
-      "cover":
-        "http://haoqicat-1253322599.costj.myqcloud.com/posters/happy-videojs.png",
+      "cover": "http://haoqicat-1253322599.costj.myqcloud.com/posters/happy-videojs.png",
       "title": "定制 Videojs 播放器",
       "link": "/happy-videojs"
     },
     {
       "id": "40",
-      "cover":
-        "http://haoqicat-1253322599.costj.myqcloud.com/posters/gatsby.png",
+      "cover": "http://haoqicat-1253322599.costj.myqcloud.com/posters/gatsby.png",
       "title": "用 Gatsby 开发 SPA 架构的博客",
       "link": "/gatsby"
     },
@@ -77,22 +74,19 @@
     },
     {
       "id": "3",
-      "cover":
-        "http://o86bpj665.bkt.clouddn.com/posters/happypeter-js-kingdom.png",
+      "cover": "http://o86bpj665.bkt.clouddn.com/posters/happypeter-js-kingdom.png",
       "title": "Happypeter 的摩登 JS 王国",
       "link": "/happypeter-js-kingdom"
     },
     {
       "id": "4",
-      "cover":
-        "http://o86bpj665.bkt.clouddn.com/posters/webpack-react-mole.png",
+      "cover": "http://o86bpj665.bkt.clouddn.com/posters/webpack-react-mole.png",
       "title": "Webpack-React 鼹鼠",
       "link": "/webpack-react-mole"
     },
     {
       "id": "5",
-      "cover":
-        "http://o86bpj665.bkt.clouddn.com/posters/meteor-express-ajax.png",
+      "cover": "http://o86bpj665.bkt.clouddn.com/posters/meteor-express-ajax.png",
       "title": "Meteor-Express Ajax 方案对比",
       "link": "/meteor-express-ajax"
     },
@@ -176,8 +170,7 @@
     },
     {
       "id": "20",
-      "cover":
-        "http://o86bpj665.bkt.clouddn.com/posters/hand-in-hand-react.png",
+      "cover": "http://o86bpj665.bkt.clouddn.com/posters/hand-in-hand-react.png",
       "title": "React 手牵手",
       "link": "/hand-in-hand-react"
     },
@@ -189,15 +182,13 @@
     },
     {
       "id": "22",
-      "cover":
-        "http://o86bpj665.bkt.clouddn.com/posters/webpack-react-tricks.png",
+      "cover": "http://o86bpj665.bkt.clouddn.com/posters/webpack-react-tricks.png",
       "title": "Webpack-React 环境搭建技巧",
       "link": "/webpack-react-tricks"
     },
     {
       "id": "23",
-      "cover":
-        "http://o86bpj665.bkt.clouddn.com/posters/making-videos-howto.png",
+      "cover": "http://o86bpj665.bkt.clouddn.com/posters/making-videos-howto.png",
       "title": "如何制作视频课程？",
       "link": "/making-videos-howto"
     },
@@ -209,71 +200,61 @@
     },
     {
       "id": "25",
-      "cover":
-        "http://haoqicat-1253322599.costj.myqcloud.com/posters/svghere.png",
+      "cover": "http://haoqicat-1253322599.costj.myqcloud.com/posters/svghere.png",
       "title": "SVG 甜点",
       "link": "/svghere"
     },
     {
       "id": "26",
-      "cover":
-        "http://haoqicat-1253322599.costj.myqcloud.com/posters/aa-journey.png",
+      "cover": "http://haoqicat-1253322599.costj.myqcloud.com/posters/aa-journey.png",
       "title": "认证授权双A之旅",
       "link": "/aa-journey"
     },
     {
       "id": "27",
-      "cover":
-        "http://haoqicat-1253322599.costj.myqcloud.com/posters/redux-hello.png",
+      "cover": "http://haoqicat-1253322599.costj.myqcloud.com/posters/redux-hello.png",
       "title": "Hello Redux",
       "link": "/redux-hello"
     },
     {
       "id": "28",
-      "cover":
-        "http://haoqicat-1253322599.costj.myqcloud.com/posters/react-router-v4.png",
+      "cover": "http://haoqicat-1253322599.costj.myqcloud.com/posters/react-router-v4.png",
       "title": "React Router 第四版",
       "link": "/react-router-v4"
     },
     {
       "id": "29",
-      "cover":
-        "http://haoqicat-1253322599.costj.myqcloud.com/posters/express-love-api.png",
+      "cover": "http://haoqicat-1253322599.costj.myqcloud.com/posters/express-love-api.png",
       "title": "Express 实作 API",
       "link": "/express-love-api"
     },
     {
       "id": "30",
-      "cover":
-        "http://haoqicat-1253322599.costj.myqcloud.com/posters/meituan.png",
+      "cover": "http://haoqicat-1253322599.costj.myqcloud.com/posters/meituan.png",
       "title": "克隆美团外卖",
       "link": "/meituan"
     },
     {
       "id": "31",
-      "cover":
-        "http://haoqicat-1253322599.costj.myqcloud.com/posters/bitcoin.png",
+      "cover": "http://haoqicat-1253322599.costj.myqcloud.com/posters/bitcoin.png",
       "title": "快乐新知比特币",
       "link": "/bitcoin"
     },
     {
       "id": "32",
-      "cover":
-        "http://haoqicat-1253322599.costj.myqcloud.com/posters/redux-hello-v2.png",
+      "cover": "http://haoqicat-1253322599.costj.myqcloud.com/posters/redux-hello-v2.png",
       "title": "Hello Redux（第二版）",
       "link": "/redux-hello-v2"
     },
     {
       "id": "34",
-      "cover":
-        "http://haoqicat-1253322599.costj.myqcloud.com/posters/yummy.png",
+      "cover": "http://haoqicat-1253322599.costj.myqcloud.com/posters/yummy.png",
       "title": "React 社交化电商",
       "link": "/yummy"
     },
     {
       "id": "35",
-      "cover":
-        "http://haoqicat-1253322599.costj.myqcloud.com/posters/react-baby-v2.png",
+      "cover": "http://haoqicat-1253322599.costj.myqcloud.com/posters/react-baby-v2.png",
       "title": "React 婴儿（第二版）",
       "link": "/react-baby-v2"
     },
@@ -285,22 +266,19 @@
     },
     {
       "id": "37",
-      "cover":
-        "http://haoqicat-1253322599.costj.myqcloud.com/posters/qcloud.png",
+      "cover": "http://haoqicat-1253322599.costj.myqcloud.com/posters/qcloud.png",
       "title": "跟 Peter 做腾讯云客户端",
       "link": "/qcloud"
     },
     {
       "id": "38",
-      "cover":
-        "http://haoqicat-1253322599.costj.myqcloud.com/posters/yummy-p2.png",
+      "cover": "http://haoqicat-1253322599.costj.myqcloud.com/posters/yummy-p2.png",
       "title": "React 社交化电商--功能篇",
       "link": "/yummy-p2"
     },
     {
       "id": "39",
-      "cover":
-        "http://haoqicat-1253322599.costj.myqcloud.com/posters/antd-v2.png",
+      "cover": "http://haoqicat-1253322599.costj.myqcloud.com/posters/antd-v2.png",
       "title": "蚂蚁设计实战（第二版）",
       "link": "/antd-v2"
     }
