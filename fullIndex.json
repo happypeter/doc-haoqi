@@ -177,6 +177,12 @@
       "link": "/html7"
     },
     {
+      "id": "18",
+      "cover": "http://o86bpj665.bkt.clouddn.com/posters/o-o-js.png",
+      "title": "JS 面向对象之旅",
+      "link": "/o-o-js"
+    },
+    {
       "id": "19",
       "cover": "http://o86bpj665.bkt.clouddn.com/posters/react-express-api.png",
       "title": "React-Express 极简 API",
