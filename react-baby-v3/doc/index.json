@@ -20,32 +20,32 @@
           "link": "2-jsx"
         },
         {
-          "title": "3-el",
-          "link": "元素"
+          "title": "元素",
+          "link": "3-el"
         },
         {
-          "title": "4-comp",
-          "link": "组件"
+          "title": "组件",
+          "link": "4-comp"
         },
         {
-          "title": "5-state",
-          "link": "状态值"
+          "title": "状态值",
+          "link": "5-state"
         },
         {
-          "title": "6-event",
-          "link": "处理事件"
+          "title": "处理事件",
+          "link": "6-event"
         },
         {
-          "title": "7-condition",
-          "link": "条件渲染"
+          "title": "条件渲染",
+          "link": "7-condition"
         },
         {
-          "title": "8-list",
-          "link": "列表"
+          "title": "列表",
+          "link": "8-list"
         },
         {
-          "title": "9-form",
-          "link": "表单"
+          "title": "表单",
+          "link": "9-form"
         }
       ]
     }
