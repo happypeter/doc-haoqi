@@ -49,7 +49,7 @@
         },
         {
           "title": "browser-sync 页面自动刷新",
-          "link": "10-browersync"
+          "link": "10-browsersync"
         },
         {
           "title": "实现 tab 选中状态",
