@@ -1,0 +1,73 @@
+{
+  "vlink": "https://haoqicat-1253322599.costj.myqcloud.com/gulp-flex-res-v2",
+  "name": "Gulp-Flexbox 响应式网站（第二版）",
+  "price": "20",
+  "intro": "采用 gulp 构建工具，flexbox 布局技巧来开发响应式网站",
+  "writing_to_who":
+    "前端开发新手不应该直接入手 react 这样的复杂框架。有一些 HTML 和 css 经验之后，可以先上手 gulp ，了解一些前端工程化的基本思路之后再去学 react。",
+  "learning_goal":
+    "使用 flexbox 技巧设置类似于手机 App 风格的页面布局。走人 Nodejs 生态，实战 npm 装包技巧。上手 gulp 插件系统中最实用的几个插件：图片压缩，布局文件，自动刷新，布局文件套用。练习 google 材料设计这种视觉语言，不会设计的我们也能让页面设计感爆棚。",
+  "service": ["本课程视频，以及文字稿", "实例代码", "本课程后续更新的内容"],
+  "content": [
+    {
+      "section": [
+        {
+          "title": "安装 Nodejs ",
+          "link": "1-install-node"
+        },
+        {
+          "title": "gulp 编译 sass",
+          "link": "2-gulp-sass"
+        },
+        {
+          "title": "sass 的三大功能",
+          "link": "3-sass"
+        },
+        {
+          "title": "autoprefixer 添加厂商前缀",
+          "link": "4-autoprefixer"
+        },
+        {
+          "title": "使用 imagemin 来压缩图片",
+          "link": "5-imagemin"
+        },
+        {
+          "title": "gulp watch 模式",
+          "link": "6-watch"
+        },
+        {
+          "title": "类似手机 app 的移动版布局",
+          "link": "7-app-layout"
+        },
+        {
+          "title": "添加 svg 图标",
+          "link": "8-svg"
+        },
+        {
+          "title": "gulp-wrap 使用布局文件",
+          "link": "9-gulp-wrap"
+        },
+        {
+          "title": "browser-sync 页面自动刷新",
+          "link": "10-browersync"
+        },
+        {
+          "title": "实现 tab 选中状态",
+          "link": "11-active"
+        },
+        {
+          "title": "响应式导航",
+          "link": "12-res-nav"
+        },
+        {
+          "title": "flexbox 流体网格",
+          "link": "13-flex-grid"
+        },
+        {
+          "title": "更多样式",
+          "link": "14-more"
+        }
+      ]
+    }
+  ]
+}
