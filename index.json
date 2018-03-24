@@ -1,6 +1,12 @@
 {
   "published": [
     {
+      "id": "53",
+      "cover": "http://haoqicat-1253322599.costj.myqcloud.com/posters/test-react.png",
+      "title": "React 项目测试",
+      "link": "/test-react"
+    },
+    {
       "id": "52",
       "cover": "http://haoqicat-1253322599.costj.myqcloud.com/posters/gulp-flex-res-v2.png",
       "title": "Gulp Flexbox 响应式网站(第二版)",
