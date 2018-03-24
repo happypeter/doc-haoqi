@@ -1,0 +1,43 @@
+{
+  "vlink": "https://haoqicat-1253322599.costj.myqcloud.com/test-react",
+  "name": "React 项目测试",
+  "price": "10",
+  "intro": "使用 Jest/enzyme 测试 React 项目",
+  "writing_to_who": "对测试基本概念有了解的朋友",
+  "learning_goal": "学习单元测试 UI 测试的技巧，了解整个测试系统的必要组成部分",
+  "service": ["拿到所有视频和文字稿", "可以获取所有示例代码"],
+  "content": [
+    {
+      "section": [
+        {
+          "title": "Hello World",
+          "link": "1-hello"
+        },
+        {
+          "title": "enzyme 测试界面",
+          "link": "2-enzyme"
+        },
+        {
+          "title": "prop-types 测试属性",
+          "link": "3-prop-types"
+        },
+        {
+          "title": "enzyme 模拟按钮点击",
+          "link": "4-click"
+        },
+        {
+          "title": "使用 describe 对测试进行分组",
+          "link": "5-describe"
+        },
+        {
+          "title": "测试驱动开发",
+          "link": "6-reducer"
+        },
+        {
+          "title": "单元测试与集成测试",
+          "link": "7-selecor"
+        }
+      ]
+    }
+  ]
+}
