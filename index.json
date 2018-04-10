@@ -1,6 +1,12 @@
 {
   "published": [
     {
+      "id": "55",
+      "cover": "http://haoqicat-1253322599.costj.myqcloud.com/posters/yummy-v2.png",
+      "title": "React 社交化电商--架构篇（第二版）",
+      "link": "/yummy-v2"
+    },
+    {
       "id": "54",
       "cover": "http://haoqicat-1253322599.costj.myqcloud.com/posters/fp.png",
       "title": "函数式编程",
