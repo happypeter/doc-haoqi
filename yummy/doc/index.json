@@ -3,14 +3,12 @@
   "cover_video": "index-v2",
   "name": "REACT 社交化电商--架构篇",
   "price": "24",
-  "intro": "React/Redux 实用技术架构以及一些常见小问题的解决",
-  "writing_to_who": "已经入门 React 的学习者，了解 Redux/React-router 基本使用，想要查看一门详细的实战课程的朋友",
-  "learning_goal": "学习 Redux 实战技巧，活用 action/selector ，实现受保护页面，加载风火轮等各种效果",
-  "service": [
-    "所有课程视频和文字稿",
-    "所有相关代码",
-    "课程有效期为一年"
-  ],
+  "intro": "课程有第二版了：在 haoqicat.com/yummy-v2",
+  "writing_to_who":
+    "已经入门 React 的学习者，了解 Redux/React-router 基本使用，想要查看一门详细的实战课程的朋友",
+  "learning_goal":
+    "学习 Redux 实战技巧，活用 action/selector ，实现受保护页面，加载风火轮等各种效果",
+  "service": ["所有课程视频和文字稿", "所有相关代码", "课程有效期为一年"],
   "content": [
     {
       "header": "第一章：搭建技术架构",
