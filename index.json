@@ -111,12 +111,6 @@
       "link": "/gatsby"
     },
     {
-      "id": "1",
-      "cover": "http://o86bpj665.bkt.clouddn.com/posters/gulp-flex-res.png",
-      "title": "Gulp-Flexbox 响应式网站课程",
-      "link": "/gulp-flex-res"
-    },
-    {
       "id": "2",
       "cover": "http://o86bpj665.bkt.clouddn.com/posters/meteor-react-bird.png",
       "title": "Meteor-React 小鸟课程",

@@ -2,7 +2,7 @@
   "vlink": "https://haoqicat-1253322599.costj.myqcloud.com/gulp-flex-res",
   "name": "Gulp-Flexbox 响应式网站课程",
   "price": "88",
-  "intro": "采用 gulp 构建工具，flexbox 布局技巧来开发响应式网站，涉及 sass ，google 材料设计，git 和 sublime 技巧。",
+  "intro": "课程有第二版了：在 haoqicat.com/yummy-v2",
   "writing_to_who": " H5/CSS3 页面开发新手，课程难度为初级，用到的技术点和开发思路都是摩登的，避免学一些即将被淘汰的技巧。有一些页面开发经验，但是想学习当代的基于命令行和构建工具开发的思想的老手。了解原来的 float/position 布局技巧，想体验 flexbox 新方式的老手。",
   "learning_goal": "搭建 Github 上的一个个人站点。使用 flexbox 技巧设置类似于手机 App 风格的页面布局。走人 Nodejs 生态，实战 npm 装包技巧。上手 gulp 插件系统中最实用的几个插件：图片压缩，布局文件，自动刷新，布局文件套用。练习 google 材料设计这种视觉语言，不会设计的我们也能让页面设计感爆棚。",
   "service": [
