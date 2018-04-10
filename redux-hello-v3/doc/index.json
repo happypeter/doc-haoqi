@@ -6,10 +6,7 @@
   "intro": "世界上最简单的 Redux 入门课程",
   "writing_to_who": "已经入门 React 的学习者",
   "learning_goal": "Redux 三大概念以及 redux-thunk 实用案例",
-  "service": [
-    "所有课程视频和文字稿",
-    "所有相关代码"
-  ],
+  "service": ["所有课程视频和文字稿", "所有相关代码"],
   "content": [
     {
       "section": [

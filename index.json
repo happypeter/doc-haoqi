@@ -257,13 +257,6 @@
       "link": "/aa-journey"
     },
     {
-      "id": "27",
-      "cover":
-        "http://haoqicat-1253322599.costj.myqcloud.com/posters/redux-hello.png",
-      "title": "Hello Redux",
-      "link": "/redux-hello"
-    },
-    {
       "id": "28",
       "cover":
         "http://haoqicat-1253322599.costj.myqcloud.com/posters/react-router-v4.png",
@@ -290,13 +283,6 @@
         "http://haoqicat-1253322599.costj.myqcloud.com/posters/bitcoin.png",
       "title": "快乐新知比特币",
       "link": "/bitcoin"
-    },
-    {
-      "id": "32",
-      "cover":
-        "http://haoqicat-1253322599.costj.myqcloud.com/posters/redux-hello-v2.png",
-      "title": "Hello Redux（第二版）",
-      "link": "/redux-hello-v2"
     },
     {
       "id": "37",
