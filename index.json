@@ -1,6 +1,12 @@
 {
   "published": [
     {
+      "id": "56",
+      "cover": "http://haoqicat-1253322599.costj.myqcloud.com/posters/react-static-way.png",
+      "title": "React-static 摩登静态化之路",
+      "link": "/react-static-way"
+    },
+    {
       "id": "55",
       "cover": "http://haoqicat-1253322599.costj.myqcloud.com/posters/yummy-v2.png",
       "title": "React 社交化电商--架构篇（第二版）",
