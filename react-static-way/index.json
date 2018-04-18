@@ -4,8 +4,7 @@
   "price": "14",
   "intro": "使用 React-Static 静态化编译部署 react 项目",
   "writing_to_who": "已经掌握 React 基础开发，对 webpack 有基本了解的朋友",
-  "learning_goal":
-    "静态化编译优化 SEO 和首页加载速度，实现混合组件处理动态内容，redux 思路下的认证授权以及项目部署",
+  "learning_goal": "静态化编译优化 SEO 和首页加载速度，实现混合组件处理动态内容，redux 思路下的认证授权以及项目部署",
   "service": ["所有课程视频和文字稿", "所有相关代码", "课程后续改版内容"],
   "content": [
     {
