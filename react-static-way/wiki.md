@@ -14,18 +14,21 @@ https://haoqicat.com/antd-v2
 
 ### 目标
 
-实现这里的这些架构功能，但是不深入各种具体业务功能
+### 最大的遗留问题
 
-关注于：
+打开页面上有七个导航项目，即使有预加载，但是如果网速慢，而且立即去点，也会有卡顿的。
 
-* 预加载
-* 代码分割
-* SEO
-* antd 按需加载
+理想情况下：
 
-具体业务部分，依然放到 antd-v3 中去开发。
+应该显示一个 github/youtube 那样的 Progress 表示页面正在加载中。
 
-* 代码是静态编译的，这个首先是 SEO 优化，对于后台系统，这一点不重要
-* 但是静态编译的结果，打开页面不需要后端代码运算，所以一定是最佳的打开速度。
-* 同时 react-static 模式就与预加载功能。
-* 单页面的各种效果依然得到保留，例如路由跳转，不会造成整个页面刷新。
+解决方法：
+
+* https://github.com/nozzle/react-static/issues/295#issuecomment-358093191
+* https://github.com/nozzle/react-static/blob/master/docs/methods.md#onloading
+
+### 搜索
+
+https://github.com/nozzle/react-static/issues/366
+
+其实对于需要 SEO 的页面，有没有 redux 倒不是最重要的。
