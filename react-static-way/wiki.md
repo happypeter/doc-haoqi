@@ -28,6 +28,9 @@ https://haoqicat.com/antd-v2
 * https://github.com/nozzle/react-static/blob/master/docs/methods.md#onloading
 * https://timber.io/ 用的就是 react-static ，实现了页面加载转轮
 
+* https://github.com/benjycui/bisheng/blob/master/packages/bisheng/src/routes.nunjucks.jsx#L79
+  * 使用 onEnter 和 nprogress
+
 ### 搜索
 
 https://github.com/nozzle/react-static/issues/366
