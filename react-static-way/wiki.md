@@ -24,6 +24,8 @@ https://haoqicat.com/antd-v2
 
 解决方法：
 
+* https://github.com/haoqicat/react-static-way/commit/8c1f6bd5e8698b38b7143bf6ff1f3f3aa829f819
+
 * https://github.com/nozzle/react-static/issues/295#issuecomment-358093191
 * https://github.com/nozzle/react-static/blob/master/docs/methods.md#onloading
 * https://timber.io/ 用的就是 react-static ，实现了页面加载转轮
