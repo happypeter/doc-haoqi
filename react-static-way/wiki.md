@@ -26,6 +26,7 @@ https://haoqicat.com/antd-v2
 
 * https://github.com/nozzle/react-static/issues/295#issuecomment-358093191
 * https://github.com/nozzle/react-static/blob/master/docs/methods.md#onloading
+* https://timber.io/ 用的就是 react-static ，实现了页面加载转轮
 
 ### 搜索
 
