@@ -156,6 +156,6 @@ About 组件中，只需要用 `withRouteData` 包裹一下，就可以从 `text
 
 ### 布局文件
 
-详细代码参见本次 [commit](https://github.com/haoqicat/react-static-demo/commit/201d76e0965c0f4de9906a9ee0f612faff6ee579) 。
+详细代码参见本次 [commit](https://github.com/haoqicat/react-static-way/commit/201d76e0965c0f4de9906a9ee0f612faff6ee579) 。
 
 浏览器中，可以看到添加了应用了相同布局文件的三个页面进来，charts ，posts ，和 newPosts 。代码部分相对比较直白，文章稿中给出了对应的 GitHub commit 链接。蚂蚁设计的具体知识大家可以参考好奇猫上的《蚂蚁设计实战》课程。

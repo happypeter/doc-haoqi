@@ -4,7 +4,7 @@
 
 ### 读取 API
 
-查看 github 上对应的 [commit](https://github.com/haoqicat/react-static-demo/commit/02b0cd1a6b1d767f43159ece51cb530935a8ca33)
+查看 github 上对应的 [commit](https://github.com/haoqicat/react-static-way/commit/02b0cd1a6b1d767f43159ece51cb530935a8ca33)
 
 走一个非常标准的 create-react-app 下的加载数据的流程即可。
 
@@ -12,7 +12,7 @@
 
 ### 使用 Table 组件
 
-查看 github 上对应的 [commit](https://github.com/haoqicat/react-static-demo/commit/9eaf405fb39757ad97f3c4e50c7cadf493945e86) 。
+查看 github 上对应的 [commit](https://github.com/haoqicat/react-static-way/commit/9eaf405fb39757ad97f3c4e50c7cadf493945e86) 。
 
 添加上蚂蚁设计的 Table 组件。
 
@@ -20,7 +20,7 @@
 
 ### 体现加载状态
 
-查看 github 上对应的 [commit](https://github.com/haoqicat/react-static-demo/commit/329fb807893f6a47b3645eced18f10c9c49f2f19)
+查看 github 上对应的 [commit](https://github.com/haoqicat/react-static-way/commit/329fb807893f6a47b3645eced18f10c9c49f2f19)
 
 使用 `isFetching` 状态位体现加载状态，跟通常的 create-react-app 条件下也没有任何区别。
 
