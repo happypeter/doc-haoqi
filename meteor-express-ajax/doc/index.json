@@ -2,9 +2,11 @@
   "vlink": "https://haoqicat-1253322599.costj.myqcloud.com/meteor-express-ajax",
   "name": "Meteor 和 Express Ajax 思路对比",
   "price": "30",
-  "intro": "分别用 Meteor 和 Express 来实现 Ajax 效果的评论框，发掘二者各自的优势",
-  "writing_to_who": "适合有一定基础的观众：自己实现过评论功能，听说过 Meteor 和 Express 这个两个框架。Web 初学的朋友们请绕行。",
-  "learning_goal": "Meteor 功能全，并且有摩登的数据实时通道，使得开发无页面刷新的页面变得简单。Express 代表传统的 Ajax 思路，实现同样的效果会更费事一些，但是 Express 的轻便，带来了高度的灵活性。" ,
+  "intro": "课程退休了，使用 react 了之后，本课程中讨论的 ajax 思路显得过时了",
+  "writing_to_who":
+    "适合有一定基础的观众：自己实现过评论功能，听说过 Meteor 和 Express 这个两个框架。Web 初学的朋友们请绕行。",
+  "learning_goal":
+    "Meteor 功能全，并且有摩登的数据实时通道，使得开发无页面刷新的页面变得简单。Express 代表传统的 Ajax 思路，实现同样的效果会更费事一些，但是 Express 的轻便，带来了高度的灵活性。",
   "service": [
     "参加本课程微信讨论群",
     "本课程视频，以及文字稿",
