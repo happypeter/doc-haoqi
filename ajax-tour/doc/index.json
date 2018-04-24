@@ -1,0 +1,37 @@
+{
+  "vlink": "https://haoqicat-1253322599.costj.myqcloud.com/ajax-tour",
+  "name": "Ajax 摩登之旅",
+  "price": "10",
+  "intro": "React+Express 框架下演示一套完整的 Ajax 流程",
+  "writing_to_who":
+    "React 初学者，想要了解 Http 客户端使用方式，当代 JS 局部更新页面原理的同学。",
+  "learning_goal":
+    "只做一个发评论功能，但是采用的是最先进的技术方案，而且前端后端和数据库都有，细节展示无死角，为后续学习 redux 和更多交互功能打下基础。",
+  "service": ["本课程视频，以及文字稿", "实例代码", "本课程后续更新的内容"],
+  "content": [
+    {
+      "section": [
+        {
+          "title": "mongodb 数据库",
+          "link": "1-mongodb"
+        },
+        {
+          "title": "创建 Express 服务器",
+          "link": "2-express"
+        },
+        {
+          "title": "评论 API",
+          "link": "3-api"
+        },
+        {
+          "title": "客户端 UI",
+          "link": "4-ui"
+        },
+        {
+          "title": "客户端发起 Ajax",
+          "link": "5-request"
+        }
+      ]
+    }
+  ]
+}
