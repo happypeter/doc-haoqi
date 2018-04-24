@@ -13,7 +13,7 @@
       "section": [
         {
           "title": "mongodb 数据库",
-          "link": "1-mongodb"
+          "link": "1-mongo"
         },
         {
           "title": "创建 Express 服务器",
