@@ -1,0 +1,54 @@
+{
+  "vlink": "https://haoqicat-1253322599.costj.myqcloud.com/express-love-api",
+  "cover_video": "",
+  "name": "Express 实作 API",
+  "price": "38",
+  "intro": "使用 Express/MongoDB 搭建后台 API ，给前端开发者的后端课",
+  "writing_to_who":
+    "有 nodejs 开发基础，想要学习 Express 技术栈，想要掌握前后端分离架构的朋友们",
+  "learning_goal":
+    "理解前后端分离架构。express API 开发技巧。curl/Postman  API 调试技巧。",
+  "service": ["所有课程视频和文字稿", "所有相关代码", "课程有效期为一年"],
+  "content": [
+    {
+      "section": [
+        {
+          "title": "创建 express 服务器",
+          "link": "1-express"
+        },
+        {
+          "title": "使用 mongo shell 和 mongo-express 图形化界面",
+          "link": "2-mongodb"
+        },
+        {
+          "title": "Express 操作 MongoDB",
+          "link": "3-mongoose"
+        },
+        {
+          "title": "创建一套 RESTful API",
+          "link": "4-api"
+        },
+        {
+          "title": "部署 API 到 Nginx 服务器",
+          "link": "5-nginx"
+        },
+        {
+          "title": "新建文章",
+          "link": "6-new"
+        },
+        {
+          "title": "查看文章",
+          "link": "7-show"
+        },
+        {
+          "title": "编辑文章",
+          "link": "8-edit"
+        },
+        {
+          "title": "删除",
+          "link": "9-delete"
+        }
+      ]
+    }
+  ]
+}
