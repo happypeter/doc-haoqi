@@ -1,14 +1,14 @@
 {
-  "vlink": "https://haoqicat-1253322599.costj.myqcloud.com/express-love-api",
+  "vlink": "https://haoqicat-1253322599.costj.myqcloud.com/express-love-api-v2",
   "cover_video": "",
-  "name": "Express 实作 API",
-  "price": "38",
+  "name": "Express 实作 API （第二版）",
+  "price": "18",
   "intro": "使用 Express/MongoDB 搭建后台 API ，给前端开发者的后端课",
   "writing_to_who":
     "有 nodejs 开发基础，想要学习 Express 技术栈，想要掌握前后端分离架构的朋友们",
   "learning_goal":
     "理解前后端分离架构。express API 开发技巧。curl/Postman  API 调试技巧。",
-  "service": ["所有课程视频和文字稿", "所有相关代码", "课程有效期为一年"],
+  "service": ["所有课程视频和文字稿", "所有相关代码"],
   "content": [
     {
       "section": [
