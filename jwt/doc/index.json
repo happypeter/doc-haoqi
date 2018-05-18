@@ -1,0 +1,53 @@
+{
+  "vlink": "https://haoqicat-1253322599.costj.myqcloud.com/jwt",
+  "name": "JWT 用户认证",
+  "price": "20",
+  "intro": "基于 Json Web Token 实现用户登录注册权限管理等功能",
+  "writing_to_who":
+    "注意这并不是一套初级课程。课程是为有 Nodejs + React 基础的同学准备的。作为预备知识，可以先看好奇猫上的 《 React-Express 实作 API 》课程。",
+  "learning_goal":
+    "基于 React + Express 前后端分离的架构，实现 JWT token 解析，过期验证，权限管理。",
+  "service": ["所有课程视频和文字稿", "所有相关代码", "课程改版内容免费获取"],
+  "content": [
+    {
+      "section": [
+        {
+          "title": " Express 搭建 API",
+          "link": "1-api"
+        },
+        {
+          "title": "bcrypt 加密认证",
+          "link": "2-bcrypt"
+        },
+        {
+          "title": "生成 JWT 令牌",
+          "link": "3-jwt"
+        },
+        {
+          "title": "验证管理员角色",
+          "link": "4-admin"
+        },
+        {
+          "title": "Material-UI 组件库",
+          "link": "5-mui"
+        },
+        {
+          "title": "redux 和 react-router",
+          "link": "6-router"
+        },
+        {
+          "title": "用户认证",
+          "link": "7-auth"
+        },
+        {
+          "title": "利用 jwt token 保持登录态",
+          "link": "8-isAuth"
+        },
+        {
+          "title": "权限控制",
+          "link": "9-role"
+        }
+      ]
+    }
+  ]
+}
