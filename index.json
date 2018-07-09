@@ -1,6 +1,12 @@
 {
   "published": [
     {
+      "id": "62",
+      "cover": "http://haoqicat-1253322599.costj.myqcloud.com/posters/qtum.png",
+      "title": "基于量子链的 Dapp 开发",
+      "link": "/qtum"
+    },
+    {
       "id": "61",
       "cover": "http://haoqicat-1253322599.costj.myqcloud.com/posters/mui-cat.png",
       "title": "Material UI 自定制",
