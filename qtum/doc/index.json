@@ -1,0 +1,35 @@
+{
+  "vlink": "https://haoqicat-1253322599.costj.myqcloud.com/qtum",
+  "name": "基于量子链的 Dapp 开发",
+  "price": "0",
+  "intro": "使用量子链发布代币，做一个 Dapp ，是一个代币激励的论坛",
+  "writing_to_who": "Web 开发者，有编程基础但是不懂区块链的朋友",
+  "learning_goal": "学会比特币以太坊的基本思想，学会用量子链发代币开发 Dapp",
+  "service": ["拿到所有视频和文字稿", "可以获取所有示例代码"],
+  "content": [
+    {
+      "section": [
+        {
+          "title": "什么是区块链？",
+          "link": "01-chain"
+        },
+        {
+          "title": "什么是比特币？",
+          "link": "02-bitcoin"
+        },
+        {
+          "title": "以太坊和智能合约",
+          "link": "03-ether"
+        },
+        {
+          "title": "Dapp 和普通 App 的区别",
+          "link": "04-dapp"
+        },
+        {
+          "title": "代币的意义",
+          "link": "05-token"
+        }
+      ]
+    }
+  ]
+}
