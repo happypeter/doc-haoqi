@@ -28,6 +28,22 @@
         {
           "title": "代币的意义",
           "link": "05-token"
+        },
+        {
+          "title": "量子链的优点",
+          "link": "06-qt"
+        },
+        {
+          "title": "搭建开发环境",
+          "link": "07-env"
+        },
+        {
+          "title": "部署计数器合同",
+          "link": "08-counter"
+        },
+        {
+          "title": "调用合同",
+          "link": "09-interact"
         }
       ]
     }
