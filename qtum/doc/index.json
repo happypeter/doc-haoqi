@@ -46,8 +46,20 @@
           "link": "09-interact"
         },
         {
-          "title": "待续...",
-          "link": "#"
+          "title": "生成代币",
+          "link": "10-mint"
+        },
+        {
+          "title": "部署到测试网",
+          "link": "11-testnet"
+        },
+        {
+          "title": "用户提币GUI流程",
+          "link": "12-gui"
+        },
+        {
+          "title": "使用数据库",
+          "link": "13-db"
         }
       ]
     }
