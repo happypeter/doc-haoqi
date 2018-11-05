@@ -1,8 +1,8 @@
-# <a name="8r4blb"></a>前端开发
+# 前端开发
 
 本节来写 react 前端代码。为了让页面美观些，我们会使用 [Material-UI](https://github.com/callemall/material-ui) 组件库。
 
-### <a name="tzfgir"></a>创建项目
+### 创建项目
 
 ```
 react-static create
@@ -19,21 +19,21 @@ npm start
 
 浏览器中，看到 react-static 的脚手架代码运行起来了。
 
-### <a name="ifl8ki"></a>使用路由
+### 使用路由
 
 src/App.js
 
 ```js
-import React, { Component } from 'react';
-import Main from './containers/Main';
+import React, { Component } from 'react'
+import Main from './containers/Main'
 
 class App extends Component {
   render() {
-    return <Main />;
+    return <Main />
   }
 }
 
-export default App;
+export default App
 ```
 
 App.js 中导入 Main 组件的容器。以前用 create-react-app 的时候我通常都是用 App.js 直接做 Main 的容器，但是 react-static 条件下，这个行不通了。
@@ -41,12 +41,12 @@ App.js 中导入 Main 组件的容器。以前用 create-react-app 的时候我�
 src/containers/Main.js
 
 ```js
-import React from 'react';
-import Main from '../components/Main';
+import React from 'react'
+import Main from '../components/Main'
 
-const MainContainer = props => <Main {...props} />;
+const MainContainer = props => <Main {...props} />
 
-export default MainContainer;
+export default MainContainer
 ```
 
 容器组件中直接指向展示组件。
@@ -59,14 +59,14 @@ import Routes from 'react-static-routes'
 import { Router } from 'react-static'
 
 class Main extends Component {
-  render () {
+  render() {
     return (
       <Router>
         <div>
           <Routes />
         </div>
       </Router>
-    );
+    )
   }
 }
 
@@ -77,7 +77,7 @@ export default Main
 
 浏览器址栏中，输入 `/about` 这样的地址，发现，只要 static.config.js 中定义的页面，依然是可以访问的。
 
-### <a name="mfdnes"></a>CSS 规范
+### CSS 规范
 
 ```
 npm i styled-components
@@ -112,8 +112,6 @@ import '../app.css'
           <Routes />
         </div>
       </Router>
-
-
 ```
 
 Main 的展示组件中导入才能生效。同时 Main 中也添加一个 Header 组件。
@@ -125,7 +123,7 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 
 class Header extends Component {
-  render () {
+  render() {
     return <Wrap>Header</Wrap>
   }
 }
@@ -141,13 +139,13 @@ Header 组件的局部样式用 styled-components 来写。
 
 浏览器中，看到全局和局部样式都生效了。
 
-### <a name="nqcxbd"></a>安装 material-ui
+### 安装 material-ui
 
 ```
 npm i @material-ui/core @material-ui/icons
 ```
 
-安装 material 核心包，版本是 1.0。以及图标包。参考文档在：[https://material-ui.com/](https://material-ui.com/) 。有时候装包会造成 node\_modules 内容损坏，会报错说缺东西，这时候只需要删除 node\_modules ，然后 `npm i` 重新安装一下即可。
+安装 material 核心包，版本是 1.0。以及图标包。参考文档在：[https://material-ui.com/](https://material-ui.com/) 。有时候装包会造成 node_modules 内容损坏，会报错说缺东西，这时候只需要删除 node_modules ，然后 `npm i` 重新安装一下即可。
 
 components/Header.js
 
@@ -164,7 +162,9 @@ export default () => (
         <Link exact to="/">
           首页
         </Link>
-        <Link exact to="/post/new">新建</Link>
+        <Link exact to="/post/new">
+          新建
+        </Link>
       </div>
     </AppBar>
   </Wrap>

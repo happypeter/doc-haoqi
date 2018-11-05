@@ -1,8 +1,8 @@
-# <a name="td5pzw"></a>Express 搭建 API
+# Express 搭建 API
 
 第一个小节，先把 api 搭建起来。代码的运行环境是 [Node.js](https://nodejs.org/en/) (>=10.0.0) 。安装 Node.js 的步骤可以参考好奇猫上的另外一门课程 《Nodejs 乐高》课程。另外，本课程中对一些基础步骤的讲解也可能不如《 Express 实作 API 》课程那么详细，所以想更详细的了解原理，那门课程也是可以推荐的。
 
-### <a name="tcs8ah"></a>创建应用
+### 创建应用
 
 ```
 mkdir api
@@ -54,7 +54,7 @@ npm start
 
 Postman 中，请求 `GET http://localhost:3009/` 可以看到返回的信息了。
 
-## <a name="38zqxo"></a>Mongo
+### Mongo
 
 数据库 mongodb 的一些基础知识，以及图形化操作界面 mongo-express 的搭建方式，可以参考《
 Express 实作 API 》。
@@ -105,7 +105,7 @@ db.on('connected', () => console.log('Mongo Connected'))
 
 后端命令行中，可以看到 `Mongo Connected` ，表示 express 已经成功连接了数据库。
 
-### <a name="dwpsyu"></a>操作文章（post）数据
+### 操作文章（post）数据
 
 ```
 npm i body-parser
@@ -145,7 +145,7 @@ Postman 中发出 `POST /post` 请求。负载数据选 raw 。数据格式选�
 
 这样到服务器的命令行中，可以看到打印出了 `req.body` 中接收到的信息了。
 
-### <a name="mh4bec"></a>重构
+### 重构
 
 index.js
 
@@ -180,7 +180,7 @@ controller 文件中才是真正的 API 代码，这里也还是先打印接收�
 
 Postman 中再次发起请求，发现一样可以打印出数据的。
 
-### <a name="3tkust"></a>保存数据到 mongodb
+### 保存数据到 mongodb
 
 接下来把数据保存到 mongodb 中。
 
@@ -218,7 +218,7 @@ exports.new = async (req, res) => {
     })
   } catch (err) {
     console.log(err)
-    return res.status(406).json({ msg: '保存失败' })
+    return res.status(406).json({ msg: '保存失败' })
   }
 }
 ```

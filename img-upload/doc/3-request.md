@@ -1,8 +1,8 @@
-# <a name="s9yggu"></a>axios 请求
+# axios 请求
 
 课程用 redux 架构整个案例，所以发请求，我们就到 redux 的 action 创建器中去完成。
 
-### <a name="0yw6db"></a>搭建 redux
+### 搭建 redux
 
 关于 redux 的基础知识，请参考《 Hello Redux 课程》。
 
@@ -14,7 +14,7 @@ npm i redux react-redux redux-thunk redux-logger
 
 浏览器中，刷新一下，可以看到加载了 posts 数据。
 
-### <a name="y30fbx"></a>编程式页面跳转
+### 编程式页面跳转
 
 再来添加自定义的 history 对象，实现编程式的页面跳转。
 
@@ -38,13 +38,11 @@ export default genHistory()
 components/Main.js
 
 ```js
-
 import history from '../utils/router'
 
   render () {
     return (
       <Router history={history}>
-
 ```
 
 Main.js 中，让 `Router` 使用这个 history 。
@@ -53,10 +51,10 @@ Main.js 中，让 `Router` 使用这个 history 。
 
 具体代码在这个 [commit](https://github.com/haoqicat/img-upload/commit/03c5df4870699f27cc1c308f0e2f3a2caed19d6b) 。
 
-### <a name="c7dmge"></a>创建文章
+### 创建文章
 
 下面来提交文章数据，并在首页显示出所有文章。
 
-这次在 sumbitForm 函数中，提交数据到服务器，创建一个 post ，提交成功后，把这条  post 数据添加到 store 中。然后跳转到网站首页，网站首页去显示所有的 post ，这里每一个 post 作为一个 course ，也就是课程。
+这次在 sumbitForm 函数中，提交数据到服务器，创建一个 post ，提交成功后，把这条 post 数据添加到 store 中。然后跳转到网站首页，网站首页去显示所有的 post ，这里每一个 post 作为一个 course ，也就是课程。
 
 代码在这个 [commit](https://github.com/haoqicat/img-upload/commit/f1c85778a5506efd4841cfae6e9f3fef9587e967)
