@@ -1,6 +1,12 @@
 {
   "published": [
     {
+      "id": "63",
+      "cover": "https://img.haoqicat.com/2018111001.jpg",
+      "title": "一币一别墅",
+      "link": "/petercoin"
+    },
+    {
       "id": "62",
       "cover": "https://img.haoqicat.com/2018110801.jpg",
       "title": "基于量子链的 Dapp 开发",
