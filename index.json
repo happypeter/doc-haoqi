@@ -1,6 +1,13 @@
 {
   "published": [
     {
+      "id": "64",
+      "cover": "https://img.haoqicat.com/2018111201.jpg",
+      "title": "React 破冰之旅",
+      "link": "/react-go",
+      "date": "2018-11-22"
+    },
+    {
       "id": "63",
       "cover": "https://img.haoqicat.com/2018111001.jpg",
       "title": "一币一别墅",

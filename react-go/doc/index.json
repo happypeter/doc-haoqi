@@ -1,0 +1,61 @@
+{
+  "vlink": "https://haoqicat-1253322599.costj.myqcloud.com/react-go",
+  "cover_video": "0-intro",
+  "name": "React 破冰之旅",
+  "price": "0",
+  "intro": "React 基础知识点个个击破，一点一例",
+  "content": [
+    {
+      "section": [
+        {
+          "title": "React 开发环境剖析",
+          "link": "1-env"
+        },
+        {
+          "title": "什么是 Nodejs ？",
+          "link": "2-node"
+        },
+        {
+          "title": "使用 nvm 安装 Nodejs",
+          "link": "3-nvm"
+        },
+        {
+          "title": "世界上最大的可复用代码库 npm",
+          "link": "4-npm"
+        },
+        {
+          "title": "Create-react-app 创建开发环境",
+          "link": "5-cra"
+        },
+        {
+          "title": "JSX 语法简介",
+          "link": "6-jsx"
+        },
+        {
+          "title": "组件化思维",
+          "link": "7-comp"
+        },
+        {
+          "title": "组件状态",
+          "link": "8-state"
+        },
+        {
+          "title": "事件处理",
+          "link": "9-event"
+        },
+        {
+          "title": "条件渲染",
+          "link": "10-if"
+        },
+        {
+          "title": "列表和 key",
+          "link": "11-list"
+        },
+        {
+          "title": "表单 Form",
+          "link": "12-form"
+        }
+      ]
+    }
+  ]
+}
