@@ -1,3 +1,4 @@
+// node convert.js ce
 const fs = require('fs')
 
 const course = process.argv[2]
@@ -15,7 +16,7 @@ for (let i = 0; i < lines.length; i++) {
   }
 }
 const data = {}
-data.section = arr
+data.section = arr.slice(1)
 
 const wrapper = {
   vlink: '',
