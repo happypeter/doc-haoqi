@@ -11,5 +11,5 @@
 - [智能合约](sc.md)
 - [代币 Token 存在的意义](token.md)
 - [去中心化自治组织 DAO](dao.md)
-- [碳基世界，硅基世界分类](pw.md)
+- [碳基世界，硅基世界分离](pw.md)
 - [维基经济学 Wikinomics](wiki.md)
