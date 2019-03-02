@@ -1,0 +1,45 @@
+{
+  "vlink": "https://haoqicat-1253322599.costj.myqcloud.com/bitcoin-go",
+  "cover_video": "intro",
+  "name": "比特币白皮书图解",
+  "price": "0",
+  "intro": "读懂比特币白皮书还是需要有一定的背景知识的，所以 Peter 奉上这门小课，希望能帮助大家迅速理解白皮书。",
+  "content": [
+    {
+      "section": [
+        {
+          "title": "Peter 是谁？",
+          "link": "peter"
+        },
+        {
+          "title": "什么是 Bitcoin ?",
+          "link": "what"
+        },
+        {
+          "title": "P2P 网络",
+          "link": "p2p"
+        },
+        {
+          "title": "如何转账",
+          "link": "transaction"
+        },
+        {
+          "title": "时间戳服务器",
+          "link": "timestamp"
+        },
+        {
+          "title": "共识",
+          "link": "consensus"
+        },
+        {
+          "title": "POW 和 POW 共识",
+          "link": "pow"
+        },
+        {
+          "title": "安全性计算",
+          "link": "cal"
+        }
+      ]
+    }
+  ]
+}
