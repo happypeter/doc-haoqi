@@ -10,6 +10,13 @@
   ],
   "published": [
     {
+      "id": "67",
+      "cover": "https://img.haoqicat.com/2019111601.jpg",
+      "title": "区块链背后的密码学",
+      "link": "/crypto",
+      "date": "2019-11-20"
+    },
+    {
       "id": "66",
       "cover": "https://img.haoqicat.com/2019030201.jpg",
       "title": "比特币白皮书图解",
