@@ -1,0 +1,94 @@
+{
+  "content": [
+    {
+      "header": "第一章：Nodejs 生态",
+      "section": [
+        {
+          "title": "什么是 Nodejs？",
+          "link": "1-1-nodejs-intro"
+        },
+        {
+          "title": "安装 Nodejs",
+          "link": "1-2-nodejs-install"
+        }
+      ]
+    },
+    {
+      "header": "第二章：模块化开发 JS",
+      "section": [
+        {
+          "title": "nodejs 模块",
+          "link": "2-1-modules"
+        },
+        {
+          "title": "内建模块",
+          "link": "2-2-built-in-modules"
+        }
+      ]
+    },
+    {
+      "header": "第三章：异步 IO 和事件",
+      "section": [
+        {
+          "title": "异步 IO",
+          "link": "3-1-async-io"
+        },
+        {
+          "title": "简单的 HTTP server",
+          "link": "3-2-http-server"
+        },
+        {
+          "title": "事件响应",
+          "link": "3-3-event-handling"
+        }
+      ]
+    },
+    {
+      "header": "第四章：NPM 实用技巧",
+      "section": [
+        {
+          "title": "NPM 简介",
+          "link": "4-1-npm-intro"
+        },
+        {
+          "title": "以 express 安装为例",
+          "link": "4-2-express"
+        }
+      ]
+    },
+    {
+      "header": "第五章：自己动手做一个 NPM 包",
+      "section": [
+        {
+          "title": "发布一个包",
+          "link": "5-1-publish"
+        },
+        {
+          "title": "使用和升级包",
+          "link": "5-2-update"
+        },
+        {
+          "title": "依赖",
+          "link": "5-3-dependencies"
+        },
+        {
+          "title": "系统命令",
+          "link": "5-4-cli"
+        }
+      ]
+    },
+    {
+      "header": "第六章：Goodbye",
+      "section": [
+        {
+          "title": "npm 脚本",
+          "link": "6-1-npm-scripts"
+        },
+        {
+          "title": "更多学习资源",
+          "link": "6-2-more"
+        }
+      ]
+    }
+  ]
+}
