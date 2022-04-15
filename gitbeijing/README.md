@@ -1,3 +1,0 @@
-# gitbeijing
-
-haoqicat.com/gitbeijing
